@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<turns>
+	<sink edges="14to2 17to3 4to5 6to7"/>
+	
+
+	<interval begin="0" end="7200">
+		
+		<!--Junction 1 -->
+		<fromEdge id="14to1">
+			<toEdge id="1to17" probability="0.16"/>
+			<toEdge id="1to4" probability="0.07"/>
+			<toEdge id="1to15" probability="0.77"/>
+		</fromEdge>
+		
+		<fromEdge id="17to1">
+			<toEdge id="1to14" probability="0.12"/>
+			<toEdge id="1to4" probability="0.73"/>
+			<toEdge id="1to15" probability="0.15"/>
+		</fromEdge>
+		
+		<fromEdge id="4to1">
+			<toEdge id="1to14" probability="0.20"/>
+			<toEdge id="1to17" probability="0.60"/>
+			<toEdge id="1to15" probability="0.20"/>
+		</fromEdge>
+		
+		<fromEdge id="15to1">
+			<toEdge id="1to14" probability="0.75"/>
+			<toEdge id="1to17" probability="0.09"/>
+			<toEdge id="1to4" probability="0.16"/>
+		</fromEdge>
+		<!--End-->
+	</interval>
+	
+</turns>

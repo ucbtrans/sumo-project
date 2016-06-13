@@ -1,0 +1,22 @@
+<edges>
+    <edge from="5" id="5to66" to="66" />
+    <edge from="4" id="4to68" to="68" />
+    <edge from="1" id="1to66" to="66" />
+	<edge from="2" id="2to67" to="67" />	
+	<edge from="66" id="66to68" to="68" />
+    <edge from="66" id="66to67" to="67" />
+    <edge from="67" id="67to65" to="65" />
+	<edge from="65" id="65to68" to="68" />
+	<edge from="6" id="6to68" to="68" />
+	<edge from="7" id="7to65" to="65" />
+	<edge from="7" id="7to8" to="8" />
+	<edge from="9" id="9to69" to="69" />
+	<edge from="69" id="69to70" to="70" />
+	<edge from="70" id="70to71" to="71" />
+	<edge from="71" id="71to72" to="72" />
+	<edge from="72" id="72to7" to="7" />
+	<edge from="65" id="65to73" to="73" />
+	<edge from="67" id="67to74" to="74" />
+	<edge from="73" id="73to0" to="0" />
+	<edge from="74" id="74to0" to="0" />
+</edges>

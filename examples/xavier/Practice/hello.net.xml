@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 12/11/15 10:37:52 by SUMO netconvert Version 0.24.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <node-files value="hello.nod.xml"/>
+        <edge-files value="hello.edg.xml"/>
+    </input>
+
+    <output>
+        <output-file value="hello.net.xml"/>
+    </output>
+
+</configuration>
+-->
+
+<net version="0.13" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="250.00,251.00" convBoundary="0.00,0.00,250.00,251.00" origBoundary="-250.00,-251.00,0.00,0.00" projParameter="!"/>
+
+    <edge id=":2_0" function="internal">
+        <lane id=":2_0_0" index="0" speed="13.90" length="2.58" shape="246.75,249.35 247.45,249.25 247.95,248.95 248.25,248.45 248.35,247.75"/>
+    </edge>
+    <edge id=":3_0" function="internal">
+        <lane id=":3_0_0" index="0" speed="13.90" length="0.10" shape="248.35,1.00 248.35,1.00"/>
+    </edge>
+
+    <edge id="1to2" from="1" to="2" priority="-1">
+        <lane id="1to2_0" index="0" speed="13.90" length="246.75" shape="0.00,249.35 246.75,249.35"/>
+    </edge>
+    <edge id="2to3" from="2" to="3" priority="-1">
+        <lane id="2to3_0" index="0" speed="13.90" length="246.75" shape="248.35,247.75 248.35,1.00"/>
+    </edge>
+    <edge id="out" from="3" to="4" priority="-1">
+        <lane id="out_0" index="0" speed="13.90" length="1.00" shape="248.35,1.00 248.35,0.00"/>
+    </edge>
+
+    <junction id="1" type="unregulated" x="0.00" y="251.00" incLanes="" intLanes="" shape="-0.00,250.95 -0.00,247.75"/>
+    <junction id="2" type="priority" x="250.00" y="251.00" incLanes="1to2_0" intLanes=":2_0_0" shape="249.95,247.75 246.75,247.75 246.75,250.95">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="3" type="priority" x="250.00" y="1.00" incLanes="2to3_0" intLanes=":3_0_0" shape="246.75,1.00 249.95,1.00 246.75,1.00">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="4" type="unregulated" x="250.00" y="0.00" incLanes="out_0" intLanes="" shape="246.75,0.00 249.95,0.00"/>
+
+    <connection from="1to2" to="2to3" fromLane="0" toLane="0" via=":2_0_0" dir="r" state="M"/>
+    <connection from="2to3" to="out" fromLane="0" toLane="0" via=":3_0_0" dir="s" state="M"/>
+
+    <connection from=":2_0" to="2to3" fromLane="0" toLane="0" dir="s" state="M"/>
+    <connection from=":3_0" to="out" fromLane="0" toLane="0" dir="s" state="M"/>
+
+</net>

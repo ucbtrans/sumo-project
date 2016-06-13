@@ -1,0 +1,229 @@
+<edges>
+<!--Near Intersection-->
+    <edge from="2" id="2to14" to="14" type="e"/>
+	<edge from="14" id="14to2" to="2" type="b"/>
+	
+    <edge from="3" id="3to17" to="17" type="d"/>
+	<edge from="17" id="17to3" to="3" type="b"/>
+	
+    <edge from="4" id="4to16" to="16" type="c" />
+	<edge from="16" id="16to4" to="4" type="c"/>
+	
+	<edge from="5" id="5to4" to="4" type="c"/>	
+	<edge from="4" id="4to5" to="5" type="c"/>	
+	
+	<edge from="6" id="6to15" to="15" type="d"/>
+	<edge from="15" id="15to6" to="6" type="b"/>
+	
+    <edge from="14" id="14to1" to="1" type="e"/>
+	<edge from="1" id="1to14" to="14" type="b" />
+	
+    <edge from="15" id="15to1" to="1" type="d"/>
+	<edge from="1" id="1to15" to="15" type="b"/>
+	
+	<edge from="16" id="16to1" to="1" type="c"/>	
+	<edge from="1" id="1to16" to="16" type="c"/>
+	
+	<edge from="17" id="17to1" to="1" type="d"/>
+	<edge from="1" id="1to17" to="17" type="b"/>
+	
+	<edge from="6" id="6to7" to="7" type="b"/>
+	<edge from="7" id="7to6" to="6" type="c"/>
+	
+    <edge from="4" id="4to13" to="13" type="b"/>
+    <edge from="13" id="13to12" to="12" type="b"/>
+	<edge from="12" id="12to11" to="11" type="b"/>
+	<edge from="11" id="11to10" to="10" type="b"/>
+	<edge from="10" id="10to9" to="9" type="b"/>
+	<edge from="9" id="9to8" to="8" type="b"/>
+	
+	<!--new edges-->
+	<edge from="7" id="7to18" to="18" type="b"/>
+	<edge from="18" id="18to7" to="7" type="b"/>
+	
+	<edge from="18" id="18to19" to="19" type="b"/>
+	<edge from="19" id="19to18" to="18" type="b"/>
+	
+	<edge from="19" id="19to20" to="20" type="a"/>
+	<edge from="20" id="20to19" to="19" type="a"/>
+	
+	<edge from="19" id="19to21" to="21" type="b"/>
+	<edge from="21" id="21to19" to="19" type="c"/>
+	
+	<edge from="22" id="22to21" to="21" type="a"/>
+	<edge from="21" id="21to22" to="22" type="a"/>
+	
+	<edge from="21" id="21to23" to="23" type="b"/>
+	<edge from="23" id="23to21" to="21" type="c"/>
+		
+	<edge from="23" id="23to24" to="24" type="b"/>
+	<edge from="24" id="24to23" to="23" type="b"/>
+	
+	<edge from="24" id="24to25" to="25" type="b"/>
+	<edge from="25" id="25to24" to="24" type="b"/>
+	
+	<edge from="25" id="25to26" to="26" type="b"/>
+	<edge from="26" id="26to25" to="25" type="b"/>
+	
+	<edge from="26" id="26to27" to="27" type="b"/>
+	<edge from="27" id="27to26" to="26" type="b"/>
+	
+	<edge from="27" id="27to28" to="28" type="b"/>
+	<edge from="28" id="28to27" to="27" type="b"/>
+	
+	<edge from="28" id="28to39" to="39" type="b"/>
+	<edge from="39" id="39to28" to="28" type="b"/>
+	
+	
+	<edge from="39" id="39to29" to="29" type="c"/>
+	<edge from="29" id="29to39" to="39" type="b"/>
+	
+	<edge from="29" id="29to30" to="30" type="c"/>
+	<edge from="30" id="30to29" to="29" type="b"/>
+	
+	<edge from="30" id="30to31" to="31" type="b"/>
+	<edge from="31" id="31to30" to="30" type="c"/>
+	
+	<edge from="30" id="30to32" to="32" type="b"/>	
+	<edge from="32" id="32to30" to="30" type="b"/>
+
+	<edge from="33" id="33to32" to="32" type="b"/>	
+	<edge from="32" id="32to33" to="33" type="b"/>	
+	
+	<edge from="31" id="31to34" to="34" type="b"/>	
+	<edge from="34" id="34to31" to="31" type="c"/>	
+	
+	<edge from="34" id="34to35" to="35" type="b"/>	
+	<edge from="35" id="35to34" to="34" type="b"/>	
+	
+	<!-- new edges-->
+	<edge from="35" id="35to36" to="36" type="b"/>
+	<edge from="36" id="36to35" to="35" type="b"/>
+	
+	<edge from="36" id="36to37" to="37" type="b"/>	
+	<edge from="37" id="37to36" to="36" type="b"/>	
+	
+	<edge from="37" id="37to38" to="38" type="b"/>	
+	<edge from="38" id="38to37" to="37" type="b"/>	
+	
+	<edge from="38" id="38to40" to="40" type="c"/>
+	<edge from="40" id="40to38" to="38" type="b"/>
+	
+	<edge from="40" id="40to41" to="41" type="c"/>
+	
+	<edge from="40" id="40to42" to="42" type="b"/>
+	<edge from="42" id="42to40" to="40" type="d"/>
+	
+	
+	<edge from="42" id="42to43" to="43" type="c"/>
+	<edge from="43" id="43to42" to="42" type="c"/>
+	
+	<edge from="44" id="44to43" to="43" type="e"/>
+	
+	<edge from="45" id="45to43" to="43" type="b"/>
+	<edge from="43" id="43to45" to="45" type="b"/>
+	
+	<edge from="43" id="43to46" to="46" type="b"/>
+	<edge from="46" id="46to43" to="43" type="b"/>
+	
+	<edge from="46" id="46to47" to="47" type="d"/>
+	<edge from="47" id="47to46" to="46" type="b"/>
+	
+	<edge from="47" id="47to49" to="49" type="b"/>
+	<edge from="49" id="49to47" to="47" type="e"/>
+	
+	<edge from="47" id="47to48" to="48" type="b"/>
+	<edge from="48" id="48to47" to="47" type="e"/>
+	
+	<edge from="47" id="47to50" to="50" type="b"/>
+	<edge from="50" id="50to47" to="47" type="c"/>
+	
+	<edge from="50" id="50to51" to="51" type="b"/>
+	<edge from="51" id="51to50" to="50" type="b"/>
+	
+	<edge from="51" id="51to52" to="52" type="c"/>
+	<edge from="52" id="52to51" to="51" type="b"/>	
+	
+	<edge from="54" id="54to52" to="52" type="b"/>	
+	<edge from="52" id="52to54" to="54" type="a"/>	
+	
+	<edge from="53" id="53to52" to="52" type="b"/>	
+	<edge from="52" id="52to53" to="53" type="a"/>	
+	
+	<edge from="52" id="52to55" to="55" type="b"/>
+	<edge from="55" id="55to52" to="52" type="c"/>
+	
+	<edge from="55" id="55to56" to="56" type="b"/>
+	<edge from="56" id="56to55" to="55" type="b"/>
+	
+	<edge from="56" id="56to57" to="57" type="d"/>
+	<edge from="57" id="57to56" to="56" type="b"/>
+	
+	<edge from="57" id="57to60" to="60" type="b"/>
+	<edge from="60" id="60to57" to="57" type="c"/>
+	
+	<edge from="60" id="60to61" to="61" type="b"/>
+	<edge from="61" id="61to60" to="60" type="b"/>
+	
+	<edge from="57" id="57to58" to="58" type="b"/>
+	<edge from="58" id="58to57" to="57" type="c"/>
+	
+	<edge from="59" id="59to58" to="58" type="c"/>
+	<edge from="58" id="58to59" to="59" type="b"/>
+	
+	<edge from="57" id="57to62" to="62" type="b"/>
+	<edge from="62" id="62to57" to="57" type="c"/>
+	
+	<edge from="62" id="62to63" to="63" type="b"/>
+	<edge from="63" id="63to62" to="62" type="b"/>
+	
+	<edge from="63" id="63to64" to="64" type="c"/>
+	<edge from="64" id="64to63" to="63" type="b"/>
+	
+	<edge from="64" id="64to66" to="66" type="a"/>
+	<edge from="66" id="66to64" to="64" type="a"/>
+	
+	<edge from="65" id="65to64" to="64" type="a"/>
+	<edge from="64" id="64to65" to="65" type="a"/>
+	
+	<edge from="64" id="64to67" to="67" type="b"/>
+	<edge from="67" id="67to64" to="64" type="c"/>
+	
+	<!--new edges-->
+	<edge from="67" id="67to68" to="68" type="b"/>
+	<edge from="68" id="68to67" to="67" type="b"/>
+	
+	<edge from="68" id="68to69" to="69" type="c"/>
+	<edge from="69" id="69to68" to="68" type="b"/>
+	
+	<edge from="69" id="69to70" to="70" type="a"/>
+	<edge from="70" id="70to69" to="69" type="b"/>
+	
+	<edge from="71" id="71to69" to="69" type="b"/>
+	<edge from="69" id="69to71" to="71" type="a"/>
+	
+	<edge from="69" id="69to72" to="72" type="b"/>
+	<edge from="72" id="72to69" to="69" type="d"/>
+	
+	<edge from="72" id="72to73" to="73" type="c"/>
+	<edge from="73" id="73to72" to="72" type="b"/>
+	
+	<edge from="73" id="73to76" to="76" type="c"/>
+	<edge from="76" id="76to73" to="73" type="c"/>
+	
+	<edge from="75" id="75to73" to="73" type="c"/>
+	
+	<edge from="76" id="76to77" to="77" type="a"/>
+	<edge from="77" id="77to78" to="78" type="a"/>
+	<edge from="78" id="78to79" to="79" type="a"/>
+	<edge from="79" id="79to80" to="80" type="a"/>
+	
+	<edge from="76" id="76to81" to="81" type="d"/>
+	<edge from="81" id="81to76" to="76" type="d"/>
+	
+	<edge from="82" id="82to81" to="81" type="b"/>
+	<edge from="81" id="81to82" to="82" type="b"/>
+	
+	<edge from="83" id="83to81" to="81" type="c"/>
+	<edge from="81" id="81to83" to="83" type="c"/>
+</edges>

@@ -1,0 +1,22 @@
+Percent: 50
+PlatoonsActive: Platoons
+
+Autonomous settings::
+AccelerationA: 2.6
+DecelerationA: 4.5
+ReactTimeA: 1.0
+SteppingRateA: 1.0
+ImperfectionA: 0.0
+ImpatienceA: 0.0
+MinGapA: 0.5
+MaxSpeedA: 70
+
+Manual settings::
+AccelerationM: 2.6
+DecelerationM: 4.5
+ReactTimeM: 2.5
+SteppingRateM: 1.0
+ImperfectionM: 0.0
+ImpatienceM: 0.0
+MinGapM: 2.0
+MaxSpeedM: 70

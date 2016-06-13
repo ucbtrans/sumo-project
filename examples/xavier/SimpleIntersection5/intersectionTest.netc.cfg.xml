@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<input>
+		<edge-files value="intersectionTest.edg.xml" />
+		<node-files value="intersectionTest.nod.xml" />
+		<type-files value="intersectionTest.typ.xml" />
+		<connection-files value="intersectionTest.con.xml" />
+	</input>
+	<output>
+		<output-file value="intersectionTest.net.xml"/>
+	</output>
+	<processing>
+		<no-turnarounds value="true"/>
+	</processing>
+	
+</configuration>

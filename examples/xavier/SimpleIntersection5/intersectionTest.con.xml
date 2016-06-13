@@ -1,0 +1,10 @@
+<connections>
+	<connection from="R2" to="R6" fromLane="0" toLane="0"/>
+	<connection from="R2" to="R7" fromLane="1" toLane="1"/>
+	<connection from="R5" to="R7" fromLane="0" toLane="0"/>
+	<connection from="R5" to="R3" fromLane="1" toLane="1"/>
+	<connection from="R8" to="R3" fromLane="0" toLane="0"/>
+	<connection from="R8" to="R1" fromLane="1" toLane="1"/>
+	<connection from="R4" to="R1" fromLane="0" toLane="0"/>
+	<connection from="R4" to="R6" fromLane="1" toLane="1"/>
+</connections>

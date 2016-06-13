@@ -1,0 +1,10 @@
+<edges>
+	<edge id="R1" from="5" to="1" type = "a" />	
+	<edge id="R2" from="1" to="5" type = "a" />
+	<edge id="R3" from="5" to="2" type = "a" />
+	<edge id="R4" from="2" to="5" type = "a" />
+	<edge id="R5" from="4" to="5" type = "a" />
+	<edge id="R6" from="5" to="4" type = "a" />
+	<edge id="R7" from="5" to="3" type = "a" />
+	<edge id="R8" from="3" to="5" type = "a" />
+</edges>

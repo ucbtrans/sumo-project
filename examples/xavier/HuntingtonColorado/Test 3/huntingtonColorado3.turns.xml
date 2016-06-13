@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<turns>
+	<interval begin="0" end="7200">
+		
+		<!--Junction 1 -->
+		<fromEdge id="14to1">
+			<toEdge id="1to17" probability="0.12"/>
+			<toEdge id="1to16" probability="0.11"/>
+			<toEdge id="1to15" probability="0.77"/>
+		</fromEdge>
+		
+		<fromEdge id="17to1">
+			<toEdge id="1to14" probability="0.07"/>
+			<toEdge id="1to16" probability="0.71"/>
+			<toEdge id="1to15" probability="0.22"/>
+		</fromEdge>
+		
+		<fromEdge id="16to1">
+			<toEdge id="1to14" probability="0.24"/>
+			<toEdge id="1to17" probability="0.58"/>
+			<toEdge id="1to15" probability="0.18"/>
+		</fromEdge>
+		
+		<fromEdge id="15to1">
+			<toEdge id="1to14" probability="0.44"/>
+			<toEdge id="1to17" probability="0.07"/>
+			<toEdge id="1to16" probability="0.49"/>
+		</fromEdge>
+		<!--End-->
+		
+		<!--Junction 4 -->
+		<fromEdge id="16to4">
+			<toEdge id="4to13" probability="0.1"/>
+			<toEdge id="4to5" probability="0.9"/>
+		</fromEdge>
+		<!--End-->
+		
+		<!--Junction 19 -->
+		<fromEdge id="18to19">
+			<toEdge id="19to20" probability="0.1"/>
+			<toEdge id="19to21" probability="0.9"/>
+		</fromEdge>
+		
+		<fromEdge id="20to19">
+			<toEdge id="19to18" probability="0.5"/>
+			<toEdge id="19to21" probability="0.5"/>
+		</fromEdge>
+		
+		<fromEdge id="21to19">
+			<toEdge id="19to18" probability="0.9"/>
+			<toEdge id="19to20" probability="0.1"/>
+		</fromEdge>
+		<!--End-->
+		
+		<!--Junction 21 -->
+		<fromEdge id="19to21">
+			<toEdge id="21to22" probability="0.1"/>
+			<toEdge id="21to23" probability="0.9"/>
+		</fromEdge>
+		
+		<fromEdge id="22to21">
+			<toEdge id="21to19" probability="0.5"/>
+			<toEdge id="21to23" probability="0.5"/>
+		</fromEdge>
+		
+		<fromEdge id="23to21">
+			<toEdge id="21to19" probability="0.9"/>
+			<toEdge id="21to22" probability="0.1"/>
+		</fromEdge>
+		<!--End-->
+		
+		
+		<!--Junction 30 -->
+		<fromEdge id="29to30">
+			<toEdge id="30to31" probability="0.55"/>
+			<toEdge id="30to32" probability="0.45"/>
+		</fromEdge>
+		
+		<fromEdge id="31to30">
+			<toEdge id="30to32" probability="0.06"/>
+			<toEdge id="30to29" probability="0.94"/>
+		</fromEdge>
+		
+		<fromEdge id="32to30">
+			<toEdge id="30to29" probability="0.93"/>
+			<toEdge id="30to31" probability="0.07"/>
+		</fromEdge>
+		<!--End-->
+		
+		<!--Junction 40 -->
+		<fromEdge id="38to40">
+			<toEdge id="40to41" probability="0.08"/>
+			<toEdge id="40to42" probability="0.92"/>
+		</fromEdge>
+		
+		<fromEdge id="42to40">
+			<toEdge id="40to38" probability="0.23"/>
+			<toEdge id="40to41" probability="0.77"/>
+		</fromEdge>
+		<!--End-->
+		
+		<!--Junction 43 -->
+		<fromEdge id="42to43">
+			<toEdge id="43to45" probability="0.05"/>
+			<toEdge id="43to46" probability="0.95"/>
+		</fromEdge>
+		
+		<fromEdge id="44to43">
+			<toEdge id="43to42" probability="0.17"/>
+			<toEdge id="43to45" probability="0.64"/>
+			<toEdge id="43to46" probability="0.19"/>
+		</fromEdge>
+		<!--End-->
+		
+		<!--Junction 47 -->
+		<fromEdge id="46to47">
+			<toEdge id="47to48" probability="0.05"/>
+			<toEdge id="47to49" probability="0.28"/>	
+			<toEdge id="47to50" probability="0.68"/>
+		</fromEdge>
+		
+		<fromEdge id="49to47">
+			<toEdge id="47to48" probability="0.64"/>
+			<toEdge id="47to46" probability="0.17"/>	
+			<toEdge id="47to50" probability="0.19"/>
+		</fromEdge>
+		
+
+		<fromEdge id="50to47">
+			<toEdge id="47to48" probability="0.1"/>
+			<toEdge id="47to46" probability="0.73"/>	
+			<toEdge id="47to49" probability="0.17"/>
+		</fromEdge>
+		
+		<fromEdge id="48to47">
+			<toEdge id="47to50" probability="0.17"/>
+			<toEdge id="47to46" probability="0.11"/>	
+			<toEdge id="47to49" probability="0.72"/>
+		</fromEdge>
+		
+		
+		<!--End-->
+		
+		<!--Junction 52 -->
+		<fromEdge id="51to52">
+			<toEdge id="52to53" probability="0.05"/>
+			<toEdge id="52to55" probability="0.9"/>	
+			<toEdge id="52to54" probability="0.05"/>
+		</fromEdge>
+		
+		<fromEdge id="53to52">
+			<toEdge id="52to51" probability="0.15"/>
+			<toEdge id="52to55" probability="0.15"/>	
+			<toEdge id="52to54" probability="0.7"/>
+		</fromEdge>
+		
+		<fromEdge id="55to52">
+			<toEdge id="52to51" probability="0.9"/>
+			<toEdge id="52to53" probability="0.05"/>	
+			<toEdge id="52to54" probability="0.05"/>
+		</fromEdge>
+		
+		<fromEdge id="54to52">
+			<toEdge id="52to51" probability="0.15"/>
+			<toEdge id="52to53" probability="0.7"/>	
+			<toEdge id="52to55" probability="0.15"/>
+		</fromEdge>
+		<!--End-->
+	
+		<!--Junction 57 -->
+		<fromEdge id="56to57">
+			<toEdge id="57to58" probability="0.03"/>
+			<toEdge id="57to62" probability="0.91"/>	
+			<toEdge id="57to60" probability="0.06"/>
+		</fromEdge>
+
+		<fromEdge id="58to57">
+			<toEdge id="57to56" probability="0.08"/>
+			<toEdge id="57to62" probability="0.19"/>	
+			<toEdge id="57to60" probability="0.73"/>
+		</fromEdge>
+		
+		<fromEdge id="60to57">
+			<toEdge id="57to56" probability="0.08"/>
+			<toEdge id="57to62" probability="0.41"/>	
+			<toEdge id="57to58" probability="0.51"/>
+		</fromEdge>
+		
+		<fromEdge id="62to57">
+			<toEdge id="57to56" probability="0.75"/>
+			<toEdge id="57to60" probability="0.19"/>	
+			<toEdge id="57to58" probability="0.06"/>
+		</fromEdge>
+		<!--End-->
+		
+		<!--Junction 64 -->
+		<fromEdge id="63to64">
+			<toEdge id="64to65" probability="0.1"/>
+			<toEdge id="64to67" probability="0.8"/>	
+			<toEdge id="64to66" probability="0.1"/>
+		</fromEdge>
+
+		<fromEdge id="65to64">
+			<toEdge id="64to63" probability="0.8"/>
+			<toEdge id="64to67" probability="0.15"/>	
+			<toEdge id="64to66" probability="0.05"/>
+		</fromEdge>
+
+		<fromEdge id="66to64">
+			<toEdge id="64to63" probability="0.33"/>
+			<toEdge id="64to67" probability="0.33"/>	
+			<toEdge id="64to65" probability="0.34"/>
+		</fromEdge>
+		
+		<fromEdge id="67to64">
+			<toEdge id="64to63" probability="0.9"/>
+			<toEdge id="64to66" probability="0.0"/>	
+			<toEdge id="64to65" probability="0.1"/>
+		</fromEdge>
+		<!--End-->
+		
+		<!--Junction 69 -->
+		<fromEdge id="68to69">
+			<toEdge id="69to70" probability="0"/>
+			<toEdge id="69to72" probability="0.9"/>	
+			<toEdge id="69to71" probability="0.1"/>
+		</fromEdge>
+		
+		<fromEdge id="70to69">
+			<toEdge id="69to68" probability="0.1"/>
+			<toEdge id="69to72" probability="0"/>	
+			<toEdge id="69to71" probability="0.9"/>
+		</fromEdge>
+		
+		<fromEdge id="71to69">
+			<toEdge id="69to68" probability="0"/>
+			<toEdge id="69to72" probability="0.1"/>	
+			<toEdge id="69to70" probability="0.9"/>
+		</fromEdge>
+		
+		<fromEdge id="72to69">
+			<toEdge id="69to68" probability="0.9"/>
+			<toEdge id="69to71" probability="0"/>	
+			<toEdge id="69to70" probability="0.1"/>
+		</fromEdge>
+		<!--End-->
+		
+		<!--Junction 73 -->
+		<fromEdge id="72to73">
+			<toEdge id="73to76" probability="0.97"/>	
+			<toEdge id="73to74" probability="0.03"/>
+		</fromEdge>
+		
+		<fromEdge id="75to73">
+			<toEdge id="73to72" probability="0.18"/>
+			<toEdge id="73to76" probability="0.82"/>	
+			<toEdge id="73to74" probability="0"/>
+		</fromEdge>
+		
+		<fromEdge id="74to73">
+			<toEdge id="73to72" probability="0.52"/>
+			<toEdge id="73to76" probability="0.48"/>
+		</fromEdge>
+		
+		<fromEdge id="76to73">
+			<toEdge id="73to72" probability="1"/>
+			<toEdge id="73to74" probability="0"/>
+		</fromEdge>
+		<!--End-->
+		
+		<!--Junction 76 -->
+		<fromEdge id="81to76">
+			<toEdge id="76to77" probability="0.1"/>	
+			<toEdge id="76to73" probability="0.9"/>
+		</fromEdge>
+		<!--End-->
+		
+		<!--Junction 81 -->
+		<fromEdge id="83to81">
+			<toEdge id="81to82" probability="0.35"/>	
+			<toEdge id="81to76" probability="0.65"/>
+		</fromEdge>
+		
+		<fromEdge id="82to81">
+			<toEdge id="81to83" probability="0.26"/>	
+			<toEdge id="81to76" probability="0.74"/>
+		</fromEdge>
+		
+		<fromEdge id="76to81">
+			<toEdge id="81to83" probability="0.9"/>	
+			<toEdge id="81to82" probability="0.1"/>
+		</fromEdge>
+		<!--End-->
+		
+	</interval>
+	
+	<sink edges="14to2 17to3 9to8 4to5 19to20 21to22 32to33 40to41 43to45 47to49 47to48 52to54 52to53 60to61 58to59 64to66 64to65 69to70 69to71 73to74 79to80 81to82 81to83"/>
+	
+	
+	
+</turns>

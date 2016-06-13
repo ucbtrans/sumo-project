@@ -1,0 +1,13 @@
+key;81
+subkey;test
+offset;45
+link;1;76to81;81to82;0
+link;1;76to81;81to83;0
+link;1;83to81;81to76;0
+link;2;83to81;81to82;0
+link;3;82to81;81to76;0
+link;3;82to81;81to83;0
+1;g;y;r;r;r;r
+2;g;g;g;g;g;g
+3;r;r;r;g;y;r
+time;35;4;1;25;4;1

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<add>
+    <tlLogic id="47" type="static" programID="test" offset="35">
+        <phase duration="15.5" state="GrrrrGrrgGrrrrGrrg"/>
+        <phase duration="3" state="GrrrrGrryGrrrrGrry"/>
+        <phase duration="0.5" state="GrrrrGrrrGrrrrGrrr"/>
+        <phase duration="40.5" state="GrrrrGggrGrrrrGggr"/>
+        <phase duration="4" state="GrrrrGyyrGrrrrGyyr"/>
+        <phase duration="0.5" state="GrrrrGrrrGrrrrGrrr"/>
+        <phase duration="12.5" state="GrrggGrrrGrrggrrrr"/>
+        <phase duration="3" state="GrryyGrrrGrryyrrrr"/>
+        <phase duration="0.5" state="GrrrrGrrrGrrrrrrrr"/>
+        <phase duration="35.5" state="GGGrrgrrrGGGrrgrrr"/>
+        <phase duration="4.5" state="GyyrrgrrrGyyrrgrrr"/>
+    </tlLogic>
+</add>
+

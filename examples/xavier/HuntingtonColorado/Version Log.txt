@@ -1,0 +1,16 @@
+Version 1:
+Version 2:
+Version 3:
+-Build first draft of the entire network
+Version 4:
+-Removed an edge-->because signal timing didn't include this edge(?) check
+Version 5:
+-made spawn edges slightly longer to cope with queues.
+-Modified the connections because of the edge removed in Version 4
+Version 6:
+-Modifying the network to increase edges before junctions
+-Modified the network at the first junction to make sure all lanes are connected
+Version 7:
+-Test track
+Version 8:
+-Test track with a single lane

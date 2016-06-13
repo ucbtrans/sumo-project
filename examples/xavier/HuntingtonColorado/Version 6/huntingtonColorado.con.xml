@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connections>
+	
+	<connection from="14to1" to="1to17" fromLane="0" toLane="0"/>
+	<connection from="14to1" to="1to15" fromLane="1" toLane="0"/>
+	<connection from="14to1" to="1to15" fromLane="2" toLane="1"/>
+	<connection from="14to1" to="1to16" fromLane="3" toLane="1"/>
+	<connection from="14to1" to="1to16" fromLane="4" toLane="2"/>
+	
+	<connection from="16to1" to="1to14" fromLane="0" toLane="0"/>
+	<connection from="16to1" to="1to17" fromLane="1" toLane="1"/>
+	<connection from="16to1" to="1to15" fromLane="2" toLane="1"/>
+	
+	<connection from="15to1" to="1to14" fromLane="1" toLane="0"/>
+	<connection from="15to1" to="1to14" fromLane="2" toLane="1"/>
+	<connection from="15to1" to="1to17" fromLane="3" toLane="1"/>
+	<connection from="15to1" to="1to16" fromLane="0" toLane="0"/>
+	
+	<connection from="17to1" to="1to14" fromLane="3" toLane="1"/>
+	<connection from="17to1" to="1to16" fromLane="1" toLane="1"/>
+	<connection from="17to1" to="1to16" fromLane="2" toLane="2"/>
+	<connection from="17to1" to="1to15" fromLane="0" toLane="0"/>
+	
+	<!-- new connections -->
+	<connection from="5to4" to="4to16" fromLane="0" toLane="0"/>
+	<connection from="5to4" to="4to16" fromLane="1" toLane="1"/>
+	<connection from="5to4" to="4to16" fromLane="2" toLane="2"/>
+	
+	<connection from="23to21" to="21to19" fromLane="0" toLane="0"/>
+	<connection from="23to21" to="21to19" fromLane="1" toLane="1"/>
+	<connection from="23to21" to="21to19" fromLane="1" toLane="2"/>
+	<connection from="23to21" to="21to22" fromLane="2" toLane="0"/>
+	
+	<!--new connections-->
+	<connection from="29to30" to="30to32" fromLane="2" toLane="0"/>
+	<connection from="29to30" to="30to32" fromLane="2" toLane="1"/>
+	<connection from="29to30" to="30to31" fromLane="0" toLane="0"/>
+	<connection from="29to30" to="30to31" fromLane="1" toLane="1"/>
+	<connection from="31to30" to="30to32" fromLane="0" toLane="0"/>
+	<connection from="31to30" to="30to32" fromLane="0" toLane="1"/>
+	<connection from="31to30" to="30to29" fromLane="1" toLane="0"/>
+	<connection from="31to30" to="30to29" fromLane="2" toLane="1"/>
+	
+	<connection from="38to40" to="40to42" fromLane="1" toLane="0"/>
+	<connection from="38to40" to="40to42" fromLane="2" toLane="1"/>
+	<connection from="38to40" to="40to41" fromLane="0" toLane="0"/>
+	<connection from="38to40" to="40to41" fromLane="0" toLane="1"/>
+	<connection from="38to40" to="40to41" fromLane="0" toLane="2"/>
+	
+	<connection from="42to40" to="40to38" fromLane="0" toLane="0"/>
+	<connection from="42to40" to="40to38" fromLane="1" toLane="1"/>
+	<connection from="42to40" to="40to41" fromLane="1" toLane="0"/>
+	<connection from="42to40" to="40to41" fromLane="2" toLane="1"/>
+	<connection from="42to40" to="40to41" fromLane="3" toLane="2"/>
+	<!--<connection from="42to40" to="40to42" fromLane="3" toLane="0"/>
+	<connection from="42to40" to="40to42" fromLane="3" toLane="1"/>-->
+	
+	<connection from="44to43" to="43to42" fromLane="4" toLane="2"/>
+	<connection from="44to43" to="43to45" fromLane="3" toLane="1"/>
+	<connection from="44to43" to="43to45" fromLane="2" toLane="0"/>
+	<connection from="44to43" to="43to46" fromLane="0" toLane="0"/>
+	<connection from="44to43" to="43to46" fromLane="1" toLane="1"/>
+	
+	<connection from="42to43" to="43to46" fromLane="0" toLane="0"/>
+	<connection from="42to43" to="43to46" fromLane="1" toLane="1"/>
+	<connection from="42to43" to="43to45" fromLane="2" toLane="1"/>
+	
+	<connection from="43to46" to="46to47" fromLane="0" toLane="0"/>
+	<connection from="43to46" to="46to47" fromLane="0" toLane="1"/>
+	<connection from="43to46" to="46to47" fromLane="1" toLane="2"/>
+	<connection from="43to46" to="46to47" fromLane="1" toLane="3"/>
+	
+	<connection from="45to43" to="43to42" fromLane="0" toLane="0"/>
+	<connection from="45to43" to="43to42" fromLane="1" toLane="1"/>
+	
+	<connection from="46to43" to="43to42" fromLane="1" toLane="2"/>
+	<connection from="46to43" to="43to42" fromLane="0" toLane="1"/>
+	<connection from="46to43" to="43to45" fromLane="0" toLane="0"/>
+	
+	<!--new-->
+	<connection from="49to47" to="47to46" fromLane="4" toLane="1"/>
+	<connection from="49to47" to="47to46" fromLane="3" toLane="0"/>
+	<connection from="49to47" to="47to48" fromLane="2" toLane="1"/>
+	<connection from="49to47" to="47to48" fromLane="1" toLane="0"/>
+	<connection from="49to47" to="47to50" fromLane="0" toLane="0"/>
+	
+	<connection from="48to47" to="47to50" fromLane="4" toLane="1"/>
+	<connection from="48to47" to="47to50" fromLane="3" toLane="0"/>
+	<connection from="48to47" to="47to46" fromLane="0" toLane="0"/>
+	<connection from="48to47" to="47to49" fromLane="1" toLane="0"/>
+	<connection from="48to47" to="47to49" fromLane="2" toLane="1"/>
+	
+	<connection from="46to47" to="47to48" fromLane="3" toLane="1"/>
+	<connection from="46to47" to="47to49" fromLane="0" toLane="0"/>
+	<connection from="46to47" to="47to50" fromLane="1" toLane="0"/>
+	<connection from="46to47" to="47to50" fromLane="2" toLane="1"/>
+	
+	<connection from="50to47" to="47to49" fromLane="2" toLane="1"/>
+	<connection from="50to47" to="47to48" fromLane="0" toLane="0"/>
+	<connection from="50to47" to="47to46" fromLane="0" toLane="0"/>
+	<connection from="50to47" to="47to46" fromLane="1" toLane="1"/>
+	
+	
+	<connection from="51to52" to="52to54" fromLane="0" toLane="0"/>
+	<connection from="51to52" to="52to55" fromLane="0" toLane="0"/>
+	<connection from="51to52" to="52to55" fromLane="1" toLane="1"/>
+	<connection from="51to52" to="52to53" fromLane="2" toLane="0"/>
+	
+	<connection from="54to52" to="52to51" fromLane="1" toLane="1"/>
+	<connection from="54to52" to="52to55" fromLane="0" toLane="0"/>
+	<connection from="54to52" to="52to53" fromLane="0" toLane="0"/>
+	
+	<connection from="55to52" to="52to54" fromLane="2" toLane="0"/>
+	<connection from="55to52" to="52to51" fromLane="1" toLane="1"/>
+	<connection from="55to52" to="52to51" fromLane="0" toLane="0"/>
+	<connection from="55to52" to="52to53" fromLane="0" toLane="0"/>
+	
+	<connection from="53to52" to="52to54" fromLane="0" toLane="0"/>
+	<connection from="53to52" to="52to55" fromLane="1" toLane="0"/>
+	<connection from="53to52" to="52to51" fromLane="0" toLane="0"/>
+	
+	<!-- new-->
+	<connection from="56to57" to="57to62" fromLane="1" toLane="0"/>
+	<connection from="56to57" to="57to62" fromLane="2" toLane="1"/>
+	<connection from="56to57" to="57to60" fromLane="0" toLane="0"/>
+	<connection from="56to57" to="57to58" fromLane="3" toLane="1"/>
+	
+	<connection from="60to57" to="57to56" fromLane="2" toLane="1"/>
+	<connection from="60to57" to="57to58" fromLane="0" toLane="0"/>
+	<connection from="60to57" to="57to58" fromLane="1" toLane="1"/>
+	<connection from="60to57" to="57to62" fromLane="0" toLane="1"/>
+	
+	<connection from="62to57" to="57to60" fromLane="2" toLane="1"/>
+	<connection from="62to57" to="57to56" fromLane="1" toLane="1"/>
+	<connection from="62to57" to="57to56" fromLane="0" toLane="0"/>
+	<connection from="62to57" to="57to58" fromLane="0" toLane="0"/>
+	
+	<connection from="58to57" to="57to62" fromLane="2" toLane="1"/>
+	<connection from="58to57" to="57to60" fromLane="1" toLane="1"/>
+	<connection from="58to57" to="57to60" fromLane="0" toLane="0"/>
+	<connection from="58to57" to="57to56" fromLane="0" toLane="1"/>
+	
+	<connection from="70to69" to="69to68" fromLane="0" toLane="0"/>
+	<connection from="70to69" to="69to71" fromLane="0" toLane="0"/>
+	<connection from="70to69" to="69to72" fromLane="1" toLane="1"/>
+	
+	<connection from="72to69" to="69to70" fromLane="0" toLane="0"/>
+	<connection from="72to69" to="69to71" fromLane="3" toLane="0"/>
+	<connection from="72to69" to="69to68" fromLane="1" toLane="0"/>
+	<connection from="72to69" to="69to68" fromLane="2" toLane="1"/>
+	
+	<!--new-->
+	<connection from="75to73" to="73to76" fromLane="1" toLane="1"/>
+	<connection from="75to73" to="73to72" fromLane="0" toLane="0"/>
+	<connection from="75to73" to="73to76" fromLane="2" toLane="2"/>
+	
+	
+	<!--new-->
+	<connection from="73to76" to="76to81" fromLane="0" toLane="0"/>
+	<connection from="73to76" to="76to81" fromLane="0" toLane="1"/>
+	<connection from="73to76" to="76to81" fromLane="1" toLane="2"/>
+	<connection from="73to76" to="76to81" fromLane="2" toLane="3"/>
+	
+	<connection from="81to76" to="76to73" fromLane="1" toLane="0"/>
+	<connection from="81to76" to="76to73" fromLane="2" toLane="1"/>
+	<connection from="81to76" to="76to73" fromLane="3" toLane="2"/>
+	<connection from="81to76" to="76to77" fromLane="0" toLane="0"/>
+	
+	<!--More new-->
+	<connection from="76to73" to="73to72" fromLane="0" toLane="0"/>
+	<connection from="76to73" to="73to72" fromLane="1" toLane="1"/>
+	<connection from="76to73" to="73to72" fromLane="2" toLane="2"/>
+	
+	<!--<connection from="82to81" to="81to83" fromLane="1" toLane="2"/>
+	<connection from="82to81" to="81to76" fromLane="0" toLane="0"/>
+	<connection from="82to81" to="81to76" fromLane="0" toLane="1"/>-->
+</connections>

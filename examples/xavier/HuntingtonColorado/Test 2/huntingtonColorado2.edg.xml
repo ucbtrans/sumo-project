@@ -1,0 +1,18 @@
+<edges>
+    <edge from="2" id="2to14" to="14" />
+    <edge from="3" id="3to17" to="17" />
+    <edge from="4" id="4to16" to="16" />
+	<edge from="5" id="5to4" to="4" />	
+	<edge from="6" id="6to15" to="15" />
+    <edge from="14" id="14to1" to="1" />
+    <edge from="15" id="15to1" to="1" />
+	<edge from="16" id="16to1" to="1" />	
+	<edge from="17" id="17to1" to="1" />
+	<edge from="6" id="6to7" to="7" />
+    <edge from="13" id="13to4" to="4" />
+    <edge from="12" id="12to13" to="13" />
+	<edge from="11" id="11to12" to="12" />
+	<edge from="10" id="10to11" to="11" />
+	<edge from="9" id="9to10" to="10" />
+	<edge from="8" id="8to9" to="9" />
+</edges>

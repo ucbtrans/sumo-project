@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 01/20/16 12:42:21 by SUMO jtrrouter Version 0.24.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/jtrrouterConfiguration.xsd">
+
+    <input>
+        <net-file value="intersection2Test.net.xml"/>
+        <flow-files value="intersection2Test.flows.xml"/>
+        <turn-ratio-files value="intersection2Test.turns.xml"/>
+    </input>
+
+    <output>
+        <output-file value="intersection2Test2.rou.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="7200"/>
+    </time>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+	<vehicle id="type0.0" depart="10.00">
+        <route edges="D2 L1 L8 D7"/>
+    </vehicle>
+    <vehicle id="type0.1" depart="15.00">
+        <route edges="D2 L1 L8 D7"/>
+    </vehicle>
+	<vehicle id="type0.2" depart="21.00">
+        <route edges="D2 L1 L6 D6"/>
+    </vehicle>
+	<vehicle id="type0.3" depart="24.00">
+        <route edges="D2 L1 L6 D6"/>
+    </vehicle>
+	<vehicle id="type0.4" depart="27.00">
+        <route edges="D2 L1 L6 D6"/>
+    </vehicle>
+	<vehicle id="type0.5" depart="31.00">
+        <route edges="D2 L1 L6 D6"/>
+    </vehicle>
+	<vehicle id="type0.6" depart="35">
+        <route edges="D2 L1 L6 D6"/>
+    </vehicle>
+	<vehicle id="type0.7" depart="38">
+        <route edges="D2 L1 L6 D6"/>
+    </vehicle>
+    <!--<vehicle id="type0.3" depart="13.00">
+        <route edges="D2 L1 L8 D7"/>
+    </vehicle>
+	<vehicle id="type0.2" depart="20.00">
+        <route edges="D2 L1 L6 D6"/>
+    </vehicle>-->
+</routes>

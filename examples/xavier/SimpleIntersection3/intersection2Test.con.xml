@@ -1,0 +1,18 @@
+<connections>
+	<connection from="L1" to="L6" fromLane="0" toLane="0"/>
+	<connection from="L1" to="L6" fromLane="0" toLane="1"/>
+	<connection from="L1" to="L8" fromLane="1" toLane="0"/>
+	<connection from="L1" to="L8" fromLane="1" toLane="1"/>
+	<connection from="L5" to="L8" fromLane="0" toLane="0"/>
+	<connection from="L5" to="L8" fromLane="0" toLane="1"/>
+	<connection from="L5" to="L4" fromLane="1" toLane="0"/>
+	<connection from="L5" to="L4" fromLane="1" toLane="1"/>
+	<connection from="L7" to="L4" fromLane="0" toLane="0"/>
+	<connection from="L7" to="L4" fromLane="0" toLane="1"/>
+	<connection from="L7" to="L2" fromLane="1" toLane="0"/>
+	<connection from="L7" to="L2" fromLane="1" toLane="1"/>
+	<connection from="L3" to="L2" fromLane="0" toLane="0"/>
+	<connection from="L3" to="L2" fromLane="0" toLane="1"/>
+	<connection from="L3" to="L6" fromLane="1" toLane="0"/>
+	<connection from="L3" to="L6" fromLane="1" toLane="1"/>
+</connections>

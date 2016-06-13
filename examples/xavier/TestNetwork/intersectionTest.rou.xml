@@ -1,0 +1,8 @@
+<routes>
+	<vType accel="3.0" decel="0.6" id="CarA" length = "5" minGap="2.5" maxSpeed="14.0" sigma="0.5" />
+	<vType accel="3.0" decel="0.6" id="CarB" length = "5" minGap="2.5" maxSpeed="100.0" sigma="0.5" tau = "2.6"/>
+	<route id="route01" edges="R1"/>
+
+	<vehicle depart="0" id="veh0" route="route01" type="CarA" /> 
+	<vehicle depart="0" id="veh1" route="route01" type="CarB" />
+</routes>

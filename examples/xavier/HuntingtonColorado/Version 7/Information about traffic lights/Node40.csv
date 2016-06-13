@@ -1,0 +1,12 @@
+key;40
+subkey;test
+offset;75
+link;1;42to40;40to38;0
+link;2;38to40;40to42;0
+link;3;42to40;40to41;0
+link;4;38to40;40to41;0
+1;g;g;g;g;y;r
+2;g;y;r;r;r;r
+3;r;r;r;g;y;r
+4;g;g;g;g;g;g
+time;58.5;4.5;1;50.5;4.5;1

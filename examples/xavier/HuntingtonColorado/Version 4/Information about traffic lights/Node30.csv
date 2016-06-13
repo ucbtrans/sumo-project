@@ -1,0 +1,15 @@
+key;30
+subkey;test
+offset;0
+link;1;31to30;30to29;0
+link;1;29to30;30to31;0
+link;2;29to30;30to32;0
+link;4;32to30;30to31;0
+link;3;32to30;30to29;0
+link;5;31to30;30to32;0
+1;g;y;r;r;r;r;r;r;r
+2;r;r;r;g;y;r;r;r;r
+3;r;r;r;g;g;g;g;y;r
+4;r;r;r;r;r;r;g;y;r
+5;g;g;g;g;g;g;g;g;g
+time;60.5;5;1;35;4;1.5;33.5;4;0.5

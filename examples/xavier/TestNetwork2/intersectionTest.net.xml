@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 05/28/16 15:38:24 by SUMO netconvert Version 0.24.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <node-files value="intersectionTest.nod.xml"/>
+        <edge-files value="intersectionTest.edg.xml"/>
+        <type-files value="intersectionTest.typ.xml"/>
+    </input>
+
+    <output>
+        <output-file value="intersectionTest.net.xml"/>
+    </output>
+
+    <processing>
+        <no-turnarounds value="true"/>
+    </processing>
+
+</configuration>
+-->
+
+<net version="0.13" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="1000.00,0.00" convBoundary="0.00,0.00,2000.00,0.00" origBoundary="-1000.00,0.00,1000.00,0.00" projParameter="!"/>
+
+    <type id="a" priority="1" numLanes="1" speed="14.00"/>
+
+    <edge id="R1" from="1" to="2" priority="1" type="a">
+        <lane id="R1_0" index="0" speed="14.00" length="2000.00" shape="0.00,-1.65 2000.00,-1.65"/>
+    </edge>
+
+    <junction id="1" type="unregulated" x="0.00" y="0.00" incLanes="" intLanes="" shape="-0.00,-0.05 -0.00,-3.25"/>
+    <junction id="2" type="unregulated" x="2000.00" y="0.00" incLanes="R1_0" intLanes="" shape="2000.00,-3.25 2000.00,-0.05"/>
+
+</net>

@@ -1,0 +1,13 @@
+<routes>
+    <vType accel="1.0" decel="5.0" id="XavsCar" length="10.0" maxSpeed="100.0" sigma="0.0" />
+    <vType accel="4.0" decel="5.0" id="FabsCar" length="6.0" maxSpeed="300.0" sigma="0.0" />
+    <route id="route0" edges="1to2 2to3 out"/> <!--defines the car-->
+	<vehicle depart="0" id="veh2" route="route0" type="XavsCar" color="0,0,1" />
+	<vehicle depart="5" id="veh1" route="route0" type="FabsCar" color="0,1,0" />
+	<vehicle depart="10" id="veh0" route="route0" type="XavsCar" color="1,0,0" />
+	
+	<flow id="type1" color="1,1,0"  begin="0" end= "300" period="200" type="XavsCar">
+		<route id="route0" edges="1to2 2to3 out"/>
+	</flow>
+	
+</routes>

@@ -1,0 +1,16 @@
+<configuration>
+
+    <input>
+        <net-file value="intersectionTest.net.xml"/>
+        <route-files value="intersectionTest.rou.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+    </time>
+
+    <processing>
+        <time-to-teleport value="-1"/>
+    </processing>
+
+</configuration>

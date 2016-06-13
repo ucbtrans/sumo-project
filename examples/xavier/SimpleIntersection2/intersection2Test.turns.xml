@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<turns>
+	<interval begin="0" end="7200">
+		
+		<!--Junction 9 -->
+		<fromEdge id="L1">	
+			<toEdge id="L8" probability="0.5"/>
+			<toEdge id="L6" probability="0.5"/>
+		</fromEdge>
+		
+		<fromEdge id="L3">
+			<toEdge id="L2" probability="0.5"/>
+			<toEdge id="L6" probability="0.5"/>
+		</fromEdge>
+				
+		<fromEdge id="L7">
+			<toEdge id="L2" probability="0.5"/>	
+			<toEdge id="L4" probability="0.5"/>
+		</fromEdge>
+		
+		<fromEdge id="L5">
+			<toEdge id="L4" probability="0.5"/>
+			<toEdge id="L8" probability="0.5"/>
+		</fromEdge>
+		<!--End-->
+		
+		<sink edges="D1 D3 D7 D6"/>
+	</interval>
+</turns>

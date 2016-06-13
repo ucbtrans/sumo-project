@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flows>
+	<flow id="type0" from="D2" to="D7" begin="0" end="600" number="100"/>
+	<flow id="type1" from="D5" to="D7" begin="0" end="600" number="100"/>
+	<flow id="type2" from="D8" to="D7" begin="0" end="600" number="100"/>
+	<flow id="type3" from="D4" to="D7" begin="0" end="600" number="100"/>
+</flows>

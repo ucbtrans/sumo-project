@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	
+	<input>
+		<edge-files value="intersection2Test.edg.xml" />
+		<node-files value="intersection2Test.nod.xml" />
+		<type-files value="intersection2Test.typ.xml" />
+		<connection-files value="intersection2Test.con.xml" />
+		<!--<route-files value="intersection2Test.rou.xml"/>-->
+	</input>
+	
+	<output>
+		<output-file value="intersection2Test.net.xml"/>
+	</output>
+	
+	<!--
+	<time>
+        <begin value="54000"/>
+        <end value="54500"/>
+    </time>
+	-->
+	
+	<processing>
+		<no-turnarounds value="true"/>
+		<!--<time-to-teleport value="-1"/>-->
+	</processing>
+	
+</configuration>

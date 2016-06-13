@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	
+	<input>
+		<edge-files value="huntingtonColorado3.edg.xml" />
+		<node-files value="huntingtonColorado3.nod.xml" />
+		<type-files value="huntingtonColorado3.typ.xml" />
+		<connection-files value="huntingtonColorado3.con.xml" />
+		<tllogic-files value="huntingtonColorado3.add.xml" />
+	</input>
+	
+	<output>
+		<output-file value="huntingtonColorado3.net.xml"/>
+	</output>
+	
+	<processing>
+		<no-turnarounds value="true"/>
+	</processing>
+	
+</configuration>

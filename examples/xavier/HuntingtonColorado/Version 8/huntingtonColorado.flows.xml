@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flows>
+	<flow id="type0" color="1,0,0" from="2to14" begin="0" end="600" vehsPerHour="10000"/>
+	<flow id="type1" color="0,1,0" from="5to4" begin="0" end="600" vehsPerHour="1000"/>
+	<flow id="type2" color="0,0,1" from="3to17" begin="0" end="600" vehsPerHour="1000"/>
+	<flow id="type4" color="1,1,0" from="7to6" begin="0" end="600" vehsPerHour="10000"/>
+</flows>

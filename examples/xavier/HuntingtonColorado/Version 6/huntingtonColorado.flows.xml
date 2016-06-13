@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flows>
+	<flow id="type0" color="1,0,0" from="2to14" begin="0" end="7200" vehsPerHour="2004"/>
+	<flow id="type1" color="0,1,0" from="5to4" begin="0" end="7200" vehsPerHour="900"/>
+	<flow id="type2" color="0,0,1" from="3to17" begin="0" end="7200" vehsPerHour="854"/>
+	<flow id="type4" color="1,1,0" from="20to19" begin="0" end="7200" vehsPerHour="200"/>
+	<flow id="type5" color="1,0,1" from="22to21" begin="0" end="7200" vehsPerHour="200"/>
+	<flow id="type6" color="0,1,1" from="33to32" begin="0" end="7200" vehsPerHour="224"/>
+	
+	
+	<flow id="type7" color="0,1,1" from="44to43" begin="0" end="7200" vehsPerHour="969"/>
+	<flow id="type8" color="0,1,1" from="45to43" begin="0" end="7200" vehsPerHour="297"/>
+	<flow id="type9" color="0,1,1" from="49to47" begin="0" end="7200" vehsPerHour="969"/>
+	<flow id="type10" color="0,1,1" from="48to47" begin="0" end="7200" vehsPerHour="905"/>
+	<flow id="type11" color="0,1,1" from="54to52" begin="0" end="7200" vehsPerHour="200"/>
+	<flow id="type12" color="0,1,1" from="53to52" begin="0" end="7200" vehsPerHour="200"/>
+	
+	<flow id="type13" color="0,1,1" from="61to60" begin="0" end="7200" vehsPerHour="497"/>
+	<flow id="type14" color="0,1,1" from="59to58" begin="0" end="7200" vehsPerHour="417"/>
+	
+	<flow id="type15" color="0,1,1" from="66to64" begin="0" end="7200" vehsPerHour="200"/>
+	<!--<flow id="type16" color="0,1,1" from="65to64" begin="0" end="7200" vehsPerHour="417"/>-->
+	<flow id="type17" color="0,1,1" from="71to69" begin="0" end="7200" vehsPerHour="200"/>
+	<flow id="type18" color="0,1,1" from="70to69" begin="0" end="7200" vehsPerHour="200"/>
+	
+	<!--<flow id="type19" color="0,1,1" from="74to73" begin="0" end="7200" vehsPerHour="93"/>-->
+	<flow id="type20" color="0,1,1" from="75to73" begin="0" end="7200" vehsPerHour="356"/>
+	
+	<flow id="type21" color="0,1,1" from="82to81" begin="0" end="7200" vehsPerHour="555"/>
+	<flow id="type22" color="0,1,1" from="83to81" begin="0" end="7200" vehsPerHour="1100"/>
+</flows>

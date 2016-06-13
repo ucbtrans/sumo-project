@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<turns xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/turns_file.xsd">
+
+   <interval begin="0" end="10000">
+      <fromEdge id="E1">
+         <toEdge id="G1b" probability="0.5"/>
+         <toEdge id="G2" probability="0.5"/>
+      </fromEdge>
+      
+      <fromEdge id="G2">
+         <toEdge id="E2" probability="0.1"/>
+         <toEdge id="G3" probability="0.9"/>
+      </fromEdge>
+      
+      <fromEdge id="G3b">
+         <toEdge id="E2" probability="0.1"/>
+         <toEdge id="G2b" probability="0.9"/>
+      </fromEdge>
+      
+      <fromEdge id="G3">
+         <toEdge id="M1" probability="0.0"/>
+         <toEdge id="G4" probability="1.0"/>
+      </fromEdge>
+      
+      <fromEdge id="G4">
+         <toEdge id="N2" probability="0.0"/>
+         <toEdge id="G5b" probability="1.0"/>
+         <toEdge id="N1b" probability="0.0"/>
+      </fromEdge>
+      
+      <fromEdge id="G5">
+         <toEdge id="N2" probability="0.0"/>
+         <toEdge id="G4b" probability="1.0"/>
+         <toEdge id="N1b" probability="0.0"/>
+      </fromEdge>
+      
+      <fromEdge id="N1">
+         <toEdge id="G4b" probability="0.0"/>
+         <toEdge id="N2" probability="1.0"/>
+      </fromEdge>
+      
+      <fromEdge id="M1">
+         <toEdge id="N3" probability="1.0"/>
+         <toEdge id="N2b" probability="0.0"/>
+      </fromEdge>
+      
+      <fromEdge id="N2b">
+         <toEdge id="G5b" probability="0.0"/>
+         <toEdge id="G4b" probability="0.0"/>
+         <toEdge id="N1b" probability="1.0"/>
+      </fromEdge>
+      
+      <fromEdge id="N3">
+         <toEdge id="N4" probability="0.9"/>
+         <toEdge id="E3" probability="0.1"/>
+      </fromEdge>
+      
+      <fromEdge id="N4b">
+         <toEdge id="N3b" probability="1.0"/>
+         <toEdge id="E3" probability="0.0"/>
+      </fromEdge>
+		
+      <fromEdge id="G4b">
+         <toEdge id="G3b" probability="1.0"/>
+         <toEdge id="M1" probability="0.0"/>
+      </fromEdge>
+		
+      <fromEdge id="G7b">
+         <toEdge id="F18" probability="0.45"/>
+         <toEdge id="G8b" probability="0.55"/>
+      </fromEdge>
+		
+      <fromEdge id="G8">
+         <toEdge id="F18" probability="0.06"/>
+         <toEdge id="G7" probability="0.94"/>
+      </fromEdge>
+		
+      <fromEdge id="F18b">
+         <toEdge id="G7" probability="0.93"/>
+         <toEdge id="G8b" probability="0.07"/>
+      </fromEdge>
+		
+      <fromEdge id="G8">
+         <toEdge id="F18" probability="0.06"/>
+         <toEdge id="G7" probability="0.94"/>
+      </fromEdge>
+      
+
+		
+      <fromEdge id="H1b">
+         <toEdge id="F17" probability="0.08"/>
+         <toEdge id="H2b" probability="0.92"/>
+      </fromEdge>
+		
+      <fromEdge id="H2">
+         <toEdge id="F17" probability="0.23"/>
+         <toEdge id="H1" probability="0.77"/>
+      </fromEdge>
+		
+      <fromEdge id="H2b">
+         <toEdge id="F15" probability="0.05"/>
+         <toEdge id="H3b" probability="0.95"/>
+      </fromEdge>
+		
+      <fromEdge id="F16">
+         <toEdge id="H2" probability="0.17"/>
+         <toEdge id="F15" probability="0.64"/>
+         <toEdge id="H3b" probability="0.19"/>
+      </fromEdge>
+		
+      <fromEdge id="H3">
+         <toEdge id="F15" probability="0.02"/>
+         <toEdge id="H2" probability="0.98"/>
+      </fromEdge>
+      
+      <fromEdge id="F15b">
+         <toEdge id="H2" probability="1.0"/>
+      </fromEdge>
+      
+      <fromEdge id="H3b">
+         <toEdge id="F13" probability="0.05"/>
+         <toEdge id="H4b" probability="0.68"/>
+         <toEdge id="F14" probability="0.27"/>
+      </fromEdge>
+      
+      <fromEdge id="H4">
+         <toEdge id="F13" probability="0.10"/>
+         <toEdge id="H3"  probability="0.73"/>
+         <toEdge id="F14" probability="0.17"/>
+      </fromEdge>
+      
+      <fromEdge id="F14b">
+         <toEdge id="H4b" probability="0.19"/>
+         <toEdge id="F13" probability="0.64"/>
+         <toEdge id="H3"  probability="0.17"/>
+      </fromEdge>
+      
+      <fromEdge id="F13b">
+         <toEdge id="H4b" probability="0.17"/>
+         <toEdge id="F14" probability="0.72"/>
+         <toEdge id="H3"  probability="0.11"/>
+      </fromEdge>
+      
+      
+      
+      <fromEdge id="H4b">
+         <toEdge id="F11" probability="0.05"/>
+         <toEdge id="H5b" probability="0.90"/>
+         <toEdge id="F12" probability="0.05"/>
+      </fromEdge>
+      
+      <fromEdge id="H5">
+         <toEdge id="F11" probability="0.05"/>
+         <toEdge id="H4"  probability="0.90"/>
+         <toEdge id="F12" probability="0.05"/>
+      </fromEdge>
+      
+      <fromEdge id="F12b">
+         <toEdge id="H5b" probability="0.10"/>
+         <toEdge id="F11" probability="0.90"/>
+         <toEdge id="H4" probability="0.0"/>
+      </fromEdge>
+      
+      <fromEdge id="F11b">
+         <toEdge id="H5b"  probability="0.0"/>
+         <toEdge id="F12" probability="0.90"/>
+         <toEdge id="H4"  probability="0.10"/>
+      </fromEdge>
+      
+      
+      
+      <fromEdge id="H5b">
+         <toEdge id="F9" probability="0.03"/>
+         <toEdge id="H6b" probability="0.91"/>
+         <toEdge id="F10" probability="0.06"/>
+      </fromEdge>
+      
+      <fromEdge id="H6">
+         <toEdge id="F9" probability="0.06"/>
+         <toEdge id="H5"  probability="0.75"/>
+         <toEdge id="F10" probability="0.19"/>
+      </fromEdge>
+      
+      <fromEdge id="F10b">
+         <toEdge id="H5" probability="0.08"/>
+         <toEdge id="F9" probability="0.51"/>
+         <toEdge id="H6b" probability="0.41"/>
+      </fromEdge>
+      
+      <fromEdge id="F9b">
+         <toEdge id="H5"  probability="0.08"/>
+         <toEdge id="F10" probability="0.73"/>
+         <toEdge id="H6b" probability="0.19"/>
+      </fromEdge>
+      
+      
+      
+      <fromEdge id="H6b">
+         <toEdge id="F7" probability="0.0"/>
+         <toEdge id="H7b" probability="1.0"/>
+         <toEdge id="F8" probability="0.0"/>
+      </fromEdge>
+      
+      <fromEdge id="H7">
+         <toEdge id="F7" probability="0.10"/>
+         <toEdge id="H6"  probability="0.90"/>
+         <toEdge id="F8" probability="0.0"/>
+      </fromEdge>
+      
+      <fromEdge id="F8b">
+         <toEdge id="H6" probability="0.0"/>
+         <toEdge id="F7" probability="0.0"/>
+         <toEdge id="H7b" probability="1.0"/>
+      </fromEdge>
+      
+      <fromEdge id="F7b">
+         <toEdge id="H6"  probability="1.0"/>
+         <toEdge id="F8" probability="0.0"/>
+         <toEdge id="H7b" probability="0.0"/>
+      </fromEdge>
+      
+      
+      
+      <fromEdge id="H7b">
+         <toEdge id="F5" probability="0.0"/>
+         <toEdge id="H8b" probability="0.9"/>
+         <toEdge id="F6" probability="0.1"/>
+      </fromEdge>
+      
+      <fromEdge id="H8">
+         <toEdge id="F5" probability="0.10"/>
+         <toEdge id="H7"  probability="0.90"/>
+         <toEdge id="F6" probability="0.0"/>
+      </fromEdge>
+      
+      <fromEdge id="F6b">
+         <toEdge id="H7" probability="0.0"/>
+         <toEdge id="F5" probability="0.9"/>
+         <toEdge id="H8b" probability="0.1"/>
+      </fromEdge>
+      
+      <fromEdge id="F5b">
+         <toEdge id="H7"  probability="0.1"/>
+         <toEdge id="F6" probability="0.9"/>
+         <toEdge id="H8b" probability="0.0"/>
+      </fromEdge>
+      
+      
+      
+      <fromEdge id="H8b">
+         <toEdge id="H9b" probability="0.97"/>
+         <toEdge id="F4" probability="0.03"/>
+      </fromEdge>
+      
+      <fromEdge id="H9">
+         <toEdge id="H8"  probability="1.0"/>
+         <toEdge id="F4" probability="0.0"/>
+      </fromEdge>
+      
+      <fromEdge id="F4b">
+         <toEdge id="H8" probability="0.52"/>
+         <toEdge id="H9b" probability="0.48"/>
+      </fromEdge>
+      
+      <fromEdge id="F3">
+         <toEdge id="H8"  probability="0.18"/>
+         <toEdge id="F4" probability="0.0"/>
+         <toEdge id="H9b" probability="0.82"/>
+      </fromEdge>
+      
+      
+      
+      <fromEdge id="H9b">
+         <toEdge id="H10b"  probability="1.0"/>
+         <toEdge id="F2" probability="0.0"/>
+      </fromEdge>
+      
+      <fromEdge id="H10">
+         <toEdge id="F2" probability="0.1"/>
+         <toEdge id="H9" probability="0.9"/>
+      </fromEdge>
+      
+      
+      
+      <fromEdge id="H10b">
+         <toEdge id="H11b" probability="0.9"/>
+         <toEdge id="F1" probability="0.1"/>
+      </fromEdge>
+      
+      <fromEdge id="H11">
+         <toEdge id="F1" probability="0.35"/>
+         <toEdge id="H10"  probability="0.65"/>
+      </fromEdge>
+      
+      <fromEdge id="F1b">
+         <toEdge id="H10"  probability="0.74"/>
+         <toEdge id="H11b" probability="0.26"/>
+      </fromEdge>
+   </interval>
+
+<source nodes="3" rate="0"/>
+<source nodes="5" rate="0"/>
+<source nodes="21" rate="0"/>
+<source nodes="22" rate="1590"/>
+<source nodes="32" rate="0"/>
+
+<source nodes="50" rate="4000"/>
+<source nodes="60" rate="000"/>
+<source nodes="62" rate="000"/>
+<source nodes="63" rate="000"/>
+<source nodes="64" rate="000"/>
+<source nodes="65" rate="000"/>
+<source nodes="66" rate="000"/>
+<source nodes="67" rate="000"/>
+<source nodes="68" rate="000"/>
+<source nodes="69" rate="000"/>
+<source nodes="70" rate="000"/>
+<source nodes="71" rate="000"/>
+<source nodes="72" rate="000"/>
+<source nodes="73" rate="000"/>
+<source nodes="74" rate="000"/>
+<source nodes="75" rate="000"/>
+<source nodes="77" rate="000"/>
+
+<sink nodes="8"/>
+<sink nodes="5"/>
+<sink nodes="21"/>
+<sink nodes="22"/>
+<sink nodes="32"/>
+<sink nodes="33"/>
+
+<sink nodes="50"/>
+<sink nodes="61"/>
+<sink nodes="63"/>
+<sink nodes="64"/>
+<sink nodes="65"/>
+<sink nodes="66"/>
+<sink nodes="67"/>
+<sink nodes="68"/>
+<sink nodes="69"/>
+<sink nodes="70"/>
+<sink nodes="71"/>
+<sink nodes="72"/>
+<sink nodes="73"/>
+<sink nodes="74"/>
+<sink nodes="76"/>
+<sink nodes="77"/>
+</turns>

@@ -1,0 +1,26 @@
+<edges>
+	<edge id="D1" from="5" to="1" type = "a" />
+	<edge id="D2" from="1" to="5" type = "a" />
+	<edge id="D3" from="6" to="2" type = "a" />
+	<edge id="D4" from="2" to="6" type = "a" />
+	<edge id="L4" from="9" to="6" type = "a" />
+	<edge id="L3" from="6" to="9" type = "a" />
+	<edge id="D5" from="4" to="8" type = "a" />
+	<edge id="D6" from="8" to="4" type = "a" />
+	<edge id="L5" from="8" to="9" type = "a" />
+	<edge id="L6" from="9" to="8" type = "a" />
+	<edge id="D7" from="7" to="3" type = "a" />
+	<edge id="D8" from="3" to="7" type = "a" />
+	<edge id="L7" from="7" to="9" type = "a" />
+	<edge id="L8" from="9" to="7" type = "a" />
+	
+		
+	<edge id="N1f" from="5" to="10" type = "a" />
+	<edge id="N2f" from="10" to="11" type = "a" />
+	<edge id="N3f" from="11" to="12" type = "a" />
+	<edge id="N4f" from="12" to="9" type = "a" />
+	<edge id="N1b" from="10" to="5" type = "a" />
+	<edge id="N2b" from="11" to="10" type = "a" />
+	<edge id="N3b" from="12" to="11" type = "a" />
+	<edge id="N4b" from="9" to="12" type = "a" />
+</edges>

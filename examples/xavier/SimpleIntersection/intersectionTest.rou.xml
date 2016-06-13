@@ -1,0 +1,20 @@
+<routes>
+	<vType accel="3.0" decel="0.6" id="CarA" length = "5" minGap="2.5" maxSpeed="50.0" sigma="0.5" />
+	<route id="route01" edges="D2 L1 L8 D7"/>
+	<route id="route02" edges="D8 L7 L2 D1"/>
+	<route id="route03" edges="D4 L3 L6 D6"/>
+	<route id="route04" edges="D5 L5 L4 D3"/>
+
+	<vehicle depart="54000" id="veh0" route="route01" type="CarA" color="1,0,0" /> 
+	<vehicle depart="54000" id="veh1" route="route02" type="CarA" />
+	<vehicle depart="54000" id="veh2" route="route03" type="CarA" />
+	<vehicle depart="54000" id="veh3" route="route04" type="CarA" />
+	<vehicle depart="54060" id="veh4" route="route01" type="CarA" />
+	<vehicle depart="54060" id="veh5" route="route02" type="CarA" />
+	<vehicle depart="54060" id="veh6" route="route03" type="CarA" />
+	<vehicle depart="54060" id="veh7" route="route04" type="CarA" />
+	<vehicle depart="54120" id="veh8" route="route01" type="CarA" />
+	<vehicle depart="54120" id="veh9" route="route02" type="CarA" />
+	<vehicle depart="54120" id="veh10" route="route03" type="CarA" />
+	<vehicle depart="54120" id="veh11" route="route04" type="CarA" />
+</routes>

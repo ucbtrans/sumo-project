@@ -1,0 +1,30 @@
+<edges>
+<!--Near Intersection-->
+    <edge from="2" id="2to14" to="14" type="e"/>
+	<edge from="14" id="14to2" to="2" type="b"/>
+	
+    <edge from="3" id="3to17" to="17" type="d"/>
+	<edge from="17" id="17to3" to="3" type="b"/>
+	
+    <edge from="4" id="4to1" to="1" type="c" />
+	<edge from="1" id="1to4" to="4" type="c"/>
+	
+	<edge from="5" id="5to4" to="4" type="c"/>	
+	<edge from="4" id="4to5" to="5" type="c"/>	
+	
+	<edge from="6" id="6to15" to="15" type="d"/>
+	<edge from="15" id="15to6" to="6" type="a"/>
+	
+    <edge from="14" id="14to1" to="1" type="e"/>
+	<edge from="1" id="1to14" to="14" type="b" />
+	
+    <edge from="15" id="15to1" to="1" type="d"/>
+	<edge from="1" id="1to15" to="15" type="a"/>
+	
+	<edge from="17" id="17to1" to="1" type="d"/>
+	<edge from="1" id="1to17" to="17" type="b"/>
+	
+	<edge from="6" id="6to7" to="7" type="a"/>
+	<edge from="7" id="7to6" to="6" type="c"/>
+	
+</edges>
