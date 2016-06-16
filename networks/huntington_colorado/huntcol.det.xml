@@ -8,21 +8,33 @@
 	<laneAreaDetector id="west1" lane="G5_0" length="90" pos="50.6" freq="1" file="huntcol1.out"/>
 	<laneAreaDetector id="west2" lane="G5_1" length="90" pos="50.6" freq="1" file="huntcol1.out"/>
 	-->
-	<e1Detector id="east_branch" lane="M1_0" pos="15" freq="1" file="huntcol1.out"/>
 	
 	<e1Detector id="east_inner1" lane="G4_0" pos="21.6" freq="1" file="huntcol1.out"/>
+	<e1Detector id="east_inner2" lane="G4_1" pos="21.6" freq="1" file="huntcol1.out"/>
 	<e1Detector id="east_outer1" lane="G3_0" pos="1451.6" freq="1" file="huntcol1.out"/>
+	<e1Detector id="east_outer2" lane="G3_1" pos="1451.6" freq="1" file="huntcol1.out"/>
 	<e1Detector id="east_check1" lane="G3_0" pos="1455.6" freq="1" file="huntcol1.out"/>
+	<e1Detector id="east_check2" lane="G3_1" pos="1455.6" freq="1" file="huntcol1.out"/>
+	<e1Detector id="east_branch" lane="M1_0" pos="15" freq="1" file="huntcol1.out"/>
 	
 	<e1Detector id="north_inner1" lane="N2b_0" pos="17.4" freq="1" file="huntcol1.out"/>
+	<e1Detector id="north_inner2" lane="N2b_1" pos="17.4" freq="1" file="huntcol1.out"/>
 	<e1Detector id="north_outer1" lane="N3b_0" pos="7.4" freq="1" file="huntcol1.out"/>
+	<e1Detector id="north_outer2" lane="N3b_1" pos="7.4" freq="1" file="huntcol1.out"/>
 	<e1Detector id="north_check1" lane="N3b_0" pos="10.4" freq="1" file="huntcol1.out"/>
+	<e1Detector id="north_check2" lane="N3b_1" pos="10.4" freq="1" file="huntcol1.out"/>
 	
 	<e1Detector id="west_inner1" lane="G5_0" pos="148.6" freq="0.1" file="huntcol1.out"/>
+	<e1Detector id="west_inner2" lane="G5_1" pos="148.6" freq="0.1" file="huntcol1.out"/>
 	<e1Detector id="west_outer1" lane="G5_0" pos="48.6" freq="0.1" file="huntcol1.out"/>
+	<e1Detector id="west_outer2" lane="G5_1" pos="48.6" freq="0.1" file="huntcol1.out"/>
 	<e1Detector id="west_check1" lane="G5_0" pos="52.6" freq="0.1" file="huntcol1.out"/>
+	<e1Detector id="west_check2" lane="G5_1" pos="52.6" freq="0.1" file="huntcol1.out"/>
 	
 	<e1Detector id="south_inner1" lane="N1_0" pos="179.8" freq="1" file="huntcol1.out"/>
+	<e1Detector id="south_inner2" lane="N1_1" pos="179.8" freq="1" file="huntcol1.out"/>
 	<e1Detector id="south_outer1" lane="N1_0" pos="79.8" freq="1" file="huntcol1.out"/>
+	<e1Detector id="south_outer2" lane="N1_1" pos="79.8" freq="1" file="huntcol1.out"/>
 	<e1Detector id="south_check1" lane="N1_0" pos="83.8" freq="1" file="huntcol1.out"/>
+	<e1Detector id="south_check2" lane="N1_1" pos="83.8" freq="1" file="huntcol1.out"/>
 </additional> 

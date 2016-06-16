@@ -336,17 +336,17 @@ if __name__ == "__main__":
     else:
         sumoBinary = checkBinary('sumo-gui')
 
-	# this is the normal way of using traci. sumo is started as a
+    # this is the normal way of using traci. sumo is started as a
     # subprocess and then the python script connects and runs
     sumoProcess = subprocess.Popen([sumoBinary, "-c", "../../networks/huntington_colorado/huntcol.sumocfg", "--step-length", str(step_length), "--tripinfo-output",
                                     "tripinfo.xml", "--remote-port", str(PORT)], stdout=sys.stdout, stderr=sys.stderr)
     run()
     sumoProcess.wait()
 
-	'''
-	plt.plot(flow_array)
-	plt.xlabel('Time mod ' + str(daq_step))
-	plt.show()
-	'''
-	scipy.io.savemat('100percent.mat',mdict={'flow_array':flow_array})
-	#pdb.set_trace()
+    '''
+    plt.plot(flow_array)
+    plt.xlabel('Time mod ' + str(daq_step))
+    plt.show()
+    '''
+    scipy.io.savemat('100percent.mat',mdict={'flow_array':flow_array})
+    #pdb.set_trace()
