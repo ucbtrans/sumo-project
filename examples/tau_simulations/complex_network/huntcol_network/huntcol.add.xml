@@ -1,0 +1,34 @@
+
+<WAUT refTime="0" id="myWAUT" startProg="my_program2">
+   <wautSwitch time="1000" to="my_program1"/>
+   <wautSwitch time="2000" to="my_program2"/>
+</WAUT>
+
+<additional>
+   <tlLogic id="13" programID="my_program1" offset="0" type="static">
+      <phase duration="31" state="GGggrrrrGGggrrrr"/>
+      <phase duration="5"  state="yyggrrrryyggrrrr"/>
+      <phase duration="6"  state="rrGGrrrrrrGGrrrr"/>
+      <phase duration="5"  state="rryyrrrrrryyrrrr"/>
+      <phase duration="31" state="rrrrGGggrrrrGGgg"/>
+      <phase duration="5"  state="rrrryyggrrrryygg"/>
+      <phase duration="6"  state="rrrrrrGGrrrrrrGG"/>
+      <phase duration="5"  state="rrrrrryyrrrrrryy"/>
+   </tlLogic>
+   
+   <tlLogic id="13" programID="my_program2" offset="0" type="static">
+      <phase duration="31" state="GGggrrrrGGggrrrr"/>
+      <phase duration="5"  state="yyggrrrryyggrrrr"/>
+      <phase duration="5"  state="rryyrrrrrryyrrrr"/>
+      <phase duration="31" state="rrrrGGggrrrrGGgg"/>
+      <phase duration="6"  state="rrrrrrGGrrrrrrGG"/>
+      <phase duration="5"  state="rrrrrryyrrrrrryy"/>
+   </tlLogic>
+  
+  <WAUT startProg="0" refTime="100" id="w1">
+    <wautSwitch to="S1" time="300"></wautSwitch>
+    <wautSwitch to="SS" time="800"></wautSwitch>
+  </WAUT>
+
+  <wautJunction junctionID="13" wautID="w1"></wautJunction>
+</additional>
