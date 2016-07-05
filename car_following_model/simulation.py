@@ -76,6 +76,7 @@ def run_simulation(vehicles, dt, total_time):
     t_prev = 0
     position = []
     dx = []
+    dv = []
     flow = []
     flow1 = []
     speed = []
@@ -92,6 +93,7 @@ def run_simulation(vehicles, dt, total_time):
             theta = vehicles[i+1].get_distance_headway()/vehicles[i+1].get_speed()
             #theta = vehicles[i+1].get_distance_headway()/vehicles[i+1].get_safe_speed(vehicles[i].get_position(), vehicles[i].get_speed())
             dx.append(vehicles[i+1].get_distance_headway())
+            dv.append(vehicles[i].get_speed() - vehicles[i+1].get_speed())
             position.append(vehicles[i].get_position())            
             max_speed.append(vehicles[i].get_max_speed())            
             speed.append(vehicles[i].get_speed())            
@@ -108,6 +110,7 @@ def run_simulation(vehicles, dt, total_time):
             t_prev = step*dt
             position.append(vehicles[i].get_position())
             dx.append(vehicles[i+1].get_distance_headway())
+            dv.append(vehicles[i].get_speed() - vehicles[i+1].get_speed())
             max_speed.append(vehicles[i].get_max_speed())            
             speed.append(vehicles[i].get_speed())
             time.append(step*dt)
@@ -119,21 +122,31 @@ def run_simulation(vehicles, dt, total_time):
             
         simulation_step(vehicles, dt)
     
-    print(len(flow), len(time))
-    #i = 10    
-    #theta = vehicles[i].get_distance_headway()/vehicles[i].get_speed()
+
     plt.figure()
     plt.plot(time, position)
     plt.plot(time, position, 'o')
+    plt.xlabel('Time')
+    plt.ylabel('Position')
     
     plt.figure()
     plt.plot(time, dx)
     plt.plot(time, dx, 'o')
+    plt.xlabel('Time')
+    plt.ylabel('Distance to Leader')
     
     plt.figure()
     plt.plot(time, max_speed, 'r')
     plt.plot(time, speed)
     plt.plot(time, speed, 'o')
+    plt.xlabel('Time')
+    plt.ylabel('Speed')
+    
+    plt.figure()
+    plt.plot(time, dv)
+    plt.plot(time, dv, 'o')
+    plt.xlabel('Time')
+    plt.ylabel('Speed Difference')
     
     plt.figure()
     plt.plot(time, ss_throughput, 'r')
@@ -141,6 +154,8 @@ def run_simulation(vehicles, dt, total_time):
     plt.plot(time2, flow1, 'o')
     plt.plot(time, flow)
     plt.plot(time, flow, 'o')
+    plt.xlabel('Time')
+    plt.ylabel('Flow')
     plt.show()
     
     print("Count =", len(flow)+1, "Theta_0 =", theta0, "Theta =", theta)
