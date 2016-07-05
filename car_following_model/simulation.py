@@ -4,7 +4,6 @@ Simulation...
 '''
 
 import sys
-import numpy as np
 import matplotlib.pyplot as plt
 from Vehicle import Vehicle
 
@@ -14,7 +13,7 @@ def initialize():
     Returns array of vehicles; simulation step length in seconds.
     '''
     
-    a = 1 # m/s^2
+    a = 2.6 # m/s^2
     dt = 0.01 # seconds
     total_time = 60 # seconds
     total_vehicles = 50
@@ -128,12 +127,14 @@ def run_simulation(vehicles, dt, total_time):
     plt.plot(time, position, 'o')
     plt.xlabel('Time')
     plt.ylabel('Position')
+    plt.show()
     
     plt.figure()
     plt.plot(time, dx)
     plt.plot(time, dx, 'o')
     plt.xlabel('Time')
     plt.ylabel('Distance to Leader')
+    plt.show()
     
     plt.figure()
     plt.plot(time, max_speed, 'r')
@@ -141,12 +142,14 @@ def run_simulation(vehicles, dt, total_time):
     plt.plot(time, speed, 'o')
     plt.xlabel('Time')
     plt.ylabel('Speed')
+    plt.show()
     
     plt.figure()
     plt.plot(time, dv)
     plt.plot(time, dv, 'o')
     plt.xlabel('Time')
     plt.ylabel('Speed Difference')
+    plt.show()
     
     plt.figure()
     plt.plot(time, ss_throughput, 'r')
