@@ -14,9 +14,9 @@ def initialize():
     '''
     
     a = 2.6 # m/s^2
-    dt = 0.01 # seconds
-    total_time = 60 # seconds
-    total_vehicles = 50
+    dt = 0.05 # seconds
+    total_time = 30 # seconds
+    total_vehicles = 30
     
     l = 5 # meters
     v_max = 20 # m/s
@@ -45,14 +45,26 @@ def simulation_step(vehicles, dt):
     dt - length of simulation step in seconds
     '''
     
+    model = 1 # 1 = Krauss; 2 = IDM; 3 = Gipps
+    
     sz = len(vehicles)
     
     for i in range(1, sz+1):
         if i == sz:
-            vehicles[-i].step(1000000, vehicles[-i].get_max_speed(), dt=dt)
+            if model == 1:
+                vehicles[-i].step_krauss(1000000, vehicles[-i].get_max_speed(), dt=dt)
+            elif model == 2:
+                vehicles[-i].step_idm(1000000, vehicles[-i].get_max_speed(), dt=dt)
+            elif model == 3:
+                vehicles[-i].step_gipps(1000000, vehicles[-i].get_max_speed(), dt=dt)
         else:
-            vehicles[-i].step(vehicles[-i-1].get_position(), vehicles[-i-1].get_speed(), dt)
-    
+            if model == 1:
+                vehicles[-i].step_krauss(vehicles[-i-1].get_position(), vehicles[-i-1].get_speed(), dt)
+            elif model == 2:
+                vehicles[-i].step_idm(vehicles[-i-1].get_position(), vehicles[-i-1].get_speed(), dt)
+            elif model == 3:
+                vehicles[-i].step_gipps(vehicles[-i-1].get_position(), vehicles[-i-1].get_speed(), dt)
+                    
     return
 
 
@@ -69,6 +81,7 @@ def run_simulation(vehicles, dt, total_time):
     '''
     
     sz = len(vehicles)
+    sensor_loc = 0.1
     
     step = 0
     i = 0
@@ -79,6 +92,9 @@ def run_simulation(vehicles, dt, total_time):
     flow = []
     flow1 = []
     speed = []
+    safe_speed = []
+    leader_speed = []
+    accel = []
     max_speed = []
     time = []
     time2 = []
@@ -87,7 +103,7 @@ def run_simulation(vehicles, dt, total_time):
     while step*dt < total_time:
         step += 1
 
-        if i == 0 and i < sz and vehicles[i].get_position() >= 0.1 and vehicles[i+1].get_speed() > 0:
+        if i == 0 and i < sz and vehicles[i].get_position() >= sensor_loc and vehicles[i+1].get_speed() > 0:
             theta0 = vehicles[i+1].tau + float(vehicles[i+1].g_min+vehicles[i+1].l)/vehicles[i].get_max_speed()
             theta = vehicles[i+1].get_distance_headway()/vehicles[i+1].get_speed()
             #theta = vehicles[i+1].get_distance_headway()/vehicles[i+1].get_safe_speed(vehicles[i].get_position(), vehicles[i].get_speed())
@@ -95,13 +111,14 @@ def run_simulation(vehicles, dt, total_time):
             dv.append(vehicles[i].get_speed() - vehicles[i+1].get_speed())
             position.append(vehicles[i].get_position())            
             max_speed.append(vehicles[i].get_max_speed())            
-            speed.append(vehicles[i].get_speed())            
+            speed.append(vehicles[i].get_speed())
+            accel.append(vehicles[i].get_acceleration())            
             time.append(step*dt)
             ss_throughput.append(3600/theta0)
             flow.append(3600/theta)
             i += 1
             
-        if i > 0 and i < sz-1 and vehicles[i].get_position() >= 0.1:
+        if i > 0 and i < sz-1 and vehicles[i].get_position() >= sensor_loc:
             theta0 = vehicles[i+1].tau + float(vehicles[i].g_min+vehicles[i+1].l)/vehicles[i+1].get_max_speed()
             theta = vehicles[i+1].get_distance_headway()/vehicles[i+1].get_speed()
             #theta = vehicles[i+1].get_distance_headway()/vehicles[i+1].get_safe_speed(vehicles[i].get_position(), vehicles[i].get_speed())
@@ -112,6 +129,9 @@ def run_simulation(vehicles, dt, total_time):
             dv.append(vehicles[i].get_speed() - vehicles[i+1].get_speed())
             max_speed.append(vehicles[i].get_max_speed())            
             speed.append(vehicles[i].get_speed())
+            safe_speed.append(vehicles[i].get_safe_speed(vehicles[i-1].get_position(), vehicles[i-1].get_speed()))
+            leader_speed.append(vehicles[i-1].get_speed())
+            accel.append(vehicles[i].get_acceleration())
             time.append(step*dt)
             time2.append(step*dt)
             ss_throughput.append(3600/theta0)
@@ -122,19 +142,20 @@ def run_simulation(vehicles, dt, total_time):
         simulation_step(vehicles, dt)
     
 
-    plt.figure()
-    plt.plot(time, position)
-    plt.plot(time, position, 'o')
-    plt.xlabel('Time')
-    plt.ylabel('Position')
-    plt.show()
+    if False:
+        plt.figure()
+        plt.plot(time, position)
+        plt.plot(time, position, 'o')
+        plt.xlabel('Time')
+        plt.ylabel('Position')
+        #plt.show()
     
     plt.figure()
     plt.plot(time, dx)
     plt.plot(time, dx, 'o')
     plt.xlabel('Time')
     plt.ylabel('Distance to Leader')
-    plt.show()
+    #plt.show()
     
     plt.figure()
     plt.plot(time, max_speed, 'r')
@@ -142,14 +163,39 @@ def run_simulation(vehicles, dt, total_time):
     plt.plot(time, speed, 'o')
     plt.xlabel('Time')
     plt.ylabel('Speed')
-    plt.show()
+    #plt.show()
+
+    if False:
+        plt.figure()
+        plt.plot(time, max_speed, 'r')
+        plt.plot(time2, safe_speed)
+        plt.plot(time2, safe_speed, 'o')
+        plt.xlabel('Time')
+        plt.ylabel('Safe Speed')
+        #plt.show()
+    
+    if True:
+        plt.figure()
+        plt.plot(time, max_speed, 'r')
+        plt.plot(time2, leader_speed)
+        plt.plot(time2, leader_speed, 'o')
+        plt.xlabel('Time')
+        plt.ylabel('Leader Speed')
+        #plt.show()
+    
+    plt.figure()
+    plt.plot(time, accel)
+    plt.plot(time, accel, 'o')
+    plt.xlabel('Time')
+    plt.ylabel('Acceleration')
+    #plt.show()
     
     plt.figure()
     plt.plot(time, dv)
     plt.plot(time, dv, 'o')
     plt.xlabel('Time')
     plt.ylabel('Speed Difference')
-    plt.show()
+    #plt.show()
     
     plt.figure()
     plt.plot(time, ss_throughput, 'r')
@@ -159,9 +205,35 @@ def run_simulation(vehicles, dt, total_time):
     plt.plot(time, flow, 'o')
     plt.xlabel('Time')
     plt.ylabel('Flow')
+    #plt.show()
+    
+    i = 0
+    total = 5
+    
+    plt.figure()
+    plt.plot([vehicles[i].time[0], vehicles[i].time[-1]], [sensor_loc, sensor_loc], 'k')
+    for j in range(i, i + total):
+        plt.plot(vehicles[j].time, vehicles[j].trajectory)
+    plt.xlabel('Time')
+    plt.ylabel('Position')
+    
+    plt.figure()
+    plt.plot([vehicles[i].time[0], vehicles[i].time[-1]], [vehicles[i].get_max_speed(), vehicles[i].get_max_speed()], 'r')
+    for j in range(i, i + total):
+        plt.plot(vehicles[j].time, vehicles[j].speed)
+    plt.xlabel('Time')
+    plt.ylabel('Speed')
+    
+    plt.figure()
+    for j in range(i, i + total):
+        plt.plot(vehicles[j].time, vehicles[j].acceleration)
+    plt.xlabel('Time')
+    plt.ylabel('Acceleration')
     plt.show()
     
-    print("Count =", len(flow)+1, "Theta_0 =", theta0, "Theta =", theta)
+    
+    
+    #print("Count =", len(flow)+1, "Theta_0 =", theta0, "Theta =", theta)
     
 
 
