@@ -11,7 +11,8 @@ import pdb
 import matplotlib.pyplot as plt
 import math
 import numpy, scipy.io
-from getTrajectory import *
+
+sys.path.append(os.path.join('..', '..', 'utils'))
 
 # import python modules from $SUMO_HOME/tools directory
 try:
@@ -23,6 +24,9 @@ try:
     from sumolib import checkBinary
 except ImportError:
     sys.exit("please declare environment variable 'SUMO_HOME' as the root directory of your sumo installation (it should contain folders 'bin', 'tools' and 'docs')")
+
+
+from getTrajectory import *
 
 import traci
 PORT = 8873 # the port used for communicating with your sumo instance
@@ -364,7 +368,7 @@ if __name__ == "__main__":
 
     # this is the normal way of using traci. sumo is started as a
     # subprocess and then the python script connects and runs
-    sumoProcess = subprocess.Popen([sumoBinary, "-c", "huntcol_network/huntcol.sumocfg","--step-length", "0.1", "--tripinfo-output",
+    sumoProcess = subprocess.Popen([sumoBinary, "-c", "../../networks/huntington_colorado/huntcol.sumocfg","--step-length", "0.1", "--tripinfo-output",
                                     "tripinfo.xml", "--netstate-dump","test.xml", "--fcd-output","fcd.xml", "--remote-port", str(PORT)], stdout=sys.stdout, stderr=sys.stderr)
     run()
     sumoProcess.wait()
@@ -384,7 +388,7 @@ if __name__ == "__main__":
     #plt.legend(['Veh ' + str for str in veh_id])
     plt.show()
 
-'''
+    '''
     plt.plot(t[0][:80],abs(dist[0][:80]-dist[1][:80]))
 
     plt.xlabel('Time (s)')

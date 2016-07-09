@@ -5,7 +5,7 @@
     <input>
         <net-file value="huntcol.net.xml"/>
         <route-files value="huntcol.rou.xml"/>
-        <additional-files value="huntcol.det.xml vtypeprobe.xml"/>
+        <additional-files value="huntcol.det.xml"/>
     </input>
 
     <time>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <routes>
-  <vType id="CarA" length="5.0" color="0,1,0" accel="2.6" decel="4.5" tau="0.997" stepping="1.0" sigma="0.0" impatience="0.0" minGap="0.5" maxSpeed="70.0"/>
-  <vType id="CarM" length="5.0" color="1,0,0" accel="2.6" decel="4.5" tau="2.098" stepping="1.0" sigma="0.0" impatience="0.0" minGap="2.0" maxSpeed="70.0"/>
+  <vType id="CarA" length="5.0" color="0,1,0" accel="2.6" decel="4.5" tau="0.45" stepping="1.0" sigma="0.0" impatience="0.0" minGap="2.0" maxSpeed="70.0"/>
+  <vType id="CarM" length="5.0" color="1,0,0" accel="2.6" decel="4.5" tau="1.8" stepping="1.0" sigma="0.0" impatience="0.0" minGap="4.0" maxSpeed="70.0"/>
 
   <route id="1" edges="E1 G1b G6b G7b G8b"/>
   <route id="2" edges="E1 G2 E2"/>

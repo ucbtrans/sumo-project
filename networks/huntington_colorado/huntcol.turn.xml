@@ -18,25 +18,25 @@
       </fromEdge>
       
       <fromEdge id="G3">
-         <toEdge id="M1" probability="0.0"/>
-         <toEdge id="G4" probability="1.0"/>
+         <toEdge id="M1" probability="0.5"/>
+         <toEdge id="G4" probability="0.5"/>
       </fromEdge>
       
       <fromEdge id="G4">
-         <toEdge id="N2" probability="0.0"/>
-         <toEdge id="G5b" probability="1.0"/>
-         <toEdge id="N1b" probability="0.0"/>
+         <toEdge id="N2" probability="0"/>
+         <toEdge id="G5b" probability="0.87"/>
+         <toEdge id="N1b" probability="0.13"/>
       </fromEdge>
       
       <fromEdge id="G5">
-         <toEdge id="N2" probability="0.0"/>
-         <toEdge id="G4b" probability="1.0"/>
-         <toEdge id="N1b" probability="0.0"/>
+         <toEdge id="N2" probability="0.11"/>
+         <toEdge id="G4b" probability="0.77"/>
+         <toEdge id="N1b" probability="0.12"/>
       </fromEdge>
       
       <fromEdge id="N1">
-         <toEdge id="G4b" probability="0.0"/>
-         <toEdge id="N2" probability="1.0"/>
+         <toEdge id="G4b" probability="0.22"/>
+         <toEdge id="N2" probability="0.71"/>
       </fromEdge>
       
       <fromEdge id="M1">
@@ -45,9 +45,9 @@
       </fromEdge>
       
       <fromEdge id="N2b">
-         <toEdge id="G5b" probability="0.0"/>
-         <toEdge id="G4b" probability="0.0"/>
-         <toEdge id="N1b" probability="1.0"/>
+         <toEdge id="G5b" probability="0.24"/>
+         <toEdge id="G4b" probability="0.18"/>
+         <toEdge id="N1b" probability="0.58"/>
       </fromEdge>
       
       <fromEdge id="N3">
@@ -56,8 +56,8 @@
       </fromEdge>
       
       <fromEdge id="N4b">
-         <toEdge id="N3b" probability="1.0"/>
-         <toEdge id="E3" probability="0.0"/>
+         <toEdge id="N3b" probability="0.9"/>
+         <toEdge id="E3" probability="0.1"/>
       </fromEdge>
 		
       <fromEdge id="G4b">
@@ -298,29 +298,29 @@
       </fromEdge>
    </interval>
 
-<source nodes="3" rate="0"/>
-<source nodes="5" rate="0"/>
-<source nodes="21" rate="0"/>
-<source nodes="22" rate="1590"/>
-<source nodes="32" rate="0"/>
+<source nodes="3" rate="200"/>
+<source nodes="5" rate="200"/>
+<source nodes="21" rate="854"/>
+<source nodes="22" rate="2004"/>
+<source nodes="32" rate="900"/>
 
-<source nodes="50" rate="4000"/>
-<source nodes="60" rate="000"/>
-<source nodes="62" rate="000"/>
-<source nodes="63" rate="000"/>
-<source nodes="64" rate="000"/>
-<source nodes="65" rate="000"/>
-<source nodes="66" rate="000"/>
-<source nodes="67" rate="000"/>
-<source nodes="68" rate="000"/>
-<source nodes="69" rate="000"/>
-<source nodes="70" rate="000"/>
-<source nodes="71" rate="000"/>
-<source nodes="72" rate="000"/>
-<source nodes="73" rate="000"/>
-<source nodes="74" rate="000"/>
-<source nodes="75" rate="000"/>
-<source nodes="77" rate="000"/>
+<source nodes="50" rate="1100"/>
+<source nodes="60" rate="555"/>
+<source nodes="62" rate="356"/>
+<source nodes="63" rate="93"/>
+<source nodes="64" rate="200"/>
+<source nodes="65" rate="200"/>
+<source nodes="66" rate="200"/>
+<source nodes="67" rate="10"/>
+<source nodes="68" rate="417"/>
+<source nodes="69" rate="497"/>
+<source nodes="70" rate="200"/>
+<source nodes="71" rate="200"/>
+<source nodes="72" rate="905"/>
+<source nodes="73" rate="969"/>
+<source nodes="74" rate="297"/>
+<source nodes="75" rate="969"/>
+<source nodes="77" rate="224"/>
 
 <sink nodes="8"/>
 <sink nodes="5"/>
