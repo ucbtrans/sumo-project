@@ -156,7 +156,45 @@ class Vehicle:
         self.update_arrays()
         
         return
-    
+        
+        
+        
+    def step_helly(self, x_l, v_l, dt=1):
+        '''
+        x_l - position of the leading car
+        v_l - speed of the leading car
+        dt - size of the simulation step in seconds
+        '''
+        
+        if v_l == 0:
+            return
+         
+        alpha = 0.5
+        beta = 0.25
+            
+        gap = x_l - self.x - self.l
+        gap_desired = self.g_min + self.v*self.tau 
+        
+        if gap > 100000:
+            self.a_actual = self.a
+        else:
+            self.a_actual = alpha*(v_l - self.v) + beta*(gap - gap_desired)
+        
+        self.actual = np.min([self.a, self.a_actual])
+        self.actual = np.max([-self.b, self.a_actual])
+        v = np.min([(self.v+self.a_actual*dt), self.v_max])
+        new_v = np.max([0, v])
+        
+        self.gap = gap
+        self.x = self.x + ((self.v + new_v)/2)*dt
+        #self.x = self.x + new_v*dt
+        self.a_actual = float(new_v - self.v) / dt
+        self.v = new_v
+        self.t += dt
+        
+        self.update_arrays()
+        
+        return
     
     
     

@@ -50,7 +50,7 @@ def simulation_step(vehicles, dt):
     dt - length of simulation step in seconds
     '''
     
-    model = 2 # 1 = Krauss; 2 = IDM; 3 = Gipps
+    model = 4 # 1 = Krauss; 2 = IDM; 3 = Gipps; 4 = Helly
     
     sz = len(vehicles)
     
@@ -62,6 +62,8 @@ def simulation_step(vehicles, dt):
                 vehicles[-i].step_idm(1000000, vehicles[-i].get_max_speed(), dt=dt)
             elif model == 3:
                 vehicles[-i].step_gipps(1000000, vehicles[-i].get_max_speed(), dt=dt)
+            elif model == 4:
+                vehicles[-i].step_helly(1000000, vehicles[-i].get_max_speed(), dt=dt)
         else:
             if model == 1:
                 vehicles[-i].step_krauss(vehicles[-i-1].get_position(), vehicles[-i-1].get_speed(), dt)
@@ -69,6 +71,8 @@ def simulation_step(vehicles, dt):
                 vehicles[-i].step_idm(vehicles[-i-1].get_position(), vehicles[-i-1].get_speed(), dt)
             elif model == 3:
                 vehicles[-i].step_gipps(vehicles[-i-1].get_position(), vehicles[-i-1].get_speed(), dt)
+            elif model == 4:
+                vehicles[-i].step_helly(vehicles[-i-1].get_position(), vehicles[-i-1].get_speed(), dt)
                     
     return
 
