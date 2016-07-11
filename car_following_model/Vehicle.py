@@ -9,7 +9,7 @@ import numpy as np
 
 class Vehicle:
     
-    def __init__(self, x, l=5, a=1, b=4, v_max=20, g_min=4, tau=2.05):
+    def __init__(self, x, l=5, v=0, a=1, b=4, v_max=20, g_min=4, tau=2.05):
         '''
         x - position in meters
         l - car length in meters
@@ -29,13 +29,15 @@ class Vehicle:
         self.tau = tau
         
         self.t = 0
-        self.v = 0
+        self.v = v
         self.a_actual = 0
         self.gap = g_min
         self.time = [0]
         self.trajectory = [x]
         self.speed = [0]
         self.acceleration = [0]
+        self.distance_headway = [g_min+l]
+        self.headway = [tau]
         
         return
     
@@ -45,6 +47,11 @@ class Vehicle:
         self.trajectory.append(self.x)
         self.speed.append(self.v)
         self.acceleration.append(self.a_actual)
+        self.distance_headway.append(self.gap+self.l)
+        if self.v > 1:
+            self.headway.append((self.gap+self.l)/self.v)
+        else:
+            self.headway.append(self.tau)
         
         return
 
@@ -92,8 +99,15 @@ class Vehicle:
             return
                
         gap = x_l - self.x - self.l
-        gap_desired = self.g_min + self.v*self.tau + (self.v*(self.v-v_l))/(2*np.sqrt(self.a*(self.b-0)))
-        self.a_actual = self.a * (1 - (self.v/self.v_max)**4 - (gap_desired/gap)**2)
+        gap_desired = self.g_min + np.max([0, (self.v*self.tau + self.v*(self.v-v_l))/(2*np.sqrt(self.a*(self.b-0)))])
+        gap_desired = self.g_min + self.v*self.tau + np.max([0, ((self.v*(self.v-v_l))/(2*np.sqrt(self.a*(self.b-0))))])
+        gap_desired = self.g_min + self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*(self.b-0)))
+        p1, p2 = 4, 2        
+        if gap > 100000:
+            self.a_actual = self.a * (1 - (self.v/self.v_max)**p1)
+        else:
+            self.a_actual = self.a * (1 - (self.v/self.v_max)**p1 - (gap_desired/gap)**p2)
+            
         v = self.v + self.a_actual * dt
         new_v = np.max([0, v])
         
