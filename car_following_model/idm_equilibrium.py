@@ -25,7 +25,7 @@ def main(argv):
     
     l = 5 # meters
     g_min = 4 # meters
-    v_max = 20 # m/s
+    v_max = 30 # m/s
     tau = 2.05 # seconds
     delta = 4 # acceleration exponent 
     

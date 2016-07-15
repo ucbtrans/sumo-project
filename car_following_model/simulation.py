@@ -6,6 +6,7 @@ Simulation...
 import sys
 import matplotlib.pyplot as plt
 from Vehicle import Vehicle
+import plot_routines as pr
 
 
 def initialize():
@@ -13,16 +14,16 @@ def initialize():
     Returns array of vehicles; simulation step length in seconds.
     '''
     
-    a = 2.6 # m/s^2
-    dt = 0.05 # seconds
-    total_time = 30 # seconds
-    total_vehicles = 50
+    a = 1.5 # m/s^2
+    dt = 0.1 # seconds
+    total_time = 60 # seconds
+    total_vehicles = 10
     
     l = 5 # meters
     v_init = 0
     v_max = 20 # m/s
-    v_max_lead = v_max
-    b = 4.5 # m/s^2
+    v_max_lead = 20
+    b = 2.5 # m/s^2
     g_min = 4 # meters
     tau = 2.05 # seconds
     
@@ -31,9 +32,9 @@ def initialize():
     for i in range(0, total_vehicles):
         pos = -i * (l + g_min)
         if i == 0:
-            veh = Vehicle(pos, l=l, v=v_init, a=a, b=b, v_max=v_max_lead, g_min=g_min, tau=tau)
+            veh = Vehicle(i+1, pos, l=l, v=v_init, a=a, b=b, v_max=v_max_lead, g_min=g_min, tau=tau)
         else:
-            veh = Vehicle(pos, l=l, v=v_init, a=a, b=b, v_max=v_max, g_min=g_min, tau=tau)
+            veh = Vehicle(i+1, pos, l=l, v=v_init, a=a, b=b, v_max=v_max, g_min=g_min, tau=tau)
         vehicles.append(veh)
     
     return vehicles, dt, total_time
@@ -50,7 +51,7 @@ def simulation_step(vehicles, dt):
     dt - length of simulation step in seconds
     '''
     
-    model = 4 # 1 = Krauss; 2 = IDM; 3 = Gipps; 4 = Helly
+    model = 1 # 1 = Krauss; 2 = IDM; 3 = Gipps; 4 = Helly
     
     sz = len(vehicles)
     
@@ -114,8 +115,7 @@ def run_simulation(vehicles, dt, total_time):
 
         if i == 0 and i < sz and vehicles[i].get_position() >= sensor_loc and vehicles[i+1].get_speed() > 0:
             theta0 = vehicles[i+1].tau + float(vehicles[i+1].g_min+vehicles[i+1].l)/vehicles[i].get_max_speed()
-            theta = vehicles[i+1].get_distance_headway()/vehicles[i+1].get_speed()
-            #theta = vehicles[i+1].get_distance_headway()/vehicles[i+1].get_safe_speed(vehicles[i].get_position(), vehicles[i].get_speed())
+            theta = vehicles[i+1].get_headway()
             dx.append(vehicles[i+1].get_distance_headway())
             dv.append(vehicles[i].get_speed() - vehicles[i+1].get_speed())
             position.append(vehicles[i].get_position())            
@@ -129,8 +129,7 @@ def run_simulation(vehicles, dt, total_time):
             
         if i > 0 and i < sz-1 and vehicles[i].get_position() >= sensor_loc:
             theta0 = vehicles[i+1].tau + float(vehicles[i].g_min+vehicles[i+1].l)/vehicles[i+1].get_max_speed()
-            theta = vehicles[i+1].get_distance_headway()/vehicles[i+1].get_speed()
-            #theta = vehicles[i+1].get_distance_headway()/vehicles[i+1].get_safe_speed(vehicles[i].get_position(), vehicles[i].get_speed())
+            theta = vehicles[i+1].get_headway()
             theta1 = step*dt - t_prev
             t_prev = step*dt
             position.append(vehicles[i].get_position())
@@ -173,7 +172,7 @@ def run_simulation(vehicles, dt, total_time):
     plt.xlabel('Time')
     plt.ylabel('Speed')
     #plt.show()
-
+        
     if False:
         plt.figure()
         plt.plot(time, max_speed, 'r')
@@ -216,25 +215,27 @@ def run_simulation(vehicles, dt, total_time):
     plt.ylabel('Flow')
     #plt.show()
     
-    i = 1
+    i = 0
     total = 5
+    vehicles_to_plot = range(i, i+total)
+    #vehicles_to_plot = [0, 10, 20, 29]
     
     plt.figure()
     plt.plot([vehicles[i].time[0], vehicles[i].time[-1]], [sensor_loc, sensor_loc], 'k')
-    for j in range(i, i + total):
+    for j in vehicles_to_plot:
         plt.plot(vehicles[j].time, vehicles[j].trajectory)
     plt.xlabel('Time')
     plt.ylabel('Position')
     
     plt.figure()
     plt.plot([vehicles[i].time[0], vehicles[i].time[-1]], [vehicles[i].get_max_speed(), vehicles[i].get_max_speed()], 'r')
-    for j in range(i, i + total):
+    for j in vehicles_to_plot:
         plt.plot(vehicles[j].time, vehicles[j].speed)
     plt.xlabel('Time')
     plt.ylabel('Speed')
     
     plt.figure()
-    for j in range(i, i + total):
+    for j in vehicles_to_plot:
         plt.plot(vehicles[j].time, vehicles[j].acceleration)
     plt.xlabel('Time')
     plt.ylabel('Acceleration')
@@ -242,7 +243,7 @@ def run_simulation(vehicles, dt, total_time):
     
     if True:
         plt.figure()
-        for j in range(i, i + total):
+        for j in vehicles_to_plot:
             plt.plot(vehicles[j].time, vehicles[j].distance_headway)
         plt.xlabel('Time')
         plt.ylabel('Distance Headway')
@@ -250,11 +251,17 @@ def run_simulation(vehicles, dt, total_time):
     
     #if False:
         plt.figure()
-        for j in range(i, i + total):
+        for j in vehicles_to_plot:
             plt.plot(vehicles[j].time, vehicles[j].headway)
         plt.xlabel('Time')
         plt.ylabel('Headway')
         plt.show()
+    
+    if True:
+        pr.contour(vehicles, dtype='v', dflt=0, title='Speed Contour')
+        pr.contour(vehicles, dtype='a', dflt=0, title='Acceleration Contour')
+        pr.contour(vehicles, dtype='h', dflt=0, title='Headway Contour')
+        pr.contour(vehicles, dtype='d', dflt=0, title='Distance Headway Contour')
     
     print("Count =", len(flow)+1, "Theta_0 =", theta0, "Theta =", theta)
     

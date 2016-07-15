@@ -9,8 +9,9 @@ import numpy as np
 
 class Vehicle:
     
-    def __init__(self, x, l=5, v=0, a=1, b=4, v_max=20, g_min=4, tau=2.05):
+    def __init__(self, id, x, l=5, v=0, a=1, b=4, v_max=20, g_min=4, tau=2.05):
         '''
+        id - vehicle number
         x - position in meters
         l - car length in meters
         a - acceleration in m/s^2
@@ -20,6 +21,7 @@ class Vehicle:
         tau - reaction time in seconds
         '''
         
+        self.id = id
         self.x = x
         self.l = l
         self.a = a
@@ -47,8 +49,11 @@ class Vehicle:
         self.trajectory.append(self.x)
         self.speed.append(self.v)
         self.acceleration.append(self.a_actual)
-        self.distance_headway.append(self.gap+self.l)
-        if self.v > 1:
+        if self.id == 1:
+            self.distance_headway.append(self.l)
+        else:
+            self.distance_headway.append(self.gap+self.l)
+        if (self.v > 1) and (self.id > 1):
             self.headway.append((self.gap+self.l)/self.v)
         else:
             self.headway.append(self.tau)
@@ -64,7 +69,10 @@ class Vehicle:
         dt - size of the simulation step in seconds
         '''
         
+        self.t += dt
+        
         if v_l == 0:
+            self.update_arrays()
             return
         
         v_bar = (self.v + v_l) / 2
@@ -80,7 +88,6 @@ class Vehicle:
         #self.x = self.x + new_v*dt
         self.a_actual = float(new_v - self.v) / dt
         self.v = new_v
-        self.t += dt
         
         self.update_arrays()
         
@@ -95,12 +102,15 @@ class Vehicle:
         dt - size of the simulation step in seconds
         '''
         
+        self.t += dt
+        
         if v_l == 0:
+            self.update_arrays()
             return
                
         gap = x_l - self.x - self.l
-        gap_desired = self.g_min + np.max([0, (self.v*self.tau + self.v*(self.v-v_l))/(2*np.sqrt(self.a*(self.b-0)))])
-        gap_desired = self.g_min + self.v*self.tau + np.max([0, ((self.v*(self.v-v_l))/(2*np.sqrt(self.a*(self.b-0))))])
+        #gap_desired = self.g_min + np.max([0, (self.v*self.tau + self.v*(self.v-v_l))/(2*np.sqrt(self.a*(self.b-0)))])
+        #gap_desired = self.g_min + self.v*self.tau + np.max([0, ((self.v*(self.v-v_l))/(2*np.sqrt(self.a*(self.b-0))))])
         gap_desired = self.g_min + self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*(self.b-0)))
         p1, p2 = 4, 2        
         if gap > 100000:
@@ -115,7 +125,6 @@ class Vehicle:
         self.x = self.x + ((self.v + new_v)/2)*dt
         #self.x = self.x + new_v*dt
         self.v = new_v
-        self.t += dt
         
         self.update_arrays()
         
@@ -130,7 +139,10 @@ class Vehicle:
         dt - size of the simulation step in seconds
         '''
         
+        self.t += dt
+        
         if v_l == 0:
+            self.update_arrays()
             return
             
         b = self.b #- 2
@@ -140,7 +152,6 @@ class Vehicle:
             v = np.min([self.v_max, (self.v + self.a*dt)])
         else:
             v1 = self.v + 2.5*self.a*dt*(1 - (self.v/self.v_max))*np.sqrt(0.025 + (self.v/self.v_max))
-            #v1 = self.v + self.a*dt
             v2 = b*self.tau + np.sqrt((b*self.tau)**2 - b*(2*gap - self.v*self.tau - (v_l**2/self.b)))
             v = np.min([v1, v2, self.v_max])
         
@@ -151,7 +162,6 @@ class Vehicle:
         #self.x = self.x + new_v*dt
         self.a_actual = float(new_v - self.v) / dt
         self.v = new_v
-        self.t += dt
         
         self.update_arrays()
         
@@ -166,7 +176,10 @@ class Vehicle:
         dt - size of the simulation step in seconds
         '''
         
+        self.t += dt
+        
         if v_l == 0:
+            self.update_arrays()
             return
          
         alpha = 0.5
@@ -190,7 +203,6 @@ class Vehicle:
         #self.x = self.x + new_v*dt
         self.a_actual = float(new_v - self.v) / dt
         self.v = new_v
-        self.t += dt
         
         self.update_arrays()
         
@@ -198,6 +210,36 @@ class Vehicle:
     
     
     
+    def get_history(self, dtype='t'):
+        '''
+        dtype - type of data requested:
+            't' - time
+            'x' - trajectory
+            'v' - speed
+            'a' - acceleration
+            'h' - headway
+            'd' - distance headway
+        '''
+        
+        if dtype == 't':
+            return self.time
+        if dtype == 'x':
+            return self.trajectory
+        if dtype == 'v':
+            return self.speed
+        if dtype == 'a':
+            return self.acceleration
+        if dtype == 'h':
+            return self.headway
+        if dtype == 'd':
+            return self.distance_headway
+        
+        return None
+
+
+
+
+        
     def get_max_speed(self):
         return self.v_max
         
@@ -227,11 +269,19 @@ class Vehicle:
     
     
     def get_headway(self):
+        if self.id == 1:
+            return self.tau
         return (self.gap + self.l)/self.v
     
     
     
     def get_distance_headway(self):
+        if self.id == 1:
+            return self.l
         return (self.gap + self.l)
         
-        
+
+
+
+
+
