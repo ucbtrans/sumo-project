@@ -4,6 +4,7 @@ Simulation...
 '''
 
 import sys
+import numpy as np
 import matplotlib.pyplot as plt
 from Vehicle import Vehicle
 import plot_routines as pr
@@ -17,24 +18,56 @@ def initialize():
     a = 1.5 # m/s^2
     dt = 0.1 # seconds
     total_time = 60 # seconds
-    total_vehicles = 10
+    total_vehicles = 40
     
     l = 5 # meters
     v_init = 0
     v_max = 20 # m/s
     v_max_lead = 20
-    b = 2.5 # m/s^2
+    b = 3 # m/s^2
     g_min = 4 # meters
+    acc_g_min = 3 # meters
     tau = 2.05 # seconds
+    acc_tau = 1.1 # seconds
+    
+    acc_penetration = 0.5
+    enable_platoons = False
+    
+    model = 'k' # Krauss
+    #model = 'i' # IDM
+    #model = 'g' # Gipps
+    #model = 'h' # Helly
+    #model = 'p' # Platoon
     
     vehicles = []
+    is_acc = True
     
     for i in range(0, total_vehicles):
-        pos = -i * (l + g_min)
-        if i == 0:
-            veh = Vehicle(i+1, pos, l=l, v=v_init, a=a, b=b, v_max=v_max_lead, g_min=g_min, tau=tau)
+        my_g_min = g_min
+        my_tau = tau
+        my_model = model
+        if np.random.rand() <= acc_penetration:
+            my_g_min = acc_g_min
+            my_tau = acc_tau
+            if is_acc:
+                if enable_platoons:
+                    my_model = 'p'
+            else:
+                is_acc = True
         else:
-            veh = Vehicle(i+1, pos, l=l, v=v_init, a=a, b=b, v_max=v_max, g_min=g_min, tau=tau)
+            is_acc = False
+            
+        
+        if i == 0:
+            pos = 0
+        else:
+            pos -= (l + my_g_min)
+            
+        if i == 0:
+            veh = Vehicle(i+1, pos, l=l, v=v_init, a=a, b=b, v_max=v_max_lead, g_min=my_g_min, tau=my_tau, model=my_model)
+        else:
+            veh = Vehicle(i+1, pos, l=l, v=v_init, a=a, b=b, v_max=v_max, g_min=my_g_min, tau=my_tau, model=my_model)
+        
         vehicles.append(veh)
     
     return vehicles, dt, total_time
@@ -51,29 +84,13 @@ def simulation_step(vehicles, dt):
     dt - length of simulation step in seconds
     '''
     
-    model = 1 # 1 = Krauss; 2 = IDM; 3 = Gipps; 4 = Helly
-    
     sz = len(vehicles)
     
     for i in range(1, sz+1):
         if i == sz:
-            if model == 1:
-                vehicles[-i].step_krauss(1000000, vehicles[-i].get_max_speed(), dt=dt)
-            elif model == 2:
-                vehicles[-i].step_idm(1000000, vehicles[-i].get_max_speed(), dt=dt)
-            elif model == 3:
-                vehicles[-i].step_gipps(1000000, vehicles[-i].get_max_speed(), dt=dt)
-            elif model == 4:
-                vehicles[-i].step_helly(1000000, vehicles[-i].get_max_speed(), dt=dt)
+            vehicles[-i].step(1000000, vehicles[-i].get_max_speed(), dt=dt)
         else:
-            if model == 1:
-                vehicles[-i].step_krauss(vehicles[-i-1].get_position(), vehicles[-i-1].get_speed(), dt)
-            elif model == 2:
-                vehicles[-i].step_idm(vehicles[-i-1].get_position(), vehicles[-i-1].get_speed(), dt)
-            elif model == 3:
-                vehicles[-i].step_gipps(vehicles[-i-1].get_position(), vehicles[-i-1].get_speed(), dt)
-            elif model == 4:
-                vehicles[-i].step_helly(vehicles[-i-1].get_position(), vehicles[-i-1].get_speed(), dt)
+            vehicles[-i].step(vehicles[-i-1].get_position(), vehicles[-i-1].get_speed(), dt)
                     
     return
 
@@ -216,7 +233,7 @@ def run_simulation(vehicles, dt, total_time):
     #plt.show()
     
     i = 0
-    total = 5
+    total = 10
     vehicles_to_plot = range(i, i+total)
     #vehicles_to_plot = [0, 10, 20, 29]
     
@@ -258,10 +275,11 @@ def run_simulation(vehicles, dt, total_time):
         plt.show()
     
     if True:
-        pr.contour(vehicles, dtype='v', dflt=0, title='Speed Contour')
-        pr.contour(vehicles, dtype='a', dflt=0, title='Acceleration Contour')
-        pr.contour(vehicles, dtype='h', dflt=0, title='Headway Contour')
-        pr.contour(vehicles, dtype='d', dflt=0, title='Distance Headway Contour')
+        pr.contour(vehicles, dtype='v', dflt=0, title='Speed (m/s)')
+        pr.contour(vehicles, dtype='a', dflt=0, title='Acceleration (m/s^2)')
+        pr.contour(vehicles, dtype='h', dflt=0, title='Headway (seconds)')
+        pr.contour(vehicles, dtype='d', dflt=0, title='Distance Headway (meters)')
+        pr.contour(vehicles, dtype='f', dflt=0, title='Flow (vph)')
     
     print("Count =", len(flow)+1, "Theta_0 =", theta0, "Theta =", theta)
     

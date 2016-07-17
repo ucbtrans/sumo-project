@@ -6,7 +6,6 @@ Plotting routines...
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
-#from Vehicle import Vehicle
 
 
 
@@ -43,7 +42,6 @@ def contour(vehicles, dtype='v', dflt=0, title=None):
         x = xx[i]
         for j in range(0, n-1):
             veh = vehicles[sz-1]
-            #print(n, len(veh.get_history(dtype='x')), j)
             if (veh.get_history(dtype='x')[j] - veh.l) > x:
                 continue
             if vehicles[0].get_history(dtype='x')[j] < x:
@@ -57,8 +55,7 @@ def contour(vehicles, dtype='v', dflt=0, title=None):
             zz[i][j] = vehicles[k].get_history(dtype=dtype)[j]
     
     
-    #plt.pcolor(tt, xx, zz, cmap='gray')
-    plt.pcolor(tt, xx, zz)
+    plt.pcolor(tt, xx, zz, cmap='jet')
     plt.colorbar()
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
