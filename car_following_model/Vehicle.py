@@ -9,7 +9,7 @@ import numpy as np
 
 class Vehicle:
     
-    def __init__(self, id, x, l=5, v=0, a=1, b=4, v_max=20, g_min=4, tau=2.05, model='k'):
+    def __init__(self, id, x, l=5, v=0, a=1, b=4, v_max=20, g_min=4, tau=2.05, stop_x=500, model='k'):
         '''
         id - vehicle number
         x - position in meters
@@ -26,7 +26,9 @@ class Vehicle:
         self.model = model
         if model != 'k' and model != 'i' and model != 'g' and model != 'h':
             self.model = 'k'
+        self.stop_x = stop_x
         self.x = x
+        self.x0 = x
         self.l = l
         self.a = a
         self.b = b
@@ -96,7 +98,31 @@ class Vehicle:
         return
 
 
+    
+    def step_leader(self, x_l, v_l, dt=1):
+        '''
+        x_l - position of the leading car
+        v_l - speed of the leading car
+        dt - size of the simulation step in seconds
+        '''
         
+        time_to_stop = float(self.v / self.b)
+        
+        if (self.v * time_to_stop / 2) >= (self.stop_x - self.x):
+            new_v = np.max([(self.v - self.b*dt), 0])
+        else:
+            new_v = np.min([(self.v + self.a*dt), self.v_max])
+
+        
+        self.gap = x_l - self.x - self.l
+        self.x = self.x + ((self.v + new_v)/2)*dt
+        self.a_actual = float(new_v - self.v) / dt
+        self.v = new_v
+        
+        return
+
+
+
     def step_krauss(self, x_l, v_l, dt=1):
         '''
         x_l - position of the leading car
@@ -144,6 +170,7 @@ class Vehicle:
         
         self.gap = gap
         self.x = self.x + ((self.v + new_v)/2)*dt
+        self.a_actual = float(new_v - self.v) / dt
         self.v = new_v
         
         return
@@ -220,6 +247,7 @@ class Vehicle:
 
         gap = x_l - self.x - self.l
         new_v = v_l
+            
         self.gap = gap
         self.x = self.x + ((self.v + new_v)/2)*dt
         self.a_actual = float(new_v - self.v) / dt
@@ -239,11 +267,13 @@ class Vehicle:
         self.t += dt
         self.x_l = x_l
         
-        if v_l == 0:
+        if v_l == 0 and self.v == 0:
             self.update_arrays()
             return
-
-        if self.model == 'k':
+    
+        if self.id == 1:
+            self.step_leader(x_l, v_l, dt=dt)
+        elif self.model == 'k':
             self.step_krauss(x_l, v_l, dt=dt)
         elif self.model == 'i':
             self.step_idm(x_l, v_l, dt=dt)

@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from Vehicle import Vehicle
 import plot_routines as pr
+import pickle
 
 
 def initialize():
@@ -15,22 +16,29 @@ def initialize():
     Returns array of vehicles; simulation step length in seconds.
     '''
     
-    a = 1.5 # m/s^2
     dt = 0.1 # seconds
     total_time = 60 # seconds
-    total_vehicles = 40
+    total_vehicles = 50
     
     l = 5 # meters
     v_init = 0
     v_max = 20 # m/s
     v_max_lead = 20
-    b = 3 # m/s^2
+    
+    a = 1.5 # acceleration in m/s^2
+    b = 3 # deceleration in m/s^2
+    
     g_min = 4 # meters
     acc_g_min = 3 # meters
+    platoon_g_min = 2 # meters
+    
+    stop_location = 1300 # meters
+    
     tau = 2.05 # seconds
     acc_tau = 1.1 # seconds
+    platoon_tau = 0.75 # seconds
     
-    acc_penetration = 0.5
+    acc_penetration = 0
     enable_platoons = False
     
     model = 'k' # Krauss
@@ -40,21 +48,29 @@ def initialize():
     #model = 'p' # Platoon
     
     vehicles = []
-    is_acc = True
+    is_acc = False
+    global acc_veh
+    acc_veh = [True, False, True, False, False, True, False, False, True, True, False, False, False, False, False, False, False, True, True, True, False, False, True, True, False, True, False, False, False, True, True, False, True, True, False, False, True, True, False, True, True, True, True, True, True, False, True, True, False, False, False, False, True, False, False, False, True, True, False, False]
     
     for i in range(0, total_vehicles):
         my_g_min = g_min
         my_tau = tau
         my_model = model
+        
+        #if acc_veh[i]:        
         if np.random.rand() <= acc_penetration:
+            #acc_veh.append(True)
             my_g_min = acc_g_min
             my_tau = acc_tau
             if is_acc:
                 if enable_platoons:
                     my_model = 'p'
+                    my_g_min = platoon_g_min
+                    my_tau = platoon_tau
             else:
                 is_acc = True
         else:
+            #acc_veh.append(False)
             is_acc = False
             
         
@@ -64,9 +80,9 @@ def initialize():
             pos -= (l + my_g_min)
             
         if i == 0:
-            veh = Vehicle(i+1, pos, l=l, v=v_init, a=a, b=b, v_max=v_max_lead, g_min=my_g_min, tau=my_tau, model=my_model)
+            veh = Vehicle(i+1, pos, l=l, v=v_init, a=a, b=b, v_max=v_max_lead, g_min=my_g_min, tau=my_tau, stop_x=stop_location, model=my_model)
         else:
-            veh = Vehicle(i+1, pos, l=l, v=v_init, a=a, b=b, v_max=v_max, g_min=my_g_min, tau=my_tau, model=my_model)
+            veh = Vehicle(i+1, pos, l=l, v=v_init, a=a, b=b, v_max=v_max, g_min=my_g_min, tau=my_tau, stop_x=stop_location, model=my_model)
         
         vehicles.append(veh)
     
@@ -166,28 +182,38 @@ def run_simulation(vehicles, dt, total_time):
             
         simulation_step(vehicles, dt)
     
+    if True:
+        with open('a_25.pickle', 'wb') as f:
+            pickle.dump(time, f)
+            pickle.dump(time2, f)
+            pickle.dump(dx, f)
+            pickle.dump(dv, f)
+            pickle.dump(speed, f)
+            pickle.dump(accel, f)
+            pickle.dump(flow1, f)
+    
 
     if False:
         plt.figure()
         plt.plot(time, position)
         plt.plot(time, position, 'o')
-        plt.xlabel('Time')
-        plt.ylabel('Position')
+        plt.xlabel('Time (seconds)')
+        plt.ylabel('Position (meters)')
         #plt.show()
     
     plt.figure()
     plt.plot(time, dx)
     plt.plot(time, dx, 'o')
-    plt.xlabel('Time')
-    plt.ylabel('Distance to Leader')
+    plt.xlabel('Time (seconds)')
+    plt.ylabel('Distance to Leader (meters)')
     #plt.show()
     
     plt.figure()
     plt.plot(time, max_speed, 'r')
     plt.plot(time, speed)
     plt.plot(time, speed, 'o')
-    plt.xlabel('Time')
-    plt.ylabel('Speed')
+    plt.xlabel('Time (seconds)')
+    plt.ylabel('Speed (m/s)')
     #plt.show()
         
     if False:
@@ -195,83 +221,86 @@ def run_simulation(vehicles, dt, total_time):
         plt.plot(time, max_speed, 'r')
         plt.plot(time2, safe_speed)
         plt.plot(time2, safe_speed, 'o')
-        plt.xlabel('Time')
-        plt.ylabel('Safe Speed')
+        plt.xlabel('Time (seconds)')
+        plt.ylabel('Safe Speed (m/s)')
         #plt.show()
     
-    if True:
+    if False:
         plt.figure()
         plt.plot(time, max_speed, 'r')
         plt.plot(time2, leader_speed)
         plt.plot(time2, leader_speed, 'o')
-        plt.xlabel('Time')
-        plt.ylabel('Leader Speed')
+        plt.xlabel('Time (seconds)')
+        plt.ylabel('Leader Speed (m/s)')
         #plt.show()
     
     plt.figure()
     plt.plot(time, accel)
     plt.plot(time, accel, 'o')
-    plt.xlabel('Time')
-    plt.ylabel('Acceleration')
+    plt.xlabel('Time (seconds)')
+    plt.ylabel('Acceleration (m/s^2)')
     #plt.show()
     
     plt.figure()
     plt.plot(time, dv)
     plt.plot(time, dv, 'o')
-    plt.xlabel('Time')
-    plt.ylabel('Speed Difference')
+    plt.xlabel('Time (seconds)')
+    plt.ylabel('Speed Difference (m/s)')
     #plt.show()
     
     plt.figure()
     plt.plot(time, ss_throughput, 'r')
     plt.plot(time2, flow1, 'k')
     plt.plot(time2, flow1, 'o')
-    plt.plot(time, flow)
-    plt.plot(time, flow, 'o')
-    plt.xlabel('Time')
-    plt.ylabel('Flow')
-    #plt.show()
+    #plt.plot(time, flow)
+    #plt.plot(time, flow, 'o')
+    plt.xlabel('Time (seconds)')
+    plt.ylabel('Flow (vph)')
+    plt.show()
     
+    if False:
+        return
+        
     i = 0
     total = 10
     vehicles_to_plot = range(i, i+total)
-    #vehicles_to_plot = [0, 10, 20, 29]
+    #vehicles_to_plot = [0, 5, 10, 15, 20, 25]
     
     plt.figure()
     plt.plot([vehicles[i].time[0], vehicles[i].time[-1]], [sensor_loc, sensor_loc], 'k')
     for j in vehicles_to_plot:
         plt.plot(vehicles[j].time, vehicles[j].trajectory)
-    plt.xlabel('Time')
-    plt.ylabel('Position')
+    plt.xlabel('Time (seconds)')
+    plt.ylabel('Position (meters)')
     
     plt.figure()
     plt.plot([vehicles[i].time[0], vehicles[i].time[-1]], [vehicles[i].get_max_speed(), vehicles[i].get_max_speed()], 'r')
     for j in vehicles_to_plot:
         plt.plot(vehicles[j].time, vehicles[j].speed)
-    plt.xlabel('Time')
-    plt.ylabel('Speed')
+    plt.xlabel('Time (seconds)')
+    plt.ylabel('Speed (m/s)')
     
     plt.figure()
     for j in vehicles_to_plot:
         plt.plot(vehicles[j].time, vehicles[j].acceleration)
-    plt.xlabel('Time')
-    plt.ylabel('Acceleration')
+    plt.xlabel('Time (seconds)')
+    plt.ylabel('Acceleration (m/s^2)')
     plt.show()
     
     if True:
         plt.figure()
         for j in vehicles_to_plot:
             plt.plot(vehicles[j].time, vehicles[j].distance_headway)
-        plt.xlabel('Time')
-        plt.ylabel('Distance Headway')
+        plt.xlabel('Time (seconds)')
+        plt.ylabel('Distance Headway (meters)')
         plt.show()
     
     #if False:
         plt.figure()
         for j in vehicles_to_plot:
             plt.plot(vehicles[j].time, vehicles[j].headway)
-        plt.xlabel('Time')
-        plt.ylabel('Headway')
+        plt.xlabel('Time (seconds)')
+        plt.ylabel('Headway (seconds)')
         plt.show()
     
     if True:
@@ -281,7 +310,8 @@ def run_simulation(vehicles, dt, total_time):
         pr.contour(vehicles, dtype='d', dflt=0, title='Distance Headway (meters)')
         pr.contour(vehicles, dtype='f', dflt=0, title='Flow (vph)')
     
-    print("Count =", len(flow)+1, "Theta_0 =", theta0, "Theta =", theta)
+    print("Count =", len(flow), "Theta_0 =", theta0, "Theta =", theta)
+
     
 
 

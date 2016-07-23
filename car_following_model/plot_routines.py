@@ -56,6 +56,7 @@ def contour(vehicles, dtype='v', dflt=0, title=None):
     
     
     plt.pcolor(tt, xx, zz, cmap='jet')
+    #plt.contourf(tt, xx, zz, cmap='jet')
     plt.colorbar()
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
