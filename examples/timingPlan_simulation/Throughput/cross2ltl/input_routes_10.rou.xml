@@ -1,0 +1,20 @@
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+   <vType id="CarA" color="0,1,0" accel="1.5" decel="3.0" sigma="0" tau="1.15" length="5" minGap="2" maxSpeed="70" />
+   <vType id="CarM" color="1,0,0" accel="1.5" decel="3.0" sigma="0" tau="2.05" length="5" minGap="4" maxSpeed="70" />
+
+
+   <route id="1" edges="1i 2o"/>
+   <route id="2" edges="4i 2o"/>
+   <route id="3" edges="3i 2o"/>
+   <route id="4" edges="8i 6o"/>
+
+   <flow id="1" type="CarA" route="1" begin="0" end="90000" probability="1"/> 
+   <!--<flow id="2" type="CarM" route="1" begin="0" end="90000"  probability="0.9"/>-->
+
+   <flow id="3" type="CarA" route="2" begin="0" end="90000" probability="1"/> 
+   <!--<flow id="4" type="CarM" route="2" begin="0" end="90000"  probability="0.9"/> -->
+   
+   <flow id="5" type="CarA" route="4" begin="0" end="90000" probability="1"/> 
+   <!--<flow id="6" type="CarM" route="4" begin="0" end="90000"  probability="0.9"/> -->
+
+</routes>

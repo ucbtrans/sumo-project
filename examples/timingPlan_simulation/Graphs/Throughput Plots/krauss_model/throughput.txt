@@ -1,0 +1,27 @@
+2.6 acceleration -------------------------
+1min cycle   (30-x,x)                      2min cycle (60-x,x)		
+Red clear | Throughput		   Red Clear | Throughput
+0		1498	 	   0		1492
+1		1480		   1		1480
+2		1440		   2		1440
+3		1440		   3		1440
+4		1320		   4		1410
+5		1320		   5		1380
+6		1320		   6		1380
+
+
+1.0 acceleration -------------------------
+1min cycle			  2min cycle
+Red clear | Throughput		  Red Clear | Throughput
+0		1319		  0		1379
+1		1200		  1		1320
+2		1200		  2		1320
+3		1140		  3		1320	
+4		1080		  4		1260
+5		1080		  5		1260
+6		960		  6		1200		
+
+27 acceleration --------------------------
+1min cycle
+Red clear | Throughput
+0		1508
