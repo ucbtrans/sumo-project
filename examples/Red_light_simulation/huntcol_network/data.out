@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 6/23/2016 3:04:54 PM by SUMO gui Version 0.25.0
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumo-gui.exeConfiguration.xsd">
+
+    <input>
+        <net-file value="huntcol_network/huntcol.net.xml"/>
+        <route-files value="huntcol_network/huntcol_largeQ.rou.xml"/>
+        <additional-files value="huntcol_network/huntcol.det.xml,huntcol_network/vtypeprobe.xml"/>
+    </input>
+
+    <output>
+        <save-state.prefix value="huntcol_network/state"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+        <step-length value="0.1"/>
+    </time>
+
+    <processing>
+        <time-to-teleport value="-1"/>
+    </processing>
+
+    <emissions>
+        <phemlight-path value="huntcol_network/./PHEMlight/"/>
+    </emissions>
+
+    <traci_server>
+        <remote-port value="8873"/>
+    </traci_server>
+
+</configuration>
+-->
+
+<detector xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/det_e1_file.xsd">
+</detector>
