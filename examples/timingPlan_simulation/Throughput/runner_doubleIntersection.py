@@ -43,7 +43,7 @@ WEGREEN = "rrrrGGGgrrrrGGGg"
 ALLRED = "rrrrrrrrrrrrrrrr"
 
 cycle_length = 2*60
-redClearTime = 0
+redClearTime = 3
 PROGRAM = [WEGREEN]*(cycle_length/2-redClearTime)
 PROGRAM.extend([ALLRED]*redClearTime)
 PROGRAM.extend([NSGREEN]*(cycle_length/2-redClearTime))
@@ -55,7 +55,7 @@ PROGRAM2 = PROGRAM[::-1]
 
 step_length = 0.05
 light_delay = 2*60/step_length
-run_time = 0.5*60*60# seconds*minutes
+run_time = 1*60*60+light_delay*step_length# seconds*minutes
 leaving_times = [[]]
 flow_array = []
 flow_array_ss = []
@@ -133,9 +133,6 @@ def run(run_time):
                flowTime_array.append(step*step_length)
                flow_array_ss.append(ssValue(step*step_length))
 
-        if (step % platoon_check == 0):
-            create_platoons("1i", "_0", start_range, end_range, accTau, accMinGap, targetTau, targetMinGap, programPointer)
-
         #print flow_count
 
 
@@ -186,26 +183,24 @@ def get_options():
 if __name__ == "__main__":
     options = get_options()
 
-    sumoBinary = checkBinary('sumo-gui')
+    sumoBinary = checkBinary('sumo')
 
-    #run_times = [i * 60 for i in range(20+light_delay*step_length/60)] #np.multiply([20+light_delay*step_length/60],60) #corresponds to 60 min of actual signal, 4 minutes for queue build up
     output = []
-    file_name = "cross2ltl"+"_"+str(10)+".sumocfg"
+    file_name = "cross2ltl"+"_"+str(0)+".sumocfg"
     path = "cross2ltl/"+file_name
 
     print path
-    # this is the normal way of using traci. sumo is started as a
-    # subprocess and then the python script connects and runs
+
     sumoProcess = subprocess.Popen([sumoBinary, "-c", path,"--step-length", str(step_length), "--remote-port", str(PORT)], stdout=sys.stdout, stderr=sys.stderr)
 
-    run(run_time*1.2)
+    run(run_time)
         #output.append(run(run_times[0]))
     print output
 
     filestr = '2min'+str(redClearTime)+'RCT_taus'
     filestrTime = filestr+'_time'
-    #np.savetxt(filestr,np.divide(3600,tau_cars[0]),fmt='%d')
-    #np.savetxt(filestrTime,time_cars,fmt='%d')
+    np.savetxt(filestr,np.divide(3600,tau_cars[0]),fmt='%d')
+    np.savetxt(filestrTime,time_cars,fmt='%d')
 
     ##########################################
     ##
@@ -213,30 +208,12 @@ if __name__ == "__main__":
     ##
     ###########################################
     plt.figure(1)
-    m1, = plt.plot(time_cars,np.divide(3600,tau_cars[0]),label='Measured Throughput')
-    plt.legend(handles=[m1],loc='upper left')
+    m1, = plt.plot(time_cars,np.divide(3600,tau_cars[0]))
+    #plt.legend(handles=[m1],loc='upper left')
     plt.xlabel("Time (s)")
     plt.ylabel("Throughput per hr")
     plt.title("Total throughput vs time for 2 min cycle")
     plt.axes([240,580,400,2000])
     plt.show()
-
-
-
-    # ###########################################
-    # ##
-    # ## Plot flow count
-    # ##
-    # ###########################################
-    # plt.figure(2)
-    # m1, = plt.plot(flowTime_array,flow_array,label='Measured Throughput')
-    # m2, = plt.plot(flowTime_array,flow_array_ss,label='Steady State Throughput - No signal')
-    # plt.legend(handles=[m1,m2],loc='upper left')
-    # plt.xlabel("Time (s)")
-    # plt.ylabel("No. of Veh")
-    # plt.title("Total throughput vs time for 2 min cycle")
-    # plt.show()
-
-
 
 

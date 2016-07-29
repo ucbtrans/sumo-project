@@ -1,0 +1,12 @@
+0 RCT
+100m: 753 veh
+300m: 751 veh
+500m: 772
+
+3RCT
+100m: 722
+300m: 731
+500m: 742
+
+
+NOTE: this was for single lane connecting the two intersections

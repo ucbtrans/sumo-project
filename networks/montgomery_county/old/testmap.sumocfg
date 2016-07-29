@@ -3,18 +3,18 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
-        <net-file value="net_bu_100.net.xml"/>
-        <route-files value="input_routes_0.rou.xml"/>
-        <additional-files value="det.det.xml"/>
+        <net-file value="map.net.xml"/>
+        <route-files value="map.rou.xml"/>
+        <additional-files/>
     </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+    </time>
 
     <processing>
         <time-to-teleport value="-1"/>
     </processing>
-
-    <report>
-        <xml-validation value="never"/>
-        <no-step-log value="true"/>
-    </report>
 
 </configuration>
