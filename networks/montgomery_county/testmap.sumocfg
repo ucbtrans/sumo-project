@@ -3,9 +3,9 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
-        <net-file value="map.net.xml"/>
-        <route-files value="map.rou.xml"/>
-        <additional-files/>
+        <net-file value="moco.net.xml"/>
+        <route-files value=""/>
+        <additional-files value="moco.det.xml" />
     </input>
 
     <time>
