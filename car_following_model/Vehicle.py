@@ -24,8 +24,6 @@ class Vehicle:
         
         self.id = id
         self.model = model
-        if model != 'k' and model != 'i' and model != 'g' and model != 'h':
-            self.model = 'k'
         self.stop_x = stop_x
         self.x = x
         self.x0 = x
@@ -34,6 +32,8 @@ class Vehicle:
         self.b = b
         self.v_max = v_max
         self.g_min = g_min
+        if id > 1:
+            self.g_min += 0
         self.tau = tau
         
         self.t = 0
@@ -85,7 +85,7 @@ class Vehicle:
         self.speed.append(self.v)
         self.acceleration.append(self.a_actual)
         if self.id == 1:
-            self.distance_headway.append(self.l)
+            self.distance_headway.append(self.g_min+self.l)
         else:
             self.distance_headway.append(self.gap+self.l)
         if (self.v > 1) and (self.id > 1):
@@ -157,7 +157,8 @@ class Vehicle:
         gap = x_l - self.x - self.l
         #gap_desired = self.g_min + np.max([0, (self.v*self.tau + self.v*(self.v-v_l))/(2*np.sqrt(self.a*(self.b-0)))])
         #gap_desired = self.g_min + self.v*self.tau + np.max([0, ((self.v*(self.v-v_l))/(2*np.sqrt(self.a*(self.b-0))))])
-        gap_desired = self.g_min + self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*(self.b-0)))
+        gap_desired = self.g_min + np.max([0, self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*(self.b-0)))])
+        #gap_desired = np.max([0, self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*(self.b-0)))])
         
         p1, p2 = 4, 2        
         if self.id == 1:
@@ -165,6 +166,56 @@ class Vehicle:
         else:
             self.a_actual = self.a * (1 - (self.v/self.v_max)**p1 - (gap_desired/gap)**p2)
             
+        v = self.v + self.a_actual * dt
+        new_v = np.max([0, v])
+        
+        self.gap = gap
+        self.x = self.x + ((self.v + new_v)/2)*dt
+        self.a_actual = float(new_v - self.v) / dt
+        self.v = new_v
+        
+        return
+    
+    
+    
+    def step_iidm(self, x_l, v_l, dt=1):
+        '''
+        x_l - position of the leading car
+        v_l - speed of the leading car
+        dt - size of the simulation step in seconds
+        '''
+       
+        b = self.b #/ 2
+        gap = x_l - self.x - self.l
+        gap_desired = self.g_min + np.max([0, self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*self.b))])
+        #gap_desired = self.g_min + self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*(self.b-0)))
+        
+        #if self.v == 0 and v_l > 0 and self.id > 1:
+        #    print(self.id, self.time[-1], self.v, v_l, gap_desired)
+        if self.v == 0:
+            gap_desired += 1
+        #if v_l < self.v:
+        #    gap_desired += 1
+        
+        p1, p2 = 4, 8
+        a_free = self.a * (1 - (self.v/self.v_max)**p1)
+        #a_free = self.a * (1 - (self.v/v_l)**p1)
+        if self.id == 1:
+            time_to_stop = float(self.v / b)
+            if (self.v * time_to_stop / 2) >= (self.stop_x - self.x):
+                self.a_actual = -b
+            else:
+                self.a_actual = a_free
+        else:
+            z = gap_desired / gap
+            if self.v == 0:
+                self.a_actual = self.a * (1 - (self.v/self.v_max)**p1 - z**p2)
+            elif z >= 1:
+                self.a_actual = a_free + self.a*(1 - z**p2)
+                #self.a_actual = self.a*(1 - z**p2)
+            else:
+                self.a_actual = a_free
+                    
         v = self.v + self.a_actual * dt
         new_v = np.max([0, v])
         
@@ -271,17 +322,19 @@ class Vehicle:
             self.update_arrays()
             return
     
-        if self.id == 1:
+        if self.id == 1 and self.model != 'iidm':
             self.step_leader(x_l, v_l, dt=dt)
-        elif self.model == 'k':
+        elif self.model == 'krauss':
             self.step_krauss(x_l, v_l, dt=dt)
-        elif self.model == 'i':
+        elif self.model == 'idm':
             self.step_idm(x_l, v_l, dt=dt)
-        elif self.model == 'g':
+        elif self.model == 'iidm':
+            self.step_iidm(x_l, v_l, dt=dt)
+        elif self.model == 'gipps':
             self.step_gipps(x_l, v_l, dt=dt)
-        elif self.model == 'h':
+        elif self.model == 'helly':
             self.step_helly(x_l, v_l, dt=dt)
-        elif self.model == 'p':
+        elif self.model == 'platoon':
             self.step_platoon(x_l, v_l, dt=dt)
             
         self.update_arrays()

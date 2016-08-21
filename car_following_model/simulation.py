@@ -16,7 +16,7 @@ def initialize():
     Returns array of vehicles; simulation step length in seconds.
     '''
     
-    dt = 0.1 # seconds
+    dt = 0.05 # seconds
     total_time = 60 # seconds
     total_vehicles = 50
     
@@ -26,13 +26,13 @@ def initialize():
     v_max_lead = 20
     
     a = 1.5 # acceleration in m/s^2
-    b = 3 # deceleration in m/s^2
+    b = 2 # deceleration in m/s^2
     
     g_min = 4 # meters
     acc_g_min = 3 # meters
     platoon_g_min = 2 # meters
     
-    stop_location = 1300 # meters
+    stop_location = 8300 # meters
     
     tau = 2.05 # seconds
     acc_tau = 1.1 # seconds
@@ -41,11 +41,12 @@ def initialize():
     acc_penetration = 0
     enable_platoons = False
     
-    model = 'k' # Krauss
-    #model = 'i' # IDM
-    #model = 'g' # Gipps
-    #model = 'h' # Helly
-    #model = 'p' # Platoon
+    #model = 'krauss' # Krauss
+    #model = 'idm' # IDM
+    model = 'iidm' # Improved IDM
+    #model = 'gipps' # Gipps
+    #model = 'helly' # Helly
+    #model = 'platoon' # Platoon
     
     vehicles = []
     is_acc = False
@@ -64,7 +65,7 @@ def initialize():
             my_tau = acc_tau
             if is_acc:
                 if enable_platoons:
-                    my_model = 'p'
+                    my_model = 'platoon'
                     my_g_min = platoon_g_min
                     my_tau = platoon_tau
             else:
@@ -183,7 +184,7 @@ def run_simulation(vehicles, dt, total_time):
         simulation_step(vehicles, dt)
     
     if True:
-        with open('a_25.pickle', 'wb') as f:
+        with open('a_15.pickle', 'wb') as f:
             pickle.dump(time, f)
             pickle.dump(time2, f)
             pickle.dump(dx, f)

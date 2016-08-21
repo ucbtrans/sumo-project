@@ -20,6 +20,7 @@ def contour(vehicles, dtype='v', dflt=0, title=None):
         'a' - aceleration
         'h' - headway
         'd' - distance headway
+        'f' - flow
     dflt - default value forcontour parts where data are not available
     title - (optional) title for the figure
     '''
@@ -67,7 +68,62 @@ def contour(vehicles, dtype='v', dflt=0, title=None):
     
     
     return
+
+
+
+
+
+def contour2(links, dtype='v', dflt=0, title=None):
+    '''
+    Create a contour plot.
     
+    links - array of Link objects
+    dtype - type of data to be plotted:
+        'v' - speed
+        'a' - aceleration
+        'f' - flow
+        'd' - density
+    dflt - default value forcontour parts where data are not available
+    title - (optional) title for the figure
+    '''
+    
+    xlabel = 'Time (seconds)'
+    ylabel = 'Position (meters)'
+    
+    sz = len(links)
+    offset = 50
+    
+    dx = links[0].dx
+    
+    x_min = -offset*dx
+    x_max = (sz - offset) * dx
+    xx = np.array(range(x_min, x_max, dx))
+    tt = np.array(links[0].get_history(dtype='t'))
+    m, n = len(xx), len(tt)
+    
+    zz = dflt*np.ones((m, n))
+    
+    
+    for i in range(0, m):
+        for j in range(0, n-1):
+            k = i
+            if i == 0:
+                k = 1
+            zz[i][j] = links[k].get_history(dtype=dtype)[j]
+    
+    plt.figure()
+    plt.pcolor(tt, xx, zz, cmap='jet')
+    #plt.contourf(tt, xx, zz, cmap='jet')
+    plt.colorbar()
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    if title != None:
+        plt.title(title)
+    plt.axis([tt[0], tt[-1], x_min, x_max])
+    plt.show()
+    
+    
+    return    
     
 
 
