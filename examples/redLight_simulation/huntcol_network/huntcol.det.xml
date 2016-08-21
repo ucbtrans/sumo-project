@@ -1,0 +1,10 @@
+
+
+<additional>
+
+
+	<!-- <e1Detector id="sensor" lane="G6b_0" pos="100" freq="1" file="data.out"/> -->
+	<e1Detector id="sensor" lane="H5b_0" pos="50" freq="1" file="data.out"/>
+
+
+</additional> 
