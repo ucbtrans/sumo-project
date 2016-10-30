@@ -1,0 +1,56 @@
+{
+"roundabout": {
+	"n": 4,
+	"radius": 100,
+	"begin": 0,
+	"end": 3000,
+	"accuracy": 10,
+
+	"vtypes": [
+		{
+			"id": "passenger",
+			"accel": 0.8,
+			"decel": 4.5,
+			"sigma": 0.5,
+			"length": 5,
+			"maxSpeed": 70
+		}
+	],
+
+	"flow_records": [
+		{
+			"begin": 0,
+			"end": 1000,
+			"vtype": "passenger",
+			"flowmat": [
+				[0, 100, 100, 100],
+				[50, 0, 50, 20],
+				[20, 50, 0, 200],
+				[0, 0, 0, 0]
+			]
+		},
+		{
+			"begin": 1000,
+			"end": 2000,
+			"vtype": "passenger",
+			"flowmat": [
+				[0, 100, 100, 100],
+				[0, 0, 0, 0],
+				[0, 0, 0, 0],
+				[0, 0, 0, 0]
+			]
+		},
+		{
+			"begin": 2000,
+			"end": 3000,
+			"vtype": "passenger",
+			"flowmat": [
+				[0, 0, 0, 0],
+				[0, 0, 0, 0],
+				[0, 0, 0, 0],
+				[0, 0, 150, 0]
+			]
+		}
+	]
+}
+}
