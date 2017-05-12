@@ -40,6 +40,7 @@ class Vehicle:
         self.v = v
         self.a_actual = 0
         self.gap = g_min
+        self.noise = 0
         self.time = [0]
         self.trajectory = [x]
         self.speed = [0]
@@ -130,12 +131,30 @@ class Vehicle:
         dt - size of the simulation step in seconds
         '''
         
+        if self.id == 1:
+            x_l = self.stop_x + self.l + self.g_min
+            v_l = 0
+            
+        sigma1 = 0.1
+        sigma2 = 0.05
+        if len(self.time) < 2:
+            self.noise = sigma1*np.random.uniform()
+        else:
+            self.noise += np.random.normal(0, sigma2)
+            self.noise = np.min([1, np.max([0, self.noise])])
+            #self.noise = 0
+            
         v_bar = (self.v + v_l) / 2
         
         gap = x_l - self.x - self.l
         gap_desired = self.g_min + v_l*self.tau
-        v_safe = v_l + (gap - gap_desired)/((v_bar/self.b) + self.tau)
+
+        v_safe = v_l + ((gap - gap_desired)/((v_bar/self.b) + self.tau))
+        if v_safe > self.noise:
+        #if v_safe > 10:
+            v_safe -= self.noise    
         v = np.min([(self.v + self.a*dt), v_safe, self.v_max])
+        
         new_v = np.max([0, v])
         
         self.gap = gap
@@ -153,18 +172,19 @@ class Vehicle:
         v_l - speed of the leading car
         dt - size of the simulation step in seconds
         '''
-       
+        
+        if self.id == 1:
+            x_l = self.stop_x + self.l + self.g_min
+            v_l = 0
+            
         gap = x_l - self.x - self.l
         #gap_desired = self.g_min + np.max([0, (self.v*self.tau + self.v*(self.v-v_l))/(2*np.sqrt(self.a*(self.b-0)))])
         #gap_desired = self.g_min + self.v*self.tau + np.max([0, ((self.v*(self.v-v_l))/(2*np.sqrt(self.a*(self.b-0))))])
         gap_desired = self.g_min + np.max([0, self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*(self.b-0)))])
         #gap_desired = np.max([0, self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*(self.b-0)))])
         
-        p1, p2 = 4, 2        
-        if self.id == 1:
-            self.a_actual = self.a * (1 - (self.v/self.v_max)**p1)
-        else:
-            self.a_actual = self.a * (1 - (self.v/self.v_max)**p1 - (gap_desired/gap)**p2)
+        p1, p2 = 4, 8        
+        self.a_actual = self.a * (1 - (self.v/self.v_max)**p1 - (gap_desired/gap)**p2)
             
         v = self.v + self.a_actual * dt
         new_v = np.max([0, v])
@@ -185,36 +205,27 @@ class Vehicle:
         dt - size of the simulation step in seconds
         '''
        
+        if self.id == 1:
+            x_l = self.stop_x + self.l + self.g_min
+            v_l = 0
+            
         b = self.b #/ 2
         gap = x_l - self.x - self.l
         gap_desired = self.g_min + np.max([0, self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*self.b))])
         #gap_desired = self.g_min + self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*(self.b-0)))
         
-        #if self.v == 0 and v_l > 0 and self.id > 1:
-        #    print(self.id, self.time[-1], self.v, v_l, gap_desired)
-        if self.v == 0:
-            gap_desired += 1
-        #if v_l < self.v:
-        #    gap_desired += 1
         
         p1, p2 = 4, 8
         a_free = self.a * (1 - (self.v/self.v_max)**p1)
-        #a_free = self.a * (1 - (self.v/v_l)**p1)
-        if self.id == 1:
-            time_to_stop = float(self.v / b)
-            if (self.v * time_to_stop / 2) >= (self.stop_x - self.x):
-                self.a_actual = -b
-            else:
-                self.a_actual = a_free
+        z = gap_desired / gap
+        #if self.v == 0:
+         #   self.a_actual = self.a * (1 - (self.v/self.v_max)**p1 - z**p2)
+        if z >= 1:
+            #self.a_actual = a_free + self.a*(1 - z**p2)
+            self.a_actual = self.a*(1 - z**p2)
         else:
-            z = gap_desired / gap
-            if self.v == 0:
-                self.a_actual = self.a * (1 - (self.v/self.v_max)**p1 - z**p2)
-            elif z >= 1:
-                self.a_actual = a_free + self.a*(1 - z**p2)
-                #self.a_actual = self.a*(1 - z**p2)
-            else:
-                self.a_actual = a_free
+            #self.a_actual = a_free
+            self.a_actual = a_free * (1 - z**(p2*self.a/a_free))
                     
         v = self.v + self.a_actual * dt
         new_v = np.max([0, v])
@@ -234,17 +245,21 @@ class Vehicle:
         v_l - speed of the leading car
         dt - size of the simulation step in seconds
         '''
-  
+        
+        if self.id == 1:
+            x_l = self.stop_x + self.l + self.g_min
+            v_l = 0
+            
         b = self.b #- 2
                
         gap = x_l - self.x - self.l
         
-        if self.id == 1:
-            v = np.min([self.v_max, (self.v + self.a*dt)])
-        else:
-            v1 = self.v + 2.5*self.a*dt*(1 - (self.v/self.v_max))*np.sqrt(0.025 + (self.v/self.v_max))
-            v2 = b*self.tau + np.sqrt((b*self.tau)**2 - b*(2*gap - self.v*self.tau - (v_l**2/self.b)))
-            v = np.min([v1, v2, self.v_max])
+        #v1 = self.v + 2.5*self.a*dt*(1 - (self.v/self.v_max))*np.sqrt(0.025 + (self.v/self.v_max))
+        #v2 = b*self.tau + np.sqrt((b*self.tau)**2 - b*(2*gap - self.v*self.tau - (v_l**2/self.b)))
+        v1 = self.v + self.a*dt            
+        v2 = -b*self.tau + np.sqrt((b*self.tau)**2 + v_l**2 + 2*b*(gap - self.g_min))
+        #v2 = -b*dt + np.sqrt((b*dt)**2 + v_l**2 + 2*b*(gap - self.g_min))
+        v = np.min([v1, v2, self.v_max])
         
         new_v = np.max([0, v])
         
@@ -263,20 +278,24 @@ class Vehicle:
         v_l - speed of the leading car
         dt - size of the simulation step in seconds
         '''
-
-        alpha = 0.5
-        beta = 0.25
-            
-        gap = x_l - self.x - self.l
-        gap_desired = self.g_min + self.v*self.tau 
         
         if self.id == 1:
-            self.a_actual = self.a
-        else:
-            self.a_actual = alpha*(v_l - self.v) + beta*(gap - gap_desired)
+            x_l = self.stop_x + self.l + self.g_min
+            v_l = 0
+            
+        alpha = 0.5
+        beta = 0.25
         
+        #b = self.b
+        gap = x_l - self.x - self.l
+        gap_desired = self.g_min + self.v*self.tau
+        
+        self.a_actual = alpha*(v_l - self.v) + beta*(gap - gap_desired)
+        
+        if gap <= self.g_min:
+            self.a_actual = np.min([self.a_actual, (v_l-self.v)/dt])
         self.a_actual = np.min([self.a, self.a_actual])
-        self.a_actual = np.max([-self.b, self.a_actual])
+        #self.a_actual = np.max([-self.b, self.a_actual])
         v = np.min([(self.v+self.a_actual*dt), self.v_max])
         new_v = np.max([0, v])
         
@@ -289,15 +308,60 @@ class Vehicle:
     
     
     
-    def step_platoon(self, x_l, v_l, dt=1):
+    def step_platoon(self, leader, dt=1):
         '''
-        x_l - position of the leading car
-        v_l - speed of the leading car
-        dt - size of the simulation step in seconds
+        leader - vehicle in front, if such exists.
+        dt - size of the simulation step in seconds.
         '''
-
+        
+        x_l = leader.x
+        v_l = leader.v
+        alpha = 2
+        beta = 2
+        c = 1 # c% ACC, (1-c)% IIDM
+        b = self.b
+               
+        a_bar = np.min([leader.a_actual, self.a])
         gap = x_l - self.x - self.l
-        new_v = v_l
+        
+        a_cah = 0
+        if v_l > 0:
+            a_cah = (self.v**2 * a_bar) / (v_l**2 - alpha*gap*a_bar)
+            
+            if v_l*(self.v - v_l) > -alpha*gap*a_bar:
+                theta = 0
+                if self.v - v_l >= 0:
+                    theta = 1
+                a_cah = a_bar - theta * (self.v - v_l)**2 / (beta*gap)
+        
+        #a_cah = np.min([a_cah, (v_l-self.v)/dt])
+        
+        gap_desired = self.g_min + np.max([0, self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*self.b))])        
+        
+        p1, p2 = 4, 8
+        a_free = self.a * (1 - (self.v/self.v_max)**p1)
+        a_iidm = a_cah
+
+        if self.id == 1:
+            time_to_stop = float(self.v / b)
+            if (self.v * time_to_stop / 2) >= (self.stop_x - self.x):
+                a_iidm = -b
+            else:
+                a_iidm = a_free
+        else:
+            z = gap_desired / gap
+            if z >= 1:
+                a_iidm = self.a*(1 - z**p2)
+            else:
+                a_iidm = a_free * (1 - z**(p2*self.a/a_free))
+        
+        a_cacc = a_iidm
+        if a_iidm < a_cah and False:
+            a_cacc = (1-c)*a_iidm + c*(a_cah + b*np.tanh((a_iidm-a_cah)/b))
+        if gap <= self.g_min:
+            a_cacc = np.min([a_cacc, (v_l-self.v)/dt])
+            
+        new_v = self.v + a_cacc*dt
             
         self.gap = gap
         self.x = self.x + ((self.v + new_v)/2)*dt
@@ -308,12 +372,18 @@ class Vehicle:
     
     
     
-    def step(self, x_l, v_l, dt=1):
+    def step(self, leader, dt=1):
         '''
-        x_l - position of the leading car
-        v_l - speed of the leading car
+        leader - vehicle in front, if such exists.
         dt - size of the simulation step in seconds
         '''
+        
+        if leader == None:
+            x_l = 1000000000
+            v_l = self.v_max
+        else:
+            x_l = leader.x
+            v_l = leader.v
         
         self.t += dt
         self.x_l = x_l
@@ -322,9 +392,7 @@ class Vehicle:
             self.update_arrays()
             return
     
-        if self.id == 1 and self.model != 'iidm':
-            self.step_leader(x_l, v_l, dt=dt)
-        elif self.model == 'krauss':
+        if self.model == 'krauss':
             self.step_krauss(x_l, v_l, dt=dt)
         elif self.model == 'idm':
             self.step_idm(x_l, v_l, dt=dt)
@@ -335,7 +403,7 @@ class Vehicle:
         elif self.model == 'helly':
             self.step_helly(x_l, v_l, dt=dt)
         elif self.model == 'platoon':
-            self.step_platoon(x_l, v_l, dt=dt)
+            self.step_platoon(leader, dt=dt)
             
         self.update_arrays()
             

@@ -18,15 +18,16 @@ def initialize():
     
     dt = 0.05 # seconds
     total_time = 60 # seconds
-    total_links = 200
+    total_links = 240
     dx = 5 # link length in meters
+    stop_bar = 50 # link immediately after the stop bar
     l = 5 # car length in meters
     g_min = 4 # meters
     v_max = 20 # m/s
     a_max = 1.5 # acceleration in m/s^2
     b_max = 2 # deceleration in m/s^2
     
-    stop_location = 100 # link number
+    stop_location = 1100 # link number
     
     tau = 2.05 # seconds
     
@@ -34,11 +35,12 @@ def initialize():
     
     for i in range(total_links):
         rho = 0
-        if i < 50:
+        if i < stop_bar:
             rho = float(1.0/(g_min + l))
         
         v = 0
-        if i > 49:
+        if i >= stop_bar:
+            v = v_max
             v = 0
         
         is_stop = False
@@ -115,20 +117,36 @@ def run_simulation(links, dt, total_time):
     total_time - time limit of the simulation
     '''
     
-    sz = len(links)
     step = 0
     
     while step*dt < total_time:
         step += 1
         simulation_step(links, dt)
+        
+        
+    if False:
+        fname = 'a_15.pickle'
+        if links[0].a_max == 2.5:
+            fname = 'a_25.pickle'
+        elif links[0].a_max == 0.8:
+            fname = 'a_08.pickle'
+        with open(fname, 'wb') as f:
+            pickle.dump(links, f)
+        f.close()
     
 
-    i = 90
+    i = 109
     
     plt.figure()
     plt.plot(links[i].time, links[i].acceleration, 'b')
     plt.xlabel("Time (seconds)")
     plt.ylabel("Acceleration (m/s^2)")
+
+    if False:
+        plt.figure()
+        plt.plot(links[i].time, links[i].acceleration2, 'b')
+        plt.xlabel("Time (seconds)")
+        plt.ylabel("Link Acceleration (m/s^2)")
 
     plt.figure()
     plt.plot(links[i].time, links[i].speed, 'b')
@@ -150,10 +168,15 @@ def run_simulation(links, dt, total_time):
     
     if True:
         pr.contour2(links, dtype='a', dflt=0, title='Acceleration (m/s^2)')
-        pr.contour2(links, dtype='v', dflt=0, title='Speed (m/s)')
-        pr.contour2(links, dtype='g', dflt=0, title='Desired Gap (meters)')
+        #pr.contour2(links, dtype='o', dflt=0, title='Link Acceleration (m/s^2)')
+        pr.contour2(links, dtype='v', dflt=0, title='Speed (m/s)', vmax=20)
+        #pr.contour2(links, dtype='g', dflt=0, title='Desired Gap (meters)')
+        #pr.contour2(links, dtype='h', dflt=0, title='Gap (meters)')
         pr.contour2(links, dtype='d', dflt=0, title='Density (veh. per mile)')
-        pr.contour2(links, dtype='f', dflt=0, title='Flow (veh. per hour)')
+        pr.contour2(links, dtype='f', dflt=0, title='Flow (veh. per hour)', vmax=1550)
+        
+    k = 49
+    print("Vehicle Count:", links[k].veh_count)
 
     return
 

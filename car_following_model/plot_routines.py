@@ -32,6 +32,8 @@ def contour(vehicles, dtype='v', dflt=0, title=None):
     
     x_min = int(np.round(vehicles[sz-1].get_history(dtype='x')[0]))
     x_max = int(np.round(vehicles[0].get_history(dtype='x')[-1]))
+    #x_max = 1049
+    #print(x_min, x_max)
     xx = np.array(range(x_min, x_max, 5))
     tt = np.array(vehicles[0].get_history(dtype='t'))
     m, n = len(xx), len(tt)
@@ -55,7 +57,6 @@ def contour(vehicles, dtype='v', dflt=0, title=None):
             
             zz[i][j] = vehicles[k].get_history(dtype=dtype)[j]
     
-    
     plt.pcolor(tt, xx, zz, cmap='jet')
     #plt.contourf(tt, xx, zz, cmap='jet')
     plt.colorbar()
@@ -73,7 +74,7 @@ def contour(vehicles, dtype='v', dflt=0, title=None):
 
 
 
-def contour2(links, dtype='v', dflt=0, title=None):
+def contour2(links, dtype='v', dflt=0, title=None, vmin=None, vmax=None):
     '''
     Create a contour plot.
     
@@ -105,15 +106,22 @@ def contour2(links, dtype='v', dflt=0, title=None):
     
     
     for i in range(0, m):
+        k = i
+        if i == 0:
+            k = 1
         for j in range(0, n-1):
-            k = i
-            if i == 0:
-                k = 1
-            zz[i][j] = links[k].get_history(dtype=dtype)[j]
+            if links[k].get_history(dtype='d')[j] > 0 or dtype=='d' or dtype=='f':
+                zz[i][j] = links[k].get_history(dtype=dtype)[j]
+            
+    if vmin == None:
+        vmin = np.min(np.min(zz))
     
+    if vmax == None:
+        vmax = np.max(np.max(zz))
+    
+    print(np.max(np.max(zz)))
     plt.figure()
-    plt.pcolor(tt, xx, zz, cmap='jet')
-    #plt.contourf(tt, xx, zz, cmap='jet')
+    plt.pcolor(tt, xx, zz, cmap='jet', vmin=vmin, vmax=vmax)
     plt.colorbar()
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
