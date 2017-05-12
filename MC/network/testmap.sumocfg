@@ -4,7 +4,11 @@
 
     <input>
         <net-file value="moco.net.xml"/>
+        <route-files value="moco_jtr_out.rou.xml"/>
+	<!--
         <route-files value="moco.rou.xml"/>
+	<route-files value="moco_jtr.rou.xml"/>
+	-->
         <additional-files value="moco.det.xml" />
     </input>
 
@@ -14,7 +18,7 @@
     </time>
 
     <processing>
-        <time-to-teleport value="120"/>
+        <time-to-teleport value="-1"/>
     </processing>
 
 </configuration>
