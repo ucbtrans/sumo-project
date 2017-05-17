@@ -14,6 +14,17 @@ output_filename = "moco_jtr_out.rou.xml"
 
 
 ##################### SCRIPT #####################
+
+cfModelM = "IIDM"
+cfModelA = "IIDM"
+if ARGV.length == 2
+  cfModelM = ARGV[0]
+  cfModelA = ARGV[1]
+elsif ARGV.length == 1
+  cfModelM = ARGV[0]
+  cfModelA = ARGV[0]
+end
+
 MAN = 100 - ACC;
 rand = Random.new(Random.new_seed)
 
@@ -29,10 +40,10 @@ f.each_line do |line|
     fo.write(line) # Set car definitions at the start
   
     #fo.write('    <vType id="CarA" length="5.0" color="0,1,0" accel="1.5" decel="2" tau="1.1" sigma="0.0" impatience="0.0" minGap="0.5" maxSpeed="70.0"/>')
-    fo.write('    <vType id="CarA" carFollowModel="IIDM" laneChangeModel="LC2013" length="5.0" color="0,1,0" accel="1.5" decel="2" tau="1.1" sigma="0.0" impatience="0.0" minGap="3.0" maxSpeed="70.0"/>')
+    fo.write('    <vType id="CarA" carFollowModel="' + cfModelA + '" laneChangeModel="LC2013" length="5.0" color="0,1,0" accel="1.5" decel="2" tau="1.1" delta1="2" delta2="4" sigma="0.0" impatience="0.0" minGap="3.0" maxSpeed="70.0"/>')
     fo.write("\n")
     #fo.write('    <vType id="CarM" length="5.0" color="1,1,0" accel="1.5" decel="2" tau="2.05" sigma="0.0" impatience="0.0" minGap="2.0" maxSpeed="70.0"/>\n')
-    fo.write('    <vType id="CarM" carFollowModel="IIDM" laneChangeModel="LC2013" length="5.0" color="0,0,1" accel="1.5" decel="2" tau="2.05" sigma="0.0" impatience="0.0" minGap="4.0" maxSpeed="70.0"/>')
+    fo.write('    <vType id="CarM" carFollowModel="' + cfModelM + '" laneChangeModel="LC2013" length="5.0" color="0,0,1" accel="1.5" decel="2" tau="2.05" delta1="2" delta2="4" sigma="0.0" impatience="0.0" minGap="4.0" maxSpeed="70.0"/>')
     fo.write("\n")
   elsif line =~  /id="(.*)"/
     #<vehicle depart="0.0" id="veh1" route="1" type="CarM" departSpeed="max"/>

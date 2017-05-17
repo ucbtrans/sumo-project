@@ -586,11 +586,12 @@ SUMOVehicleParserHelper::getAllowedCFModelAttrs() {
         allowedCFModelAttrs[SUMO_TAG_CF_IDM] = idmParams;
 
 	std::set<SumoXMLAttr> iidmParams;
-	idmParams.insert(SUMO_ATTR_ACCEL);
-	idmParams.insert(SUMO_ATTR_DECEL);
-	idmParams.insert(SUMO_ATTR_TAU);
-	idmParams.insert(SUMO_ATTR_CF_IDM_DELTA);
-	idmParams.insert(SUMO_ATTR_CF_IDM_STEPPING);
+	iidmParams.insert(SUMO_ATTR_ACCEL);
+	iidmParams.insert(SUMO_ATTR_DECEL);
+	iidmParams.insert(SUMO_ATTR_TAU);
+	iidmParams.insert(SUMO_ATTR_CF_IIDM_DELTA1);
+	iidmParams.insert(SUMO_ATTR_CF_IIDM_DELTA2);
+	iidmParams.insert(SUMO_ATTR_CF_IDM_STEPPING);
 	allowedCFModelAttrs[SUMO_TAG_CF_IIDM] = iidmParams;
 
         std::set<SumoXMLAttr> idmmParams;

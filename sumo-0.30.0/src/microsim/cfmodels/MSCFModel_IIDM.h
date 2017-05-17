@@ -39,11 +39,12 @@ public:
      * @param[in] accel The maximum acceleration
      * @param[in] decel The maximum deceleration
      * @param[in] headwayTime the headway gap
-     * @param[in] delta a model constant
+     * @param[in] delta1 a model constant
+	 * @param[in] delta2 a model constant
      * @param[in] internalStepping internal time step size
      */
 	MSCFModel_IIDM(const MSVehicleType* vtype, SUMOReal accel, SUMOReal decel, SUMOReal emergencyDecel,
-                  SUMOReal headwayTime, SUMOReal delta, SUMOReal internalStepping);
+		SUMOReal headwayTime, SUMOReal delta1, SUMOReal delta2, SUMOReal internalStepping);
 
 
     /** @brief Constructor
@@ -54,9 +55,9 @@ public:
      * @param[in] adaptationTime a model constant
      * @param[in] internalStepping internal time step size
      */
-	MSCFModel_IIDM(const MSVehicleType* vtype, SUMOReal accel, SUMOReal decel, SUMOReal emergencyDecel,
+/*	MSCFModel_IIDM(const MSVehicleType* vtype, SUMOReal accel, SUMOReal decel, SUMOReal emergencyDecel,
                   SUMOReal headwayTime, SUMOReal adaptationFactor, SUMOReal adaptationTime,
-                  SUMOReal internalStepping);
+                  SUMOReal internalStepping);*/
 
 
     /// @brief Destructor
@@ -149,7 +150,7 @@ private:
 
 private:
     /// @brief The IDM delta exponent
-	const SUMOReal delta1 = 2;
+	const SUMOReal delta1;
 	const SUMOReal delta2;
 
     /// @brief The IDMM adaptation factor beta
