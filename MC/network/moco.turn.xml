@@ -6,8 +6,8 @@
       <toEdge id="50846713#1" probability="0.0"/>
     </fromEdge>
     <fromEdge id="-50846713#1">
-      <toEdge id="49187078#3" probability="0.7"/>
-      <toEdge id="50846755#3" probability="0.1"/>
+      <toEdge id="49187078#3" probability="0.2"/>
+      <toEdge id="50846755#3" probability="0.6"/>
       <toEdge id="-5974128" probability="0.2"/>
     </fromEdge>
     <fromEdge id="50846755#2.0.590">
@@ -111,9 +111,9 @@
       <toEdge id="-244626184#1" probability="0.0"/>
     </fromEdge>
     <fromEdge id="50846720#4.128">
-      <toEdge id="243728741#4" probability="0.0623268698061"/>
-      <toEdge id="243728742#1" probability="0.718836565097"/>
-      <toEdge id="50846720#6" probability="0.218836565097"/>
+      <toEdge id="243728741#4" probability="0.2"/>
+      <toEdge id="243728742#1" probability="0.15"/>
+      <toEdge id="50846720#6" probability="0.65"/>
     </fromEdge>
     <fromEdge id="5968215#0.389">
       <toEdge id="26467810" probability="0.5"/>

@@ -1,0 +1,1 @@
+jtrrouter --flows=moco.flows.xml --net=moco.net.xml --turns=moco.turn.xml --output-file=moco_jtr.rou.xml --accept-all-destinations --remove-loops TRUE

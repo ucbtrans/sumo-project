@@ -18,7 +18,7 @@
     </time>
 
     <processing>
-        <time-to-teleport value="-1"/>
+        <time-to-teleport value="600"/>
     </processing>
 
 </configuration>
