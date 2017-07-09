@@ -102,10 +102,10 @@ MSCFModel_IIDM::_v(const MSVehicle* const veh, const SUMOReal gap2pred, const SU
                   const SUMOReal predSpeed, const SUMOReal desSpeed, const bool respectMinGap) const {
 // IIDM speed update
     SUMOReal headwayTime = myHeadwayTime;
-    if (myAdaptationFactor != 1.) {
+    /*if (myAdaptationFactor != 1.) {
         const VehicleVariables* vars = (VehicleVariables*)veh->getCarFollowVariables();
         headwayTime *= myAdaptationFactor + vars->levelOfService * (1. - myAdaptationFactor);
-    }
+    }*/
     SUMOReal newSpeed = egoSpeed;
     SUMOReal gap = gap2pred;
 
