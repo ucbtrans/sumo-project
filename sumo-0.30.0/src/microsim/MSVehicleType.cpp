@@ -32,6 +32,9 @@
 #include <config.h>
 #endif
 
+#include <iostream>
+using namespace std;
+
 #include <cassert>
 #include <utils/iodevices/BinaryInputDevice.h>
 #include <utils/common/FileHelpers.h>
@@ -233,7 +236,7 @@ MSVehicleType::build(SUMOVTypeParameter& from) {
     const double apparentDecel = from.getCFParam(SUMO_ATTR_APPARENTDECEL, decel);
 
     const double sigma = from.getCFParam(SUMO_ATTR_SIGMA, SUMOVTypeParameter::getDefaultImperfection(from.vehicleClass));
-    const double tau = from.getCFParam(SUMO_ATTR_TAU, 1.);
+    const double tau = from.getCFParam(SUMO_ATTR_TAU, 2.05);
     switch (from.cfModel) {
         case SUMO_TAG_CF_IDM:
             vtype->myCarFollowModel = new MSCFModel_IDM(vtype, accel, decel, emergencyDecel, tau,
@@ -242,14 +245,15 @@ MSVehicleType::build(SUMOVTypeParameter& from) {
             break;
         case SUMO_TAG_CF_IIDM:
             vtype->myCarFollowModel = new MSCFModel_IIDM(vtype, accel, decel, emergencyDecel, tau,
-                    from.getCFParam(SUMO_ATTR_CF_IDM_DELTA, 4.),
+					from.getCFParam(SUMO_ATTR_CF_IIDM_DELTA1, 2.),
+					from.getCFParam(SUMO_ATTR_CF_IIDM_DELTA2, 4.),
                     from.getCFParam(SUMO_ATTR_CF_IDM_STEPPING, .25));
             break;
         case SUMO_TAG_CF_IDMM:
             vtype->myCarFollowModel = new MSCFModel_IDM(vtype, accel, decel, emergencyDecel, tau,
                     from.getCFParam(SUMO_ATTR_CF_IDMM_ADAPT_FACTOR, 1.8),
                     from.getCFParam(SUMO_ATTR_CF_IDMM_ADAPT_TIME, 600.),
-                    from.getCFParam(SUMO_ATTR_CF_IDM_STEPPING, .25));
+                    from.getCFParam(SUMO_ATTR_CF_IDM_STEPPING, 1.));
             break;
         case SUMO_TAG_CF_BKERNER:
             vtype->myCarFollowModel = new MSCFModel_Kerner(vtype, accel, decel, emergencyDecel, tau,
@@ -300,6 +304,9 @@ MSVehicleType::build(SUMOVTypeParameter& from) {
         case SUMO_TAG_CF_KRAUSS:
         default:
             vtype->myCarFollowModel = new MSCFModel_Krauss(vtype, accel, decel, emergencyDecel, apparentDecel, sigma, tau);
+			/*vtype->myCarFollowModel = new MSCFModel_IIDM(vtype, accel, decel, emergencyDecel, tau,
+				from.getCFParam(SUMO_ATTR_CF_IDM_DELTA, 4.),
+				from.getCFParam(SUMO_ATTR_CF_IDM_STEPPING, 1));*/
             break;
     }
     return vtype;
@@ -317,9 +324,10 @@ MSVehicleType::buildSingularType(const std::string& id, const MSVehicleType* fro
     } else {
         vtype->myOriginalType = from;
     }
-    if (!MSNet::getInstance()->getVehicleControl().addVType(vtype)) {
+    /*if (!MSNet::getInstance()->getVehicleControl().addVType(vtype)) {
         throw ProcessError("could not add singular type " + vtype->getID());
-    }
+    }*/
+	MSNet::getInstance()->getVehicleControl().addVType(vtype);
     return vtype;
 }
 
