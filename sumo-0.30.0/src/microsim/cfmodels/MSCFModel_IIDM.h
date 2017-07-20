@@ -21,10 +21,6 @@
 #include <microsim/MSVehicleType.h>
 #include <utils/xml/SUMOXMLDefinitions.h>
 
-#ifndef SUMOReal
-#define SUMOReal double
-#endif
-
 
 // ===========================================================================
 // class definitions
@@ -43,21 +39,8 @@ public:
 	 * @param[in] delta2 a model constant
      * @param[in] internalStepping internal time step size
      */
-	MSCFModel_IIDM(const MSVehicleType* vtype, SUMOReal accel, SUMOReal decel, SUMOReal emergencyDecel,
-		SUMOReal headwayTime, SUMOReal delta1, SUMOReal delta2, SUMOReal internalStepping);
-
-
-    /** @brief Constructor
-     * @param[in] accel The maximum acceleration
-     * @param[in] decel The maximum deceleration
-     * @param[in] headwayTime the headway gap
-     * @param[in] adaptationFactor a model constant
-     * @param[in] adaptationTime a model constant
-     * @param[in] internalStepping internal time step size
-     */
-/*	MSCFModel_IIDM(const MSVehicleType* vtype, SUMOReal accel, SUMOReal decel, SUMOReal emergencyDecel,
-                  SUMOReal headwayTime, SUMOReal adaptationFactor, SUMOReal adaptationTime,
-                  SUMOReal internalStepping);*/
+	MSCFModel_IIDM(const MSVehicleType* vtype, double accel, double decel, double emergencyDecel,
+                   double headwayTime, double delta1, double delta2, double internalStepping);
 
 
     /// @brief Destructor
@@ -72,7 +55,7 @@ public:
      * @param[in] vPos The possible velocity
      * @return The velocity after applying interactions with stops and lane change model influences
      */
-    SUMOReal moveHelper(MSVehicle* const veh, SUMOReal vPos) const;
+	double moveHelper(MSVehicle* const veh, double vPos) const;
 
 
     /** @brief Computes the vehicle's safe speed (no dawdling)
@@ -83,7 +66,7 @@ public:
      * @return EGO's safe speed
      * @see MSCFModel::ffeV
      */
-    SUMOReal followSpeed(const MSVehicle* const veh, SUMOReal speed, SUMOReal gap2pred, SUMOReal predSpeed, SUMOReal predMaxDecel) const;
+	double followSpeed(const MSVehicle* const veh, double speed, double gap2pred, double predSpeed, double predMaxDecel) const;
 
 
     /** @brief Computes the vehicle's safe speed for approaching a non-moving obstacle (no dawdling)
@@ -93,7 +76,7 @@ public:
      * @see MSCFModel::ffeS
      * @todo generic Interface, models can call for the values they need
      */
-    SUMOReal stopSpeed(const MSVehicle* const veh, const SUMOReal speed, SUMOReal gap2pred) const;
+	double stopSpeed(const MSVehicle* const veh, const double speed, double gap2pred) const;
 
 
     /** @brief Returns the maximum gap at which an interaction between both vehicles occurs
@@ -105,7 +88,7 @@ public:
      * @todo evaluate signature
      * @see MSCFModel::interactionGap
      */
-    SUMOReal interactionGap(const MSVehicle* const , SUMOReal vL) const;
+	double interactionGap(const MSVehicle* const, double vL) const;
 
 
     /** @brief Returns the model's name
@@ -113,7 +96,7 @@ public:
      * @see MSCFModel::getModelName
      */
     int getModelID() const {
-        return myAdaptationFactor == 1. ? SUMO_TAG_CF_IDM : SUMO_TAG_CF_IIDM;
+        return SUMO_TAG_CF_IIDM;
     }
     /// @}
 
@@ -127,9 +110,9 @@ public:
 
 
     VehicleVariables* createVehicleVariables() const {
-        if (myAdaptationFactor != 1.) {
+        /*if (myAdaptationFactor != 1.) {
             return new VehicleVariables();
-        }
+        }*/
         return 0;
     }
 
@@ -139,31 +122,25 @@ private:
     public:
         VehicleVariables() : levelOfService(1.) {}
         /// @brief state variable for remembering speed deviation history (lambda)
-        SUMOReal levelOfService;
+		double levelOfService;
     };
 
 
 private:
-    SUMOReal _v(const MSVehicle* const veh, const SUMOReal gap2pred, const SUMOReal mySpeed,
-                const SUMOReal predSpeed, const SUMOReal desSpeed, const bool respectMinGap = true) const;
+	double _v(const MSVehicle* const veh, const double gap2pred, const double mySpeed,
+              const double predSpeed, const double desSpeed, const bool respectMinGap = true) const;
 
 
 private:
     /// @brief The IDM delta exponent
-	const SUMOReal delta1;
-	const SUMOReal delta2;
-
-    /// @brief The IDMM adaptation factor beta
-    const SUMOReal myAdaptationFactor;
-
-    /// @brief The IDMM adaptation time tau
-    const SUMOReal myAdaptationTime;
+	const double delta1;
+	const double delta2;
 
     /// @brief The number of iterations in speed calculations
     const int myIterations;
 
     /// @brief A computational shortcut
-    const SUMOReal myTwoSqrtAccelDecel;
+	const double myTwoSqrtAccelDecel;
 
 private:
     /// @brief Invalidated assignment operator
