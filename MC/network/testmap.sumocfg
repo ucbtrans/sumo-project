@@ -14,11 +14,16 @@
 
     <time>
         <begin value="0"/>
-        <end value="3600"/>
+        <end value="10000"/>
     </time>
 
     <processing>
         <time-to-teleport value="600"/>
     </processing>
+
+    <output>
+        <tripinfo-output value="tripinfo.xml"/>
+        <queue-output value="queues.xml"/>
+    </output>
 
 </configuration>

@@ -1,1 +1,2 @@
-sumo-gui.exe --lanechange.overtake-right true --lanechange.duration 3 --ignore-junction-blocker 10 --xml-validation "never" -c testmap.sumocfg
+sumo-gui.exe --lanechange.overtake-right true --ignore-junction-blocker 10 --xml-validation "never" -c testmap.sumocfg
+#sumo-gui.exe --lanechange.overtake-right true --lanechange.duration 3 --ignore-junction-blocker 10 --xml-validation "never" -c testmap.sumocfg

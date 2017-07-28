@@ -4,7 +4,7 @@
 ## Assumes that all vehicles are split 50-50 at start
 # All variables to change
 filename = "moco_jtr.rou.xml"
-ACC = 10; # % to have as ACC
+ACC = 25; # % to have as ACC
 #options = 'departSpeed="max"'
  options = 'departSpeed="max" departLane="free"'
 
@@ -40,10 +40,12 @@ f.each_line do |line|
     fo.write(line) # Set car definitions at the start
   
     #fo.write('    <vType id="CarA" length="5.0" color="0,1,0" accel="1.5" decel="2" tau="1.1" sigma="0.0" impatience="0.0" minGap="0.5" maxSpeed="70.0"/>')
-    fo.write('    <vType id="CarA" carFollowModel="' + cfModelA + '" laneChangeModel="LC2013" length="5.0" color="0,1,0" accel="1.5" decel="2" tau="1.1" delta1="2" delta2="4" sigma="0.0" impatience="0.0" minGap="3.0" maxSpeed="70.0"/>')
+    fo.write('    <vType id="CarIIDM" carFollowModel="' + cfModelA + '" laneChangeModel="LC2013" length="5.0" color="0,1,0" accel="1.5" decel="2" tau="0.8" delta1="2" delta2="4" sigma="0.0" impatience="0.0" minGap="3.0" maxSpeed="30.0"/>')
+    fo.write("\n")
+    fo.write('    <vType id="CarA" carFollowModel="' + cfModelA + '" laneChangeModel="LC2013" length="5.0" color="0,1,0" accel="1.5" decel="2" tau="1.1" delta1="2" delta2="4" sigma="0.0" impatience="0.0" minGap="3.0" maxSpeed="30.0"/>')
     fo.write("\n")
     #fo.write('    <vType id="CarM" length="5.0" color="1,1,0" accel="1.5" decel="2" tau="2.05" sigma="0.0" impatience="0.0" minGap="2.0" maxSpeed="70.0"/>\n')
-    fo.write('    <vType id="CarM" carFollowModel="' + cfModelM + '" laneChangeModel="LC2013" length="5.0" color="0,0,1" accel="1.5" decel="2" tau="2.05" delta1="2" delta2="4" sigma="0.0" impatience="0.0" minGap="4.0" maxSpeed="70.0"/>')
+    fo.write('    <vType id="CarM" carFollowModel="' + cfModelM + '" laneChangeModel="LC2013" length="5.0" color="0,0,1" accel="1.5" decel="2" tau="2.05" delta1="2" delta2="4" sigma="0.0" impatience="0.0" minGap="4.0" maxSpeed="30.0"/>')
     fo.write("\n")
   elsif line =~  /id="(.*)"/
     #<vehicle depart="0.0" id="veh1" route="1" type="CarM" departSpeed="max"/>

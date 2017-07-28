@@ -1,29 +1,29 @@
 <turns>
   <interval begin="0" end="3600">
     <fromEdge id="5974128">
-      <toEdge id="50846755#3" probability="0.187845303867"/>
-      <toEdge id="49187078#3" probability="0.812154696133"/>
-      <toEdge id="50846713#1" probability="0.0"/>
+      <toEdge id="50846755#3" probability="0.05"/>
+      <toEdge id="49187078#3" probability="0.2"/>
+      <toEdge id="50846713#1" probability="0.75"/>
     </fromEdge>
     <fromEdge id="-50846713#1">
-      <toEdge id="49187078#3" probability="0.2"/>
-      <toEdge id="50846755#3" probability="0.6"/>
-      <toEdge id="-5974128" probability="0.2"/>
+      <toEdge id="49187078#3" probability="0.15"/>
+      <toEdge id="50846755#3" probability="0.15"/>
+      <toEdge id="-5974128" probability="0.7"/>
     </fromEdge>
     <fromEdge id="50846755#2.0.590">
-      <toEdge id="-5974128" probability="0.204819277108"/>
-      <toEdge id="50846713#1" probability="0.0"/>
-      <toEdge id="50846755#3" probability="0.795180722892"/>
+      <toEdge id="-5974128" probability="0.1"/>
+      <toEdge id="50846713#1" probability="0.15"/>
+      <toEdge id="50846755#3" probability="0.75"/>
     </fromEdge>
     <fromEdge id="gneE17.147">
-      <toEdge id="50846713#1" probability="0.0"/>
-      <toEdge id="-5974128" probability="0.0258620689655"/>
-      <toEdge id="49187078#3" probability="0.974137931034"/>
+      <toEdge id="50846713#1" probability="0.05"/>
+      <toEdge id="-5974128" probability="0.05"/>
+      <toEdge id="49187078#3" probability="0.9"/>
     </fromEdge>
     <fromEdge id="50846713#2">
-      <toEdge id="-143009954" probability="0.709302325581"/>
-      <toEdge id="50846720#0" probability="0.00581395348837"/>
-      <toEdge id="-142530979" probability="0.28488372093"/>
+      <toEdge id="-143009954" probability="0.1"/>
+      <toEdge id="50846720#0" probability="0.2"/>
+      <toEdge id="-142530979" probability="0.7"/>
     </fromEdge>
     <fromEdge id="50846755#3.145">
       <toEdge id="50846755#4" probability="1.0"/>
@@ -39,68 +39,68 @@
       <toEdge id="-50846713#2" probability="0.55"/>
     </fromEdge>
     <fromEdge id="-50846720#0">
-      <toEdge id="-142530979" probability="0.0"/>
-      <toEdge id="-143009954" probability="1.0"/>
+      <toEdge id="-142530979" probability="0.2"/>
+      <toEdge id="-143009954" probability="0.8"/>
     </fromEdge>
     <fromEdge id="-50846720#1.35">
-      <toEdge id="142530980" probability="0.4"/>
-      <toEdge id="-50846720#0" probability="0.6"/>
+      <toEdge id="142530980" probability="0.2"/>
+      <toEdge id="-50846720#0" probability="0.8"/>
     </fromEdge>
     <fromEdge id="142530980">
       <toEdge id="-50846713#1" probability="0.0"/>
     </fromEdge>
     <fromEdge id="143009954">
-      <toEdge id="-142530979" probability="0.0483870967742"/>
-      <toEdge id="-50846713#2" probability="0.354838709677"/>
-      <toEdge id="50846720#0" probability="0.596774193548"/>
+      <toEdge id="-142530979" probability="0.02"/>
+      <toEdge id="-50846713#2" probability="0.28"/>
+      <toEdge id="50846720#0" probability="0.7"/>
     </fromEdge>
     <fromEdge id="243728741#0">
-      <toEdge id="50846755#2.0" probability="0.115068493151"/>
-      <toEdge id="49187078#5.0" probability="0.0794520547945"/>
-      <toEdge id="243728741#2" probability="0.805479452055"/>
+      <toEdge id="50846755#2.0" probability="0.1"/>
+      <toEdge id="49187078#5.0" probability="0.3"/>
+      <toEdge id="243728741#2" probability="0.6"/>
     </fromEdge>
     <fromEdge id="243728742#2.47">
       <toEdge id="50846755#2.0" probability="0.35"/>
       <toEdge id="243728742#4" probability="0.65"/>
     </fromEdge>
     <fromEdge id="gneE16">
-      <toEdge id="49187078#5.22" probability="0.094674556213"/>
+      <toEdge id="49187078#5.22" probability="1"/>
     </fromEdge>
     <fromEdge id="50846755#0.671">
-      <toEdge id="243728742#4" probability="0.2"/>
-      <toEdge id="243728741#2" probability="0.25"/>
-      <toEdge id="50846755#2.0" probability="0.55"/>
+      <toEdge id="243728742#4" probability="0.25"/>
+      <toEdge id="243728741#2" probability="0.15"/>
+      <toEdge id="50846755#2.0" probability="0.60"/>
     </fromEdge>
     <fromEdge id="49187078#3.591">
-      <toEdge id="243728741#2" probability="0.306436119116"/>
-      <toEdge id="243728742#4" probability="0.0662824207493"/>
-      <toEdge id="49187078#5.0" probability="0.627281460134"/>
+      <toEdge id="243728741#2" probability="0.25"/>
+      <toEdge id="243728742#4" probability="0.15"/>
+      <toEdge id="49187078#5.0" probability="0.6"/>
     </fromEdge>
     <fromEdge id="143655840#1">
       <toEdge id="116069186#1" probability="0.0"/>
     </fromEdge>
     <fromEdge id="50846753.54">
-      <toEdge id="116069186#1" probability="0.988489208633"/>
-      <toEdge id="-50846769" probability="0.0115107913669"/>
+      <toEdge id="116069186#1" probability="0.99"/>
+      <toEdge id="-50846769" probability="0.01"/>
     </fromEdge>
     <fromEdge id="26467810.54">
-	    <toEdge id="116069261" probability="0.45"/>
-      <toEdge id="-50846769" probability="0.55"/>
+      <toEdge id="116069261" probability="0.65"/>
+      <toEdge id="-50846769" probability="0.35"/>
     </fromEdge>
     <fromEdge id="243728741#3.83">
-	    <!--toEdge id="-50846720#4" probability="0.4"/-->
-      <toEdge id="50846720#6" probability="0.5"/>
-      <toEdge id="243728741#4" probability="0.1"/>
+      <toEdge id="-50846720#4" probability="0.3"/>
+      <toEdge id="50846720#6" probability="0.2"/>
+      <toEdge id="243728741#4" probability="0.5"/>
     </fromEdge>
     <fromEdge id="243728742#0.50">
-	    <toEdge id="50846720#6" probability="0.3"/>
+      <toEdge id="50846720#6" probability="0.4"/>
       <toEdge id="-50846720#4" probability="0.3"/>
-      <toEdge id="243728742#1" probability="0.4"/>
+      <toEdge id="243728742#1" probability="0.3"/>
     </fromEdge>
     <fromEdge id="-50846720#6.20">
-      <toEdge id="243728742#1" probability="0.179028132992"/>
-      <toEdge id="243728741#4" probability="0.109974424552"/>
-      <toEdge id="-50846720#4" probability="0.710997442455"/>
+      <toEdge id="243728742#1" probability="0.1"/>
+      <toEdge id="243728741#4" probability="0.2"/>
+      <toEdge id="-50846720#4" probability="0.7"/>
     </fromEdge>
     <fromEdge id="243728741#4">
       <toEdge id="-244626184#2" probability="1.0"/>
@@ -117,33 +117,33 @@
     </fromEdge>
     <fromEdge id="5968215#0.389">
       <toEdge id="26467810" probability="0.5"/>
-      <toEdge id="5982169#0" probability="0.4375"/>
-      <toEdge id="5968215#2" probability="0.0625"/>
+      <toEdge id="5982169#0" probability="0.43"/>
+      <toEdge id="5968215#2" probability="0.07"/>
     </fromEdge>
     <fromEdge id="-5968215#2">
-      <toEdge id="5982169#0" probability="0.436781609195"/>
-      <toEdge id="26467810" probability="0.563218390805"/>
-      <toEdge id="-5968215#0" probability="0.0"/>
+      <toEdge id="5982169#0" probability="0.43"/>
+      <toEdge id="26467810" probability="0.56"/>
+      <toEdge id="-5968215#0" probability="0.01"/>
     </fromEdge>
     <fromEdge id="116069075#1.338">
-      <toEdge id="-5968215#0" probability="0.00196078431373"/>
-      <toEdge id="5968215#2" probability="0.0274509803922"/>
-      <toEdge id="26467810" probability="0.970588235294"/>
+      <toEdge id="-5968215#0" probability="0.01"/>
+      <toEdge id="5968215#2" probability="0.02"/>
+      <toEdge id="26467810" probability="0.96"/>
     </fromEdge>
     <fromEdge id="116069186#1.128">
-      <toEdge id="5968215#2" probability="0.0243196294152"/>
-      <toEdge id="-5968215#0" probability="0.002895193978"/>
-      <toEdge id="5982169#0" probability="0.972785176607"/>
+      <toEdge id="5968215#2" probability="0.01"/>
+      <toEdge id="-5968215#0" probability="0.02"/>
+      <toEdge id="5982169#0" probability="0.97"/>
     </fromEdge>
     <fromEdge id="50846782#2.53">
-      <toEdge id="116069075#1" probability="0.441176470588"/>
-      <toEdge id="5982169#1" probability="0.529411764706"/>
-      <toEdge id="-5965712" probability="0.0294117647059"/>
+      <toEdge id="116069075#1" probability="0.44"/>
+      <toEdge id="5982169#1" probability="0.52"/>
+      <toEdge id="-5965712" probability="0.02"/>
     </fromEdge>
     <fromEdge id="5965712">
-      <toEdge id="5982169#1" probability="0.236559139785"/>
-      <toEdge id="116069075#1" probability="0.763440860215"/>
-      <toEdge id="-50846782#2" probability="0.0"/>
+      <toEdge id="5982169#1" probability="0.23"/>
+      <toEdge id="116069075#1" probability="0.76"/>
+      <toEdge id="-50846782#2" probability="0.01"/>
     </fromEdge>
     <fromEdge id="-50846782#2">
       <toEdge id="-50846782#1" probability="1.0"/>
@@ -154,14 +154,14 @@
       <toEdge id="-5986247#2" probability="0.0"/>
     </fromEdge>
     <fromEdge id="116069075#0.376">
-      <toEdge id="-50846782#2" probability="0.0136275146009"/>
-      <toEdge id="-5965712" probability="0.00194678780013"/>
-      <toEdge id="116069075#1" probability="0.984425697599"/>
+      <toEdge id="-50846782#2" probability="0.01"/>
+      <toEdge id="-5965712" probability="0.01"/>
+      <toEdge id="116069075#1" probability="0.98"/>
     </fromEdge>
     <fromEdge id="5982169#0.394">
-      <toEdge id="-5965712" probability="0.0"/>
-      <toEdge id="-50846782#2" probability="0.05"/>
-      <toEdge id="5982169#1" probability="0.95"/>
+      <toEdge id="-5965712" probability="0.03"/>
+      <toEdge id="-50846782#2" probability="0.03"/>
+      <toEdge id="5982169#1" probability="0.94"/>
     </fromEdge>
     <fromEdge id="5982169#1">
       <toEdge id="5982169#2" probability="1.0"/>
