@@ -1,7 +1,7 @@
 <additional>
 
     <!-- #######################################################Montrose Rd & Farm Haven#######################################################  -->
-    
+    <!-- 
     <tlLogic id="cluster_290051904_49145925" type="static" programID="10" offset="98">
         <phase duration="32" state="rrrGGGGgrrrGGGGg"/>
         <phase duration="6" state="rrryyyygrrryyyyg"/>
@@ -12,6 +12,7 @@
         <phase duration="20" state="rrGrrrrrrrGrrrrr"/>
         <phase duration="6" state="rryrrrrrrryrrrrr"/>
     </tlLogic>
+    -->
 
     <!-- Westside intersection -->
     <!-- Stopbar detectors -->
@@ -94,6 +95,7 @@
 
 	<!-- #######################################################Montrose Rd & Tildenwood Dr #######################################################  -->
 
+    <!--
     <tlLogic id="cluster_298135838_49135231" type="static" programID="10" offset="19">
         <phase duration="40" state="rrrGGGGggrrrGGGGgg"/>
         <phase duration="6" state="rrryyyyggrrryyyygg"/>
@@ -104,6 +106,7 @@
         <phase duration="12" state="rrGrrrrrrrrGrrrrrr"/>
         <phase duration="6" state="rryrrrrrrrryrrrrrr"/>
     </tlLogic>
+    -->
 
 	<!-- Westside intersection -->
     <!-- Stopbar detectors -->
@@ -197,7 +200,8 @@
 
 
 	<!-- #######################################################Montrose Rd & E Jefferson #######################################################  -->
-	
+
+    <!--	
     <tlLogic id="cluster_2511020106_49297289" type="static" programID="10" offset="0.0">
         <phase duration="26" state="GGggggggrrrrrrrrrGGGGG"/>
         <phase duration="6" state="yyggggggrrrrrrrrryyyyy"/>
@@ -208,6 +212,7 @@
         <phase duration="22" state="rrrrrrrrrrrrGGGGGrrrrr"/>
         <phase duration="6" state="rrrrrrrrrrrryyyyyrrrrr"/>
     </tlLogic>
+    -->
 	
 	<!-- Westside intersection -->
     <!-- Stopbar detectors -->
@@ -299,12 +304,14 @@
 
 	<!-- #######################################################Montrose Rd & Montrose Pkwy #######################################################  -->
 
+    <!--
     <tlLogic id="cluster_290051912_298136030_648538909" type="static" programID="10" offset="3">
         <phase duration="75" state="gGGGGGggg"/>
         <phase duration="6" state="gyyyGGggg"/>
         <phase duration="33" state="GrrrGGGGG"/>
         <phase duration="6" state="yrrrGGyyy"/>
     </tlLogic>
+    -->
     
     
 	<!-- Westside intersection -->
@@ -362,7 +369,7 @@
 
 
 	<!-- #######################################################Montrose Rd & Towne Rd #######################################################  -->
-
+	<!--
     <tlLogic id="49228579" type="static" programID="10" offset="0.0">
         <phase duration="36" state="GGGgrrrGGGggrr"/>
         <phase duration="6" state="yyygrrryyyggrr"/>
@@ -373,6 +380,7 @@
         <phase duration="18" state="rrrrrrGrrrrrrG"/>
         <phase duration="6" state="rrrrrryrrrrrry"/>
     </tlLogic>
+-->
     
 	<!-- Westside intersection -->
     <!-- Stopbar detectors -->
@@ -460,6 +468,7 @@
 
 	<!-- #######################################################Montrose Pkwy & E Jefferson Rd #######################################################  -->
 
+    <!--
     <tlLogic id="cluster_2511020102_2511020103_290051922_298135886" type="static" programID="10" offset="6">
         <phase duration="22" state="rrrGGGggrrrrrrGGGgg"/>
         <phase duration="4" state="rrryyyggrrrrrryyygg"/>
@@ -470,6 +479,7 @@
         <phase duration="30" state="rGGrrrrrrrrGGGrrrrr"/>
         <phase duration="4" state="ryyrrrrrrrryyyrrrrr"/>
     </tlLogic>
+    -->
 
 	<!-- Westside intersection -->
     <!-- Stopbar detectors -->
@@ -565,6 +575,7 @@
 
 	<!-- #######################################################Montrose Pkwy & Towne Rd #######################################################  -->
 
+	<!--
     <tlLogic id="cluster_648538736_648538737" type="static" programID="10" offset="79">
         <phase duration="40" state="rrrrGGGGggrrrrrrGGGgggg"/>
         <phase duration="6" state="rrrryyyyggrrrrrryyygggg"/>
@@ -575,6 +586,7 @@
         <phase duration="12" state="rrGGrrrrrrrrrrrGrrrrrrr"/>
         <phase duration="6" state="rryyrrrrrrrrrrryrrrrrrr"/>
     </tlLogic>
+    -->
     
 	<!-- Westside intersection -->
     <!-- Stopbar detectors -->
