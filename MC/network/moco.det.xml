@@ -676,5 +676,6 @@
 	<inductionLoop id="48CF" lane="-5974128_0" pos="6" freq="1" file="moco.out.xml"/>
 
 
+	<edgeData id="116069075#1.338" freq="300" file="edgedata.xml"/>
 
 </additional>

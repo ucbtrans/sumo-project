@@ -1,0 +1,7 @@
+python routes.py >tt.csv
+grep "a,v" tt.csv > a.csv
+grep "a,v" tt.csv |grep CarA > aa.csv
+grep "a,v" tt.csv |grep CarM > am.csv
+grep "b,v" tt.csv > b.csv
+grep "b,v" tt.csv |grep CarA > ba.csv
+grep "b,v" tt.csv |grep CarM > bm.csv

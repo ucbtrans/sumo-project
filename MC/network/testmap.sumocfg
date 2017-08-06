@@ -18,12 +18,14 @@
     </time>
 
     <processing>
-        <time-to-teleport value="600"/>
+        <time-to-teleport value="300"/>
     </processing>
 
     <output>
+	    <!--
         <tripinfo-output value="tripinfo.xml"/>
-        <queue-output value="queues.xml"/>
+	<queue-output value="queues.xml"/>
+-->
     </output>
 
 </configuration>
