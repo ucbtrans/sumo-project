@@ -26,6 +26,7 @@
         <tripinfo-output value="tripinfo.xml"/>
 	<queue-output value="queues.xml"/>
 -->
+	<queue-output value="queues.xml"/>
     </output>
 
 </configuration>

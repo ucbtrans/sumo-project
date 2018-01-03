@@ -1,5 +1,9 @@
 <turns>
   <interval begin="0" end="3600">
+    <fromEdge id="26524637">
+      <toEdge id="114850054#1" probability="1.0"/>
+      <toEdge id="76697634#1" probability="0.0"/>
+    </fromEdge>
     <fromEdge id="5974128">
       <toEdge id="50846755#3" probability="0.05"/>
       <toEdge id="49187078#3" probability="0.2"/>

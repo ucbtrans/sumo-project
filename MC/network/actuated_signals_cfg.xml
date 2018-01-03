@@ -1,0 +1,241 @@
+<?xml version="1.0"  encoding="utf-8"?>
+
+<configuration>
+    <!--here for all intersections, we use according stopbar detectors, and make as less change to original plan as possible-->
+    <!--1st intersection-farm haven&montrose-->
+    <intersection  id="cluster_290051904_49145925" no="0" offset="98" cycletime="120" extension="3" gap="3">
+	<phase duration="50" state="grrGGGGggrrGGGGg" min_green="35" max_green="50">
+		<inductionLoop id="EAA7" lane="116069075#0.376_3" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="DFA4" lane="116069075#0.376_2" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E7BF" lane="116069075#0.376_1" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E4CB" lane="116069075#0.376_0" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E129" lane="5982169#0.394_0" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E10B" lane="5982169#0.394_1" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="ECCB" lane="5982169#0.394_2" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E7D4" lane="5982169#0.394_3" pos="26" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="3" state="grrgyyyygrrgyyyy" min_green="3" max_green="3"/>
+        <phase duration="20" state="GGggrrrrGGggrrrr" min_green="10" max_green="20">
+		<inductionLoop id="ECAB" lane="50846782#2.53_1" pos="3" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E18A" lane="50846782#2.53_0" pos="3" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E67C" lane="5965712_0" pos="34" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E31C" lane="5965712_1" pos="34" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="4" state="gyygrrrrgyygrrrr" min_green="4" max_green="4"/>
+        <phase duration="10" state="grrgrrrGgrrgrrrG" min_green="5" max_green="10">
+		<inductionLoop id="EAA7" lane="116069075#0.376_3" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E7D4" lane="5982169#0.394_3" pos="26" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="4" state="grrgrrrygrrgrrry" min_green="4" max_green="4"/>
+        <phase duration="15" state="grrgrrrrgrrGGGGG" min_green="5" max_green="15">
+		<inductionLoop id="EAA7" lane="116069075#0.376_3" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="DFA4" lane="116069075#0.376_2" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E7BF" lane="116069075#0.376_1" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E4CB" lane="116069075#0.376_0" pos="26" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="4" state="grrgrrrrgrrgyyyy" min_green="4" max_green="4"/>
+        <phase duration="10" state="grrGGGGGgrrgrrrr" min_green="5" max_green="10">
+		<inductionLoop id="E129" lane="5982169#0.394_0" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E10B" lane="5982169#0.394_1" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="ECCB" lane="5982169#0.394_2" pos="26" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E7D4" lane="5982169#0.394_3" pos="26" freq="1" file="moco.out.xml"/>
+        </phase>
+    </intersection>
+
+
+
+    <!--2nd intersection-tildenwood&montrose-->
+    <intersection id="cluster_298135838_49135231" no="1" offset="19" cycletime="120" extension="5" gap="3">
+	<phase duration="60" state="grrGGGGgggrrGGGGgg" min_green="40" max_green="60">
+		<inductionLoop id="E845" lane="116069075#1.338_4" pos="77" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="EB52" lane="116069075#1.338_3" pos="77" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E84B" lane="116069075#1.338_2" pos="77" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E45D" lane="116069075#1.338_1" pos="77" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="EB72" lane="116069075#1.338_0" pos="77" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E1F7" lane="116069186#1.128_0" pos="19" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E847" lane="116069186#1.128_1" pos="19" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E21D" lane="116069186#1.128_2" pos="19" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E8E8" lane="116069186#1.128_3" pos="19" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E91C" lane="116069186#1.128_4" pos="19" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="2" state="grrgyyyyygrrgyyyyy" min_green="2" max_green="2"/>
+        <phase duration="25" state="GGggrrrrrGGggrrrrr" min_green="10" max_green="25">
+		<inductionLoop id="EB98" lane="5968215#0.389_1" pos="11" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="ECA5" lane="5968215#0.389_0" pos="11" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E2BA" lane="-5968215#2_0" pos="47" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E261" lane="-5968215#2_1" pos="47" freq="1" file="moco.out.xml"/>
+	</phase>
+        <phase duration="2" state="gyggrrrrrgyggrrrrr" min_green="2" max_green="2"/>
+        <phase duration="1" state="gyygrrrrrgyygrrrrr" min_green="1" max_green="1"/>
+        <phase duration="30" state="grrgGGGGGgrrgrrrrr" min_green="15" max_green="30">
+		<inductionLoop id="E1F7" lane="116069186#1.128_0" pos="19" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E847" lane="116069186#1.128_1" pos="19" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E21D" lane="116069186#1.128_2" pos="19" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E8E8" lane="116069186#1.128_3" pos="19" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E91C" lane="116069186#1.128_4" pos="19" freq="1" file="moco.out.xml"/>
+        </phase>
+    </intersection>
+
+
+
+    <!--3rd intersection-montrose&montrose-->
+    <intersection id="cluster_290051912_298136030_648538909" no="2" offset="3" cycletime="120" extension="6" gap="3">
+	<phase duration="60" state="gGGGGGrrr" min_green="45" max_green="60">
+		<inductionLoop id="EBE6" lane="26467810.54_1" pos="104" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E06D" lane="26467810.54_0" pos="104" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E822" lane="50846753.54_0" pos="82" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E8C7" lane="50846753.54_1" pos="82" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E3CA" lane="50846753.54_2" pos="82" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="5" state="ggyyyyrrr" min_green="5" max_green="5"/>
+	<phase duration="25" state="ggrrrrGGG" min_green="15" max_green="25">
+		<inductionLoop id="E571" lane="26467810.54_4" pos="104" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E58C" lane="26467810.54_3" pos="104" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E568" lane="26467810.54_2" pos="104" freq="1" file="moco.out.xml"/>
+        </phase>
+	<phase duration="25" state="ggrrGGGGG" min_green="15" max_green="25">
+		<inductionLoop id="EBE6" lane="26467810.54_1" pos="104" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E06D" lane="26467810.54_0" pos="104" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E571" lane="26467810.54_4" pos="104" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E58C" lane="26467810.54_3" pos="104" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E568" lane="26467810.54_2" pos="104" freq="1" file="moco.out.xml"/>
+        </phase>
+	<phase duration="5" state="ggrrGGyyy" min_green="5" max_green="5"/>
+    </intersection>
+
+
+    <!--4th intersection-upper jefferson&montrose-->
+    <!--the second last phase is actuated as configured in goverment file, whereas nonactuated to coordinate here-->
+    <intersection id="cluster_2511020106_49297289" no="3" offset="0" cycletime="150" extension="5" gap="3">
+	<phase duration="45" state="ggrrrrGGGGrrgrgrrrGGGGrr" min_green="25" max_green="45">
+		<inductionLoop id="ECA9" lane="-50846720#6.20_2" pos="166" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E02D" lane="-50846720#6.20_1" pos="166" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="EC38" lane="50846720#4.128_0" pos="68" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E9F9" lane="50846720#4.128_1" pos="68" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="5" state="ggrrrrGyGyrrgrgrrrGGyyrr" min_green="5" max_green="5"/>
+	<phase duration="30" state="GGGGGGgrgrrrgrgrrrggrrrr" min_green="15" max_green="30">
+		<inductionLoop id="EC40" lane="243728742#0.50_2" pos="89" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="EA0B" lane="243728742#0.50_3" pos="89" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E745" lane="243728742#0.50_4" pos="89" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="5" state="GGyyyygrgrrrgrgrrrggrrrr" min_green="5" max_green="5"/>
+	<phase duration="30" state="ggrrrrgrgrrrGGGGGGggrrrr" min_green="15" max_green="30">
+		<inductionLoop id="E8A3" lane="243728741#3.83_2" pos="13" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E10E" lane="243728741#3.83_1" pos="13" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E2A7" lane="243728741#3.83_0" pos="13" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="5" state="ggrrrrgrgrrrGyGyyyggrrrr" min_green="5" max_green="5"/>
+	<phase duration="25" state="GGrrrrgrgrGGGrGrrrggrrGG" min_green="10" max_green="25">
+		<inductionLoop id="EC5C" lane="-50846720#6.20_4" pos="166" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E0A2" lane="-50846720#6.20_3" pos="166" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E43A" lane="50846720#4.128_2" pos="68" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="5" state="GGrrrrgrgryyGrGrrrggrryy" min_green="5" max_green="5"/>
+    </intersection>
+
+
+
+    <!--5th intersection-lower jefferson&montrose-->
+    <!--vehicle extension could vary-->
+    <intersection id="cluster_2511020102_2511020103_290051922_298135886" no="4" offset="6" cycletime="120" extension="5" gap="3">
+	<phase duration="55" state="rrrGGGgggrrrrrGGGgg" min_green="40" max_green="55">
+		<inductionLoop id="E2F3" lane="50846755#0.671_3" pos="55" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E2E1" lane="50846755#0.671_2" pos="55" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E9D4" lane="50846755#0.671_1" pos="55" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="EC28" lane="50846755#0.671_0" pos="55" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E432" lane="49187078#3.591_0" pos="48" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="DFD5" lane="49187078#3.591_1" pos="48" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E817" lane="49187078#3.591_2" pos="48" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="4" state="rrrGyygggrrrrrGyygg" min_green="4" max_green="4"/>
+        <phase duration="2" state="rrrGyyyygrrrrrGyyyy" min_green="2" max_green="2"/>
+	<phase duration="20" state="rGGgrrrrgrrGGGgrrrr" min_green="10" max_green="20">
+		<inductionLoop id="E21A" lane="243728741#0_3" pos="91" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E488" lane="243728741#0_2" pos="91" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E4CC" lane="243728742#2.0_1" pos="35" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="5" state="ryygrrrrgrrGGGgrrrr" min_green="5" max_green="5"/>
+	<phase duration="30" state="rrrgrrrrGGGGGGgrrrr" min_green="15" max_green="30">
+		<inductionLoop id="E21A" lane="243728741#0_3" pos="91" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E488" lane="243728741#0_2" pos="91" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="ECC3" lane="243728741#0_1" pos="91" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E033" lane="243728741#0_0" pos="91" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="5" state="rrrgrrrrgyyyyygrrrr" min_green="5" max_green="5"/>
+	<phase duration="30" state="GGGgrrrrgrrrrrgrrrr" min_green="15" max_green="30">
+		<inductionLoop id="E772" lane="243728742#2.0_0" pos="35" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E4CC" lane="243728742#2.0_1" pos="35" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="5" state="yyygrrrrgrrrrrgrrrr" min_green="5" max_green="5"/>
+    </intersection>
+
+
+    <!--6th intersection-upper towne&montrose-->
+    <!--not coordinated-->
+    <intersection id="49228579" no="5" offset="0" cycletime="120" extension="5" gap="3">
+	<phase duration="25" state="GGGgrrrGGGggrr" min_green="15" max_green="25">
+		<inductionLoop id="E73D" lane="50846713#1_3" pos="68" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E4A3" lane="50846713#1_2" pos="68" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E3D1" lane="50846713#1_1" pos="68" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E263" lane="50846713#1_0" pos="68" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E66C" lane="50846710#1.45_0" pos="59" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E088" lane="50846710#1.45_1" pos="59" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E431" lane="50846710#1.45_2" pos="59" freq="1" file="moco.out.xml"/>
+        </phase>
+	<phase duration="4" state="yyygrrryyyggrr" min_green="4" max_green="4"/>
+        <phase duration="20" state="rrrGrrrrrrGGrr" min_green="10" max_green="20">
+		<inductionLoop id="E73D" lane="50846713#1_3" pos="68" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E4A3" lane="50846713#1_2" pos="68" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E431" lane="50846710#1.45_2" pos="59" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="3" state="rrryrrrrrryyrr" min_green="3" max_green="3"/>
+        <phase duration="35" state="rrrrGGgrrrrrGg" min_green="20" max_green="35">
+		<inductionLoop id="E0A4" lane="-50846720#0_0" pos="18" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E145" lane="143009954_0" pos="54" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="EB23" lane="143009954_1" pos="54" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="4" state="rrrryygrrrrryg" min_green="4" max_green="4"/>
+        <phase duration="25" state="rrrrrrGrrrrrrG" min_green="15" max_green="25">
+		<inductionLoop id="E0A4" lane="-50846720#0_0" pos="18" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="EB23" lane="143009954_1" pos="54" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="4" state="rrrrrryrrrrrry" min_green="4" max_green="4"/>
+    </intersection>
+
+    
+    <!--7th intersection-lower towne&montrose-->
+    <intersection id="cluster_648538736_648538737" no="6" offset="79" cycletime="120" extension="4" gap="3">
+    	<phase duration="55" state="grrrGGGGrrgrrrrrGGGrrrr" min_green="40" max_green="55">
+		<inductionLoop id="E075" lane="50846755#2.0.590_1" pos="43" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E853" lane="50846755#2.0.590_0" pos="43" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E3B1" lane="gneE17.147_0" pos="99" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E67B" lane="gneE17.147_1" pos="99" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E670" lane="gneE17.147_2" pos="99" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E335" lane="gneE17.147_3" pos="99" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="4" state="grrrggyyrrgrrrrrgyyrrrr" min_green="4" max_green="4"/>
+	<phase duration="15" state="grrrggrrGGgrrrrrgrrGGGG" min_green="5" max_green="15">
+		<inductionLoop id="E9BF" lane="gneE17.147_4" pos="99" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E6F8" lane="50846755#2.0.590_2" pos="43" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="4" state="grrrggrryygrrrrrgrryyyy" min_green="4" max_green="4"/>
+        <phase duration="20" state="grGGggrrrrgrrrrGgrrrrrr" min_green="10" max_green="20">
+		<inductionLoop id="EC0B" lane="-50846713#1_1" pos="58" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E373" lane="-50846713#1_2" pos="58" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="4" lane="5974128_1" pos="135" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="4" state="gryyggrrrrgrrrrGgrrrrrr" min_green="4" max_green="4"/>
+	<phase duration="15" state="grrrggrrrrGGGGGGgrrrrrr" min_green="5" max_green="15">
+		<inductionLoop id="4" lane="5974128_1" pos="135" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="5" lane="5974128_0" pos="135" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="4" state="grrrggrrrrgyyyyygrrrrrr" min_green="4" max_green="4"/>
+	<phase duration="25" state="GGGGggrrrrgrrrrrgrrrrrr" min_green="10" max_green="25">
+		<inductionLoop id="E314" lane="-50846713#1_0" pos="58" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="EC0B" lane="-50846713#1_1" pos="58" freq="1" file="moco.out.xml"/>
+		<inductionLoop id="E373" lane="-50846713#1_2" pos="58" freq="1" file="moco.out.xml"/>
+        </phase>
+        <phase duration="4" state="gyyyggrrrrgrrrrrgrrrrrr" min_green="4" max_green="4"/>
+    </intersection>
+</configuration>
