@@ -4,7 +4,7 @@ libmicrosimcfmodels_a_SOURCES = \
 MSCFModel.cpp MSCFModel.h \
 MSCFModel_Daniel1.cpp MSCFModel_Daniel1.h \
 MSCFModel_IDM.cpp MSCFModel_IDM.h \
-MSCFModel_IDM.cpp MSCFModel_IIDM.h \
+MSCFModel_IIDM.cpp MSCFModel_IIDM.h \
 MSCFModel_Kerner.cpp MSCFModel_Kerner.h \
 MSCFModel_Krauss.cpp MSCFModel_Krauss.h \
 MSCFModel_KraussOrig1.cpp MSCFModel_KraussOrig1.h \
