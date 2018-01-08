@@ -95,9 +95,16 @@ def run():
             min_green= int(intersection[sstage].attrib['min_green'])
             max_green= int(intersection[sstage].attrib['max_green'])
 
+            mini=[]
+            maxi=[]
+            for phase in intersection:
+                mini.append(int(phase.attrib['min_green']))
+                maxi.append(int(phase.attrib['max_green']))
+
+
             
             #go through controller, and decide for each intersection which stage to invoke
-            backlist=intersection_controller.intersection_controller(tl,cycle_time,ext,gap,num,min_green,max_green,ii,sstage,tt,intersection,ff,ll,xx)
+            backlist=intersection_controller.intersection_controller(tl,cycle_time,ext,gap,num,min_green,max_green,ii,sstage,tt,intersection,ff,ll,xx,mini,maxi)
 
             i[no]=backlist[0]
             t[no]=backlist[1]

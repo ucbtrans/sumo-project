@@ -24,7 +24,7 @@ import traci
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))  #sumo-0.30
 sys.path.append(os.path.join(os.environ.get("SUMO_HOME", os.path.join(os.path.dirname(__file__), "..", "..", ".."))))
 
-def intersection_controller(tl,cycle_time,ext,gap,num,min_green,max_green,ii,sstage,tt,intersection,ff,ll,xx):
+def intersection_controller(tl,cycle_time,ext,gap,num,min_green,max_green,ii,sstage,tt,intersection,ff,ll,xx,mini,maxi):
     #for the last unactuated stage to control cyclelength, usually the major through movement, the coordinated movement
     if sstage == 0:
         if ff==0:
@@ -47,6 +47,7 @@ def intersection_controller(tl,cycle_time,ext,gap,num,min_green,max_green,ii,sst
         elif ii >=min_green and ii < max_green:
             if xx==0:
                 s=0
+                #check if there are cars on current movement
                 for detector in intersection[sstage]:
                     detectorid = detector.attrib['id']
                     if traci.inductionloop.getLastStepOccupancy(detectorid) > 0 or traci.inductionloop.getTimeSinceDetection(detectorid) < gap:
@@ -63,10 +64,11 @@ def intersection_controller(tl,cycle_time,ext,gap,num,min_green,max_green,ii,sst
                     ii = 1
                 else:
                     v=0
-                    if sstage == num - 1:
-                        nextactuatedstage = 1
-                    else:
-                        nextactuatedstage=sstage + 2
+                    vv=1
+                    #check if there are cars on next actuated movement
+                    while maxi[sstage+vv] == mini[sstage+vv]:
+                        vv += 1
+                    nextactuatedstage=sstage + vv
                     for detector in intersection[nextactuatedstage]:
                         detectorid = detector.attrib['id']
                         if traci.inductionloop.getLastStepOccupancy(detectorid) > 0:
