@@ -183,8 +183,9 @@ class Vehicle:
         gap_desired = self.g_min + np.max([0, self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*(self.b-0)))])
         #gap_desired = np.max([0, self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*(self.b-0)))])
         
-        p1, p2 = 4, 8        
-        self.a_actual = self.a * (1 - (self.v/self.v_max)**p1 - (gap_desired/gap)**p2)
+        p1, p2 = 8, 4 
+        p1, p2 = 2, 4
+        self.a_actual = self.a * (1 - (self.v/self.v_max)**p2 - (gap_desired/gap)**p1)
             
         v = self.v + self.a_actual * dt
         new_v = np.max([0, v])
@@ -215,15 +216,17 @@ class Vehicle:
         #gap_desired = self.g_min + self.v*self.tau + self.v*(self.v-v_l)/(2*np.sqrt(self.a*(self.b-0)))
         
         
-        p1, p2 = 4, 8
-        a_free = self.a * (1 - (self.v/self.v_max)**p1)
+        p1, p2 = 8, 4
+        #p1, p2 = 4, 8
+        #p1, p2 = 2, 4
+        a_free = self.a * (1 - (self.v/self.v_max)**p2)
         z = gap_desired / gap
         #if self.v == 0:
          #   self.a_actual = self.a * (1 - (self.v/self.v_max)**p1 - z**p2)
-        if z >= 1:
+        if z >= 1: # far enough from the leader
             #self.a_actual = a_free + self.a*(1 - z**p2)
-            self.a_actual = self.a*(1 - z**p2)
-        else:
+            self.a_actual = self.a*(1 - z**p1)
+        else: # too close to the leader
             #self.a_actual = a_free
             self.a_actual = a_free * (1 - z**(p2*self.a/a_free))
                     
